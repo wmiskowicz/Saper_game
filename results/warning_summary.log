@@ -1,0 +1,56 @@
+Warnings, critical warnings and errors from synthesis and implementation
+
+Created: 2023-06-20 14:15:12
+
+----SYNTHESIS----
+WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
+WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/mouse/MouseCtl.vhd:456]
+WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:514]
+WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.  [rtl/mouse/MouseCtl.vhd:520]
+WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [rtl/top_vga.sv:185]
+WARNING: [Synth 8-3848] Net pclk in module/entity top_vga_basys3 does not have driver. [fpga/rtl/top_vga_basys3.sv:43]
+WARNING: [Synth 8-7129] Port dp_in[3] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[4] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[3] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[2] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[1] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[0] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[9] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[8] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[7] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[6] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[5] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[4] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[3] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[2] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[1] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[0] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port dp_in[3] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[4] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[3] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[2] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[1] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in\.button_num[0] in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable in module detect_index is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[9] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[8] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[7] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[6] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[5] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[4] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[3] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[2] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[1] in module draw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[0] in module draw_board is either unconnected or has no load
+
+----IMPLEMENTATION----
+WARNING: [Route 35-328] Router estimated timing not met.
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.

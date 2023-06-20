@@ -1,0 +1,37 @@
+# Copyright (C) 2023  AGH University of Science and Technology
+# MTM UEC2
+# Author: Piotr Kaczmarczyk
+#
+# Description:
+# List of files defining the modules used during the test.
+# Specify the file paths relative to THIS file.
+# For syntax detail see AMD Xilinx UG 900:
+# https://docs.xilinx.com/r/en-US/ug900-vivado-logic-simulation/Project-File-.prj-Syntax
+
+
+sv work ../../rtl/draw/vga_pkg.sv \
+        ../../rtl/draw/vga_timing.sv \
+        ../../rtl/draw/draw_bg.sv \
+        ../../rtl/draw/draw_board.sv \
+        ../../rtl/draw/draw_button.sv \
+        ../../rtl/draw/counter.sv \
+        ../../rtl/draw/vga_if.sv \
+        ../../rtl/game/select_level.sv \
+        ../../rtl/game/game_set_if.sv \
+        ../../rtl/game/latch.sv \
+        ../../rtl/game/settings_latch.sv \
+        ../../rtl/mouse/draw_mouse.sv \
+        ../../rtl/mouse/synchr.sv \
+        ../../rtl/top_vga.sv \
+        ../../fpga/rtl/top_vga_basys3.sv \
+        ../common/tiff_writer.sv \
+        top_vga_tb.sv
+
+verilog work ../common/glbl.v \
+        ../../rtl/import/list_ch04_15_disp_hex_mux.v \
+        ../../rtl/import/delay.v
+
+vhdl work ../../rtl/mouse/MouseCtl.vhd \
+        ../../rtl/mouse/MouseDisplay.vhd \
+        ../../rtl/mouse/Ps2Interface.vhd 
+
