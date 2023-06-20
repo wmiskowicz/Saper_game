@@ -1,7 +1,7 @@
 `timescale 1 ns / 1 ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   detect index
+ Module name:   detect index // added branch1
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-20
  Coding style: safe with FPGA sync reset
