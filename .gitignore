@@ -1,0 +1,14 @@
+fpga/.Xil
+fpga/vivado*
+fpga/build
+fpga/xvlog.pb
+fpga/xsim.dir 
+sim/.Xil
+sim/vivado*
+sim/build
+sim/xvlog.pb
+sim/xsim.dir 
+xvlog.pb
+xsim.dir
+dvt_build.log
+.dvt/
