@@ -21,6 +21,8 @@ sv work ../../rtl/draw/vga_pkg.sv \
         ../../rtl/game/latch.sv \
         ../../rtl/game/settings_latch.sv \
         ../../rtl/game/detect_index.sv \
+        ../../rtl/game/mine_board.sv \
+        ../../rtl/game/dim_counter.sv \
         ../../rtl/mouse/draw_mouse.sv \
         ../../rtl/mouse/synchr.sv \
         ../../rtl/top_vga.sv \

@@ -33,7 +33,7 @@ module counter#(
     
     always_ff @(posedge counting) begin
         if (counting) begin
-            if(ctr_out < max) begin
+            if(ctr_out < max-1) begin
                 ctr_nxt <= ctr_out + 1;
             end
             else begin

@@ -119,14 +119,14 @@
     counter y_counter(
     .clk,
     .rst,
-    .max(in.button_num-'1),
+    .max(in.button_num),
     .ctr_out(button_vcount_nxt),
     .counting(done_y)
  );
     counter x_counter(
     .clk,
     .rst,
-    .max(in.button_num-'1),
+    .max(in.button_num),
     .ctr_out(button_hcount_nxt),
     .counting(done_x)
  );

@@ -183,6 +183,13 @@ detect_index u_detect_index(
     .an(an), 
     .sseg(sseg)
 );
+
+ mine_board u_mine_board(
+   .clk,
+   .rst,
+   .mines(6'd8),
+   .dimension_size(5'd8)
+ );
  
 
 
