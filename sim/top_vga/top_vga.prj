@@ -20,6 +20,7 @@ sv work ../../rtl/draw/vga_pkg.sv \
         ../../rtl/game/game_set_if.sv \
         ../../rtl/game/latch.sv \
         ../../rtl/game/settings_latch.sv \
+        ../../rtl/game/detect_index.sv \
         ../../rtl/mouse/draw_mouse.sv \
         ../../rtl/mouse/synchr.sv \
         ../../rtl/top_vga.sv \

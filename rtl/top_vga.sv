@@ -87,7 +87,7 @@
  draw_board u_draw_board(
     .clk,
     .rst,
-    .gin(game_enable_if.in),
+    .in(game_enable_if.in),
     .done_x(done_x),
     .done_y(done_y),
     .draw_board(enable_game),
@@ -159,7 +159,6 @@
 detect_index u_detect_index(
    .clk,
    .rst,
-   .enable(enable_game),
    .mouse_xpos(mouse_xpos),
    .mouse_ypos(mouse_ypos),
    .left(left),

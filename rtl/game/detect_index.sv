@@ -11,7 +11,6 @@
 module detect_index (
     input  logic clk,
     input  logic rst,
-    input  wire enable,
     input wire [11:0] mouse_xpos,
     input wire [11:0] mouse_ypos,
     input wire left,
@@ -34,6 +33,7 @@ assign cur_ypos = mouse_ypos-in.board_ypos;
 
 
 
+
 always_ff @(posedge clk) begin : detect_ff_blk
     if (rst) begin
         button_index_x <= '0;
@@ -49,7 +49,7 @@ always_ff @(posedge clk) begin : detect_ff_blk
 end
 
 always_comb begin : detect_comb
-    if (enable && (cur_xpos >= 0) && (cur_xpos <= in.board_size) && (cur_ypos >= 0) && (cur_ypos <= in.board_size)) begin
+    if ((in.button_num > 0) && (cur_xpos >= 0) && (cur_xpos <= in.board_size) && (cur_ypos >= 0) && (cur_ypos <= in.board_size)) begin
 
         button_index_x_nxt = (cur_xpos/in.button_size)+1;
         button_index_y_nxt = (cur_ypos/in.button_size)+1;

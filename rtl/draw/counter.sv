@@ -40,9 +40,6 @@ module counter#(
                 ctr_nxt <= 0;    
             end
         end
-        else begin
-            ctr_nxt <= ctr_out;
-        end
     end
  
  endmodule

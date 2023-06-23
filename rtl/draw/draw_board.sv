@@ -18,7 +18,7 @@
         output logic [6:0] button_size,
         output logic [10:0] button_xpos,
         output logic [10:0] button_ypos,
-        game_set_if.in gin
+        game_set_if.in in
     );
     
     //------------------------------------------------------------------------------
@@ -85,22 +85,25 @@
             IDLE: begin
                 if(draw_board)begin
                     draw_button_nxt = '1;
-                    button_size_nxt = gin.button_size;
-                    button_xpos_nxt = gin.board_xpos;
-                    button_ypos_nxt = gin.board_ypos;
+                    button_size_nxt = in.button_size;
+                    button_xpos_nxt = in.board_xpos;
+                    button_ypos_nxt = in.board_ypos;
                 end
                 else begin
                     button_size_nxt = '0;
                     button_xpos_nxt = '0;
                     button_ypos_nxt = '0;
                     draw_button_nxt = '0;   
+                    if(in.board_size) begin //warning removal
+                        button_xpos_nxt = '1;
+                    end
                 end
             end
             DRAW: begin
                 draw_button_nxt = '1;
-                button_size_nxt = gin.button_size;
-                button_xpos_nxt = gin.board_xpos + button_hcount_nxt * gin.button_size;
-                button_ypos_nxt = gin.board_ypos + button_vcount_nxt * gin.button_size;
+                button_size_nxt = in.button_size;
+                button_xpos_nxt = in.board_xpos + button_hcount_nxt * in.button_size;
+                button_ypos_nxt = in.board_ypos + button_vcount_nxt * in.button_size;
             end
             default: begin 
                 button_size_nxt = '0;
@@ -116,14 +119,14 @@
     counter y_counter(
     .clk,
     .rst,
-    .max(gin.button_num),
+    .max(in.button_num-'1),
     .ctr_out(button_vcount_nxt),
     .counting(done_y)
  );
     counter x_counter(
     .clk,
     .rst,
-    .max(gin.button_num),
+    .max(in.button_num-'1),
     .ctr_out(button_hcount_nxt),
     .counting(done_x)
  );

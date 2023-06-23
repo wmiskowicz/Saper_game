@@ -165,11 +165,5 @@
             end
         endcase        
     end
-
-
-
-    always_comb begin: latch_blk
-
-    end
     
     endmodule
