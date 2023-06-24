@@ -45,6 +45,9 @@ set sv_files {
     ../rtl/game/settings_latch.sv
     ../rtl/game/game_set_if.sv
     ../rtl/game/detect_index.sv
+    ../rtl/game/mine_board.sv
+    ../rtl/game/mine_check.sv
+    ../rtl/game/dim_counter.sv
     ../rtl/mouse/draw_mouse.sv
     ../rtl/mouse/synchr.sv
     rtl/top_vga_basys3.sv

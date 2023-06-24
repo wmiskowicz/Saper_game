@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Jun 23 15:53:08 2023
-# Process ID: 23833
-# Current directory: /home/student/wmiskowicz/Projekt/Ver3_4/Saper_game/fpga
+# Start of session at: Sat Jun 24 19:50:55 2023
+# Process ID: 30938
+# Current directory: /home/student/wmiskowicz/Projekt/Ver4_0/Saper_game/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
-# Log file: /home/student/wmiskowicz/Projekt/Ver3_4/Saper_game/fpga/vivado.log
-# Journal file: /home/student/wmiskowicz/Projekt/Ver3_4/Saper_game/fpga/vivado.jou
-# Running On: cadence24, OS: Linux, CPU Frequency: 3900.195 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Log file: /home/student/wmiskowicz/Projekt/Ver4_0/Saper_game/fpga/vivado.log
+# Journal file: /home/student/wmiskowicz/Projekt/Ver4_0/Saper_game/fpga/vivado.jou
+# Running On: cadence24, OS: Linux, CPU Frequency: 3200.000 MHz, CPU Physical cores: 4, Host memory: 16720 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl

@@ -42,6 +42,8 @@
 
  wire [4:0] button_index_x, button_index_y;
  wire bomb, flag, left, right;
+ wire array [7:0] [7:0];
+ wire explode, mark_flag;
 
 
  //VGA interfaces
@@ -171,26 +173,37 @@ detect_index u_detect_index(
 
 );
 
+ mine_board u_mine_board(
+   .clk,
+   .rst,
+   .mines(6'd28),
+   .dimension_size(5'd8),
+   .array(array)
+ );
 
+ mine_check u_mine_check(
+   .clk,
+   .rst,
+   .button_ind_x_in(button_index_x),
+   .button_ind_y_in(button_index_y),
+   .flag(flag),
+   .bomb(bomb),
+   .array(array),
+   .explode(explode),
+   .mark_flag(mark_flag)
+ );
+ 
  disp_hex_mux u_disp(
     .clk(clk), 
     .reset(rst),
     .hex3(button_index_x[3:0]), 
     .hex2(button_index_y[3:0]), 
-    .hex1(bomb), 
-    .hex0(flag),
+    .hex1(explode), 
+    .hex0(mark_flag),
     .dp_in(4'b1011), 
     .an(an), 
     .sseg(sseg)
 );
-
- mine_board u_mine_board(
-   .clk,
-   .rst,
-   .mines(6'd8),
-   .dimension_size(5'd8)
- );
- 
 
 
  endmodule
