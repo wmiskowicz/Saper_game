@@ -34,16 +34,22 @@
  /**
   * Local variables and signals
   */
+ wire b0, b1;
+ wire [1:0] level, game_level_latch; 
  wire [10:0] button_xpos, button_ypos;
- wire [6:0] button_size;
- wire draw_button, done_x, done_y, enable_game, level_enable;
-
  wire [11:0] mouse_xpos, mouse_ypos;
-
+ wire [6:0] button_size;
+ wire [5:0] mines, mines_latch;
  wire [4:0] button_index_x, button_index_y;
- wire bomb, flag, left, right;
- wire array [7:0] [7:0];
+
+ wire draw_button, done_x, done_y, enable_game, level_enable;
  wire explode, mark_flag;
+ wire bomb, flag, left, right;
+
+ wire array_easy [7:0] [7:0];
+ wire array_medium [9:0] [9:0];
+ wire array_hard [15:0] [15:0];
+ 
 
 
  //VGA interfaces
@@ -66,6 +72,10 @@
  assign {r,g,b} = draw_mouse_if.rgb;
 
  assign enable_game = btnS[2] || btnS[1] || btnS[0];
+
+ assign b0 = btnS [2] || btnS [0];
+ assign b1 = btnS [1] || btnS [0];
+ assign level = {b1, b0};
  
  
  /**
@@ -116,9 +126,31 @@
  select_level u_select_level(
     .clk,
     .rst,
-    .btnS(btnS),
+    .level(level),
+    .mines_out(mines),
     .level_enable(level_enable),
     .out(game_set_if.out)
+ );
+
+ latch #(
+   .DATA_SIZE(2)
+ )
+ u_level_latch(
+   .clk,
+   .rst,
+   .Data_in(level),
+   .Data_out(game_level_latch),
+   .enable(level_enable)
+ );
+
+ latch #(
+   .DATA_SIZE(6)
+ )u_mines_latch(
+   .clk,
+   .rst,
+   .Data_in(mines),
+   .Data_out(mines_latch),
+   .enable(level_enable)
  );
 
  settings_latch u_settings_latch(
@@ -176,9 +208,11 @@ detect_index u_detect_index(
  mine_board u_mine_board(
    .clk,
    .rst,
-   .mines(6'd28),
-   .dimension_size(5'd8),
-   .array(array)
+   .mines(mines_latch),
+   .dimension_size(game_enable_if.button_num),
+   .array_easy(array_easy),
+   .array_medium(array_medium),
+   .array_hard(array_hard)
  );
 
  mine_check u_mine_check(
@@ -188,7 +222,10 @@ detect_index u_detect_index(
    .button_ind_y_in(button_index_y),
    .flag(flag),
    .bomb(bomb),
-   .array(array),
+   .level(game_level_latch),
+   .array_easy(array_easy),
+   .array_medium(array_medium),
+   .array_hard(array_hard),
    .explode(explode),
    .mark_flag(mark_flag)
  );

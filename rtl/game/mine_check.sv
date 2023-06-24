@@ -13,8 +13,11 @@ module mine_check
     input wire rst,
     input wire [4:0] button_ind_x_in,
     input wire [4:0] button_ind_y_in,
-    input wire array [7:0] [7:0],
+    input wire array_easy [7:0] [7:0],
+    input wire array_medium [9:0] [9:0],
+    input wire array_hard [15:0] [15:0],
     input wire flag, bomb,
+    input wire [1:0] level, 
 
     output reg [4:0] button_ind_x_out,
     output reg [4:0] button_ind_y_out,
@@ -25,6 +28,11 @@ module mine_check
     //Local variables
     logic [4:0] button_ind_x_nxt, button_ind_y_nxt;
     logic explode_nxt, mark_flag_nxt;
+
+
+    
+
+
     
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -42,6 +50,9 @@ module mine_check
     end
     
     always_comb begin
+        
+
+
         if(flag) begin
             button_ind_x_nxt = button_ind_x_in;
             button_ind_y_nxt = button_ind_y_in;
@@ -52,11 +63,29 @@ module mine_check
             button_ind_x_nxt = button_ind_x_in;
             button_ind_y_nxt = button_ind_y_in;
             mark_flag_nxt = '0;
-            if(array[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
-                explode_nxt = '1;
+            if(level == 3) begin
+                if(array_hard[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                    explode_nxt = '1;
+                end
+                else begin
+                    explode_nxt = '0;
+                end
+            end
+            else if(level == 2) begin
+                if(array_medium[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                    explode_nxt = '1;
+                end
+                else begin
+                    explode_nxt = '0;
+                end
             end
             else begin
-                explode_nxt = '0;
+                if(array_easy[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                    explode_nxt = '1;
+                end
+                else begin
+                    explode_nxt = '0;
+                end
             end
         end
         else begin

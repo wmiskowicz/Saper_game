@@ -23,6 +23,7 @@ sv work ../../rtl/draw/vga_pkg.sv \
         ../../rtl/game/detect_index.sv \
         ../../rtl/game/mine_board.sv \
         ../../rtl/game/dim_counter.sv \
+        ../../rtl/game/mine_check.sv \
         ../../rtl/mouse/draw_mouse.sv \
         ../../rtl/mouse/synchr.sv \
         ../../rtl/top_vga.sv \

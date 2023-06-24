@@ -3,7 +3,7 @@
  Module name:   latch
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-11
- Description:  Passes data when enablrd
+ Description:  Passes data when enabled
  */
 //////////////////////////////////////////////////////////////////////////////
  module settings_latch
@@ -18,7 +18,6 @@
    
        always_ff @(posedge clk or posedge rst) begin
            if(rst)begin
-                //out.mines <= 6'b0;
                 out.button_num <= 5'b0;
                 out.board_size <= 10'b0;
                 out.board_xpos <= 11'b0;
@@ -27,7 +26,6 @@
            end
            else begin
                if(enable) begin
-                    //out.mines <= 6'b0;
                     out.button_num <= in.button_num;
                     out.board_size <= in.board_size;
                     out.board_xpos <= in.board_xpos;

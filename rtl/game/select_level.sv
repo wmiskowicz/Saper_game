@@ -11,8 +11,9 @@
     (
         input  wire  clk,  
         input  wire  rst,  
-        input  logic [2:0] btnS,
-        output logic level_enable,
+        input  logic [1:0] level,
+        output reg [5:0] mines_out,
+        output reg level_enable,
         game_set_if.out out
     );
     
@@ -20,8 +21,6 @@
     // local parameters
     //------------------------------------------------------------------------------
     localparam STATE_BITS = 2; 
-    wire b0, b1;
-    wire [1:0] level;
 
     //------------------------------------------------------------------------------
     // local variables
@@ -33,9 +32,7 @@
     logic [6:0] button_size_nxt;
     logic level_enable_nxt;
 
-    assign b0 = btnS [2] || btnS [0];
-    assign b1 = btnS [1] || btnS [0];
-    assign level = {b1, b0};
+
     
 
 
@@ -72,7 +69,7 @@
     //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin : out_reg_blk
         if(rst) begin : out_reg_rst_blk
-            //out.mines <= 6'b0;
+            mines_out <= 6'b0;
             out.button_num <= 5'b0;
             out.board_size <= 10'b0;
             out.board_xpos <= 11'b0;
@@ -81,7 +78,7 @@
             level_enable <= '0;
         end
         else begin : out_reg_run_blk
-            //out.mines <= mines_nxt;
+            mines_out <= mines_nxt;
             out.button_num <= button_num_nxt;
             out.board_size <= board_size_nxt;
             out.board_xpos <= board_xpos_nxt;
@@ -112,16 +109,16 @@
             CHOSE_LEVEL: begin
                 
                 if(level == 3)begin
-                    mines_nxt    = 6'b110010;
-                    button_num_nxt = 5'b10000;
+                    mines_nxt    = 6'd50;
+                    button_num_nxt = 5'd16;
                     board_size_nxt = 10'd640;
                     board_xpos_nxt = 11'd400;
                     board_ypos_nxt = 11'd130;
                     button_size_nxt = 7'd40;
                 end
                 else if(level == 2)begin
-                    mines_nxt    = 6'b010100;
-                    button_num_nxt = 5'b01010;
+                    mines_nxt    = 6'd20;
+                    button_num_nxt = 5'd10;
                     board_size_nxt = 10'd500;
                     board_xpos_nxt = 11'd470;
                     board_ypos_nxt = 11'd200;
@@ -129,7 +126,7 @@
                 end
                 else if(level == 1) begin
                     mines_nxt    = 6'd8;
-                    button_num_nxt = 5'b01000;
+                    button_num_nxt = 5'd8;
                     board_size_nxt = 10'd400;
                     board_xpos_nxt = 11'd520;
                     board_ypos_nxt = 11'd250;

@@ -13,14 +13,16 @@ module mine_board
     input wire rst,
     input wire [5:0] mines,
     input wire [4:0] dimension_size,
-    output reg array [7:0] [7:0]
+    output reg array_easy [7:0] [7:0],
+    output reg array_medium [9:0] [9:0],
+    output reg array_hard [15:0] [15:0]
     );
     //Local parameters
     
 
     //Local variables
     int x_dim, y_dim;
-    logic [4:0] x_out, y_out;
+    logic [5:0] x_out, y_out;
     wire done_counting;
     reg data_nxt, data_prev, random_data;
     reg [5:0] mines_ctr, mines_ctr_nxt, mines_left;
@@ -29,19 +31,21 @@ module mine_board
     assign random_data = x_out % 2;
 
     
-
-    
     always_ff @(posedge clk) begin
         if (rst) begin
             for(x_dim = 0; x_dim < 5; x_dim++) begin
                 for (y_dim = 0; y_dim < 5; y_dim++) begin
-                    array [x_dim] [y_dim] <= '0;
+                    array_easy [x_dim] [y_dim] <= '0;
+                    array_medium [x_dim] [y_dim] <= '0;
+                    array_hard [x_dim] [y_dim] <= '0;
                 end
             end
             mines_ctr <= '0;
         end
         else if(~done_counting) begin
-            array [x_out] [y_out] <= data_nxt;
+            array_easy [x_out] [y_out] <= data_nxt;
+            array_medium [x_dim] [y_dim] <= data_nxt;
+            array_hard [x_dim] [y_dim] <= data_nxt;
             mines_ctr <= mines_ctr_nxt;
         end
     end

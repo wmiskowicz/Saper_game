@@ -7,19 +7,17 @@
  Description:  Counts to wanted value when posedge on 'counting' detected
  */
 //////////////////////////////////////////////////////////////////////////////
-module dim_counter#(
-    parameter DATA_SIZE = 5
-)
+module dim_counter
     (
     input wire clk,
     input wire rst,
     input wire [4:0] dimension_size,
     
-    output reg [DATA_SIZE-1:0] x_out, y_out,
+    output reg [5:0] x_out, y_out,
     output reg done_counting
     );
 
-    logic [4:0] y_nxt, x_nxt;
+    logic [5:0] y_nxt, x_nxt;
   
     
     always_ff @(posedge clk) begin

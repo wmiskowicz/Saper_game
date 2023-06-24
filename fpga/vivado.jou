@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sat Jun 24 19:50:55 2023
-# Process ID: 30938
+# Start of session at: Sat Jun 24 21:20:20 2023
+# Process ID: 13926
 # Current directory: /home/student/wmiskowicz/Projekt/Ver4_0/Saper_game/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
 # Log file: /home/student/wmiskowicz/Projekt/Ver4_0/Saper_game/fpga/vivado.log
