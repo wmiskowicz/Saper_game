@@ -3,7 +3,7 @@
  Module name:   latch
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-11
- Description:  Passes data when enabled
+ Description:  Passes settings when enabled
  */
 //////////////////////////////////////////////////////////////////////////////
  module settings_latch

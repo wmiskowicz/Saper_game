@@ -2,13 +2,13 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun Jun 25 13:17:32 2023
-# Process ID: 31415
+# Start of session at: Sun Jun 25 14:14:26 2023
+# Process ID: 8003
 # Current directory: /home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga
 # Command line: vivado -mode tcl -source scripts/generate_bitstream.tcl
 # Log file: /home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/vivado.log
 # Journal file: /home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/vivado.jou
-# Running On: cadence24, OS: Linux, CPU Frequency: 3230.664 MHz, CPU Physical cores: 4, Host memory: 16720 MB
+# Running On: cadence24, OS: Linux, CPU Frequency: 3214.062 MHz, CPU Physical cores: 4, Host memory: 16720 MB
 #-----------------------------------------------------------
 source scripts/generate_bitstream.tcl
 # source scripts/project_details.tcl
@@ -78,9 +78,9 @@ source scripts/generate_bitstream.tcl
 # create_new_project $project_name $target $top_module
 # generate_bitstream
 WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
-[Sun Jun 25 13:17:47 2023] Launched synth_1...
+[Sun Jun 25 14:14:40 2023] Launched synth_1...
 Run output will be captured here: /home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/synth_1/runme.log
-[Sun Jun 25 13:17:47 2023] Waiting for synth_1 to finish...
+[Sun Jun 25 14:14:40 2023] Waiting for synth_1 to finish...
 
 *** Running vivado
     with args -log top_vga_basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_vga_basys3.tcl
@@ -99,9 +99,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 31768
+INFO: [Synth 8-7075] Helper process launched with PID 8352
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 7263 ; free virtual = 18017
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 6967 ; free virtual = 17749
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_vga_basys3' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/rtl/top_vga_basys3.sv:17]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/rtl/clk_wiz_0.v:71]
@@ -184,119 +184,18 @@ INFO: [Synth 8-256] done synthesizing module 'MouseCtl' (18#1) [/home/student/wm
 INFO: [Synth 8-6157] synthesizing module 'detect_index' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/detect_index.sv:11]
 INFO: [Synth 8-6155] done synthesizing module 'detect_index' (19#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/detect_index.sv:11]
 INFO: [Synth 8-6157] synthesizing module 'mine_board' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:10]
-WARNING: [Synth 8-324] index 8 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 9 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 10 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 10 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 11 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 11 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 12 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 12 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 13 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 13 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 14 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 14 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 15 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 15 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 25 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 25 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 25 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 26 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 26 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 26 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 27 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 27 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 27 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 28 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 28 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 28 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 29 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 29 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 29 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 30 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 30 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 30 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 8 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 9 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 10 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 10 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 11 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 11 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 12 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 12 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 13 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 13 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 14 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 14 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 15 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 15 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 16 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 17 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 18 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 19 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 20 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 21 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 22 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 23 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:39]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:40]
-WARNING: [Synth 8-324] index 24 out of range [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:41]
-INFO: [Common 17-14] Message 'Synth 8-324' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6157] synthesizing module 'dim_counter' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/dim_counter.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'dim_counter' (20#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/dim_counter.sv:10]
-WARNING: [Synth 8-5856] 3D RAM array_easy_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-WARNING: [Synth 8-5856] 3D RAM array_medium_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-WARNING: [Synth 8-5856] 3D RAM array_hard_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM array_easy_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM array_medium_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM array_hard_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 INFO: [Synth 8-6155] done synthesizing module 'mine_board' (21#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_board.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'mine_check' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_check.sv:10]
 INFO: [Synth 8-6155] done synthesizing module 'mine_check' (22#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/game/mine_check.sv:10]
 INFO: [Synth 8-6157] synthesizing module 'disp_hex_mux' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/import/list_ch04_15_disp_hex_mux.v:2]
 INFO: [Synth 8-226] default block is never used [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/import/list_ch04_15_disp_hex_mux.v:64]
 INFO: [Synth 8-6155] done synthesizing module 'disp_hex_mux' (23#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/import/list_ch04_15_disp_hex_mux.v:2]
-WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/top_vga.sv:242]
+WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/top_vga.sv:243]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga' (24#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/rtl/top_vga.sv:17]
 WARNING: [Synth 8-3848] Net pclk in module/entity top_vga_basys3 does not have driver. [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/rtl/top_vga_basys3.sv:43]
 INFO: [Synth 8-6155] done synthesizing module 'top_vga_basys3' (25#1) [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/rtl/top_vga_basys3.sv:17]
@@ -305,18 +204,18 @@ WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnect
 WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 8108 ; free virtual = 18864
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 7904 ; free virtual = 18687
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 8136 ; free virtual = 18892
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 7912 ; free virtual = 18696
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 8136 ; free virtual = 18892
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 7912 ; free virtual = 18696
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 8123 ; free virtual = 18880
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 7904 ; free virtual = 18688
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -334,26 +233,26 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/top_vga_basy
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2821.535 ; gain = 0.000 ; free physical = 7977 ; free virtual = 18733
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.723 ; gain = 0.000 ; free physical = 7739 ; free virtual = 18523
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2821.535 ; gain = 0.000 ; free physical = 7977 ; free virtual = 18733
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2781.723 ; gain = 0.000 ; free physical = 7739 ; free virtual = 18523
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8123 ; free virtual = 18879
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7895 ; free virtual = 18679
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8122 ; free virtual = 18878
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7895 ; free virtual = 18679
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:31 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8122 ; free virtual = 18879
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7895 ; free virtual = 18679
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'draw_button'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'select_level'
@@ -439,7 +338,7 @@ reset_enable_reporting_wait_ack | 0000000010000000000000000000000000000 |       
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'MouseCtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:37 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8154 ; free virtual = 18913
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7884 ; free virtual = 18670
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -476,7 +375,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 10    
 	                4 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 316   
+	                1 Bit    Registers := 480   
 +---Muxes : 
 	  37 Input   37 Bit        Muxes := 1     
 	   2 Input   37 Bit        Muxes := 69    
@@ -506,7 +405,7 @@ Detailed RTL Component Info :
 	   4 Input    4 Bit        Muxes := 2     
 	   3 Input    2 Bit        Muxes := 4     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 297   
+	   2 Input    1 Bit        Muxes := 881   
 	   3 Input    1 Bit        Muxes := 1     
 	  17 Input    1 Bit        Muxes := 4     
 	  37 Input    1 Bit        Muxes := 20    
@@ -531,7 +430,7 @@ WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnect
 WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:46 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8128 ; free virtual = 18894
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7858 ; free virtual = 18652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -552,19 +451,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8018 ; free virtual = 18785
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7735 ; free virtual = 18529
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:51 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7734 ; free virtual = 18528
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:52 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7733 ; free virtual = 18527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -582,37 +481,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7743 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7743 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7743 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7743 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7744 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8015 ; free virtual = 18782
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7744 ; free virtual = 18538
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -645,55 +544,55 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |BUFG       |     3|
 |2     |CARRY4     |   183|
-|3     |LUT1       |    89|
-|4     |LUT2       |   334|
-|5     |LUT3       |   284|
-|6     |LUT4       |   387|
-|7     |LUT5       |   142|
-|8     |LUT6       |   327|
+|3     |LUT1       |    95|
+|4     |LUT2       |   320|
+|5     |LUT3       |   278|
+|6     |LUT4       |   216|
+|7     |LUT5       |   554|
+|8     |LUT6       |   320|
 |9     |MMCME2_ADV |     1|
-|10    |MUXF7      |    31|
-|11    |MUXF8      |    10|
+|10    |MUXF7      |    50|
+|11    |MUXF8      |    25|
 |12    |ODDR       |     1|
 |13    |SRL16E     |     2|
 |14    |FDCE       |   107|
 |15    |FDPE       |     4|
-|16    |FDRE       |   659|
+|16    |FDRE       |   828|
 |17    |FDSE       |     9|
 |18    |IBUF       |     5|
 |19    |IOBUF      |     2|
 |20    |OBUF       |    26|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8016 ; free virtual = 18782
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7740 ; free virtual = 18534
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 2821.535 ; gain = 0.000 ; free physical = 8065 ; free virtual = 18832
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:55 . Memory (MB): peak = 2821.535 ; gain = 103.730 ; free physical = 8065 ; free virtual = 18832
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 2781.723 ; gain = 0.000 ; free physical = 7791 ; free virtual = 18586
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 2781.723 ; gain = 63.918 ; free physical = 7790 ; free virtual = 18584
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2821.535 ; gain = 0.000 ; free physical = 8156 ; free virtual = 18923
-INFO: [Netlist 29-17] Analyzing 228 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2781.723 ; gain = 0.000 ; free physical = 7882 ; free virtual = 18676
+INFO: [Netlist 29-17] Analyzing 262 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2821.535 ; gain = 0.000 ; free physical = 8095 ; free virtual = 18862
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2781.723 ; gain = 0.000 ; free physical = 7821 ; free virtual = 18615
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
-Synth Design complete, checksum: 81eafa0b
+Synth Design complete, checksum: 4a0a488d
 INFO: [Common 17-83] Releasing license: Synthesis
-96 Infos, 118 Warnings, 0 Critical Warnings and 0 Errors encountered.
+95 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:59 . Memory (MB): peak = 2821.535 ; gain = 103.844 ; free physical = 8299 ; free virtual = 19066
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 2781.723 ; gain = 64.031 ; free physical = 8023 ; free virtual = 18817
 INFO: [Common 17-1381] The checkpoint '/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/synth_1/top_vga_basys3.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_vga_basys3_utilization_synth.rpt -pb top_vga_basys3_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 13:18:59 2023...
-[Sun Jun 25 13:19:09 2023] synth_1 finished
-wait_on_runs: Time (s): cpu = 00:01:03 ; elapsed = 00:01:22 . Memory (MB): peak = 2715.801 ; gain = 0.000 ; free physical = 9168 ; free virtual = 19919
-[Sun Jun 25 13:19:09 2023] Launched impl_1...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 14:15:37 2023...
+[Sun Jun 25 14:15:47 2023] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 2715.805 ; gain = 0.000 ; free physical = 8872 ; free virtual = 19655
+[Sun Jun 25 14:15:47 2023] Launched impl_1...
 Run output will be captured here: /home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/impl_1/runme.log
-[Sun Jun 25 13:19:09 2023] Waiting for impl_1 to finish...
+[Sun Jun 25 14:15:47 2023] Waiting for impl_1 to finish...
 
 *** Running vivado
     with args -log top_vga_basys3.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source top_vga_basys3.tcl -notrace
@@ -709,8 +608,8 @@ Command: link_design -top top_vga_basys3 -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2717.809 ; gain = 0.000 ; free physical = 8603 ; free virtual = 19353
-INFO: [Netlist 29-17] Analyzing 228 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2717.805 ; gain = 0.000 ; free physical = 8304 ; free virtual = 19088
+INFO: [Netlist 29-17] Analyzing 262 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2021.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -719,17 +618,17 @@ Finished Parsing XDC File [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fp
 Parsing XDC File [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/constraints/clk_wiz_0.xdc]
 INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/constraints/clk_wiz_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/constraints/clk_wiz_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2850.629 ; gain = 76.906 ; free physical = 8034 ; free virtual = 18785
+get_clocks: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2851.625 ; gain = 77.906 ; free physical = 7735 ; free virtual = 18518
 Finished Parsing XDC File [/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/constraints/clk_wiz_0.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2850.633 ; gain = 0.000 ; free physical = 8119 ; free virtual = 18870
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2851.629 ; gain = 0.000 ; free physical = 7821 ; free virtual = 18604
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
 
 9 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2850.633 ; gain = 132.934 ; free physical = 8119 ; free virtual = 18870
+link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2851.629 ; gain = 133.934 ; free physical = 7821 ; free virtual = 18604
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -740,59 +639,59 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.70 . Memory (MB): peak = 2914.660 ; gain = 64.027 ; free physical = 8109 ; free virtual = 18860
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.70 . Memory (MB): peak = 2915.656 ; gain = 64.027 ; free physical = 7810 ; free virtual = 18593
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 2380cf7d1
+Ending Cache Timing Information Task | Checksum: 1723bdd8c
 
-Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2914.660 ; gain = 0.000 ; free physical = 8107 ; free virtual = 18858
+Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2915.656 ; gain = 0.000 ; free physical = 7807 ; free virtual = 18591
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
 INFO: [Opt 31-1287] Pulled Inverter u_top_vga/u_MouseCtl/Inst_Ps2Interface/ps2_clk_h_inv_i_1 into driver instance u_top_vga/u_MouseCtl/Inst_Ps2Interface/ps2_clk_h_inv_i_2, which resulted in an inversion of 1 pins
 INFO: [Opt 31-1287] Pulled Inverter u_top_vga/u_MouseCtl/Inst_Ps2Interface/ps2_data_h_inv_i_1 into driver instance u_top_vga/u_MouseCtl/Inst_Ps2Interface/ps2_data_h_inv_i_2, which resulted in an inversion of 1 pins
-INFO: [Opt 31-1287] Pulled Inverter u_top_vga/u_mine_board/u_xdim_ctr/x_out[5]_i_2 into driver instance u_top_vga/u_mine_board/u_xdim_ctr/x_out[5]_i_4, which resulted in an inversion of 5 pins
+INFO: [Opt 31-1287] Pulled Inverter u_top_vga/u_mine_board/array_dim_ctr/x_out[5]_i_2 into driver instance u_top_vga/u_mine_board/array_dim_ctr/x_out[5]_i_4, which resulted in an inversion of 5 pins
 INFO: [Opt 31-1287] Pulled Inverter u_top_vga/u_vga_timing/out\\.vcount[10]_i_1 into driver instance u_top_vga/u_vga_timing/out\\.hcount[5]_i_2, which resulted in an inversion of 6 pins
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 26e19c441
+Phase 1 Retarget | Checksum: 2ac587e73
 
-Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.10 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.11 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 24 cells
 INFO: [Opt 31-1021] In phase Retarget, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 252f0662a
+Phase 2 Constant propagation | Checksum: 1e3ffcac9
 
-Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.11 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 1dfe5d47b
+Phase 3 Sweep | Checksum: 1de6fc0bc
 
-Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.17 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-389] Phase Sweep created 3 cells and removed 0 cells
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: 1dfe5d47b
+Phase 4 BUFG optimization | Checksum: 1de6fc0bc
 
-Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.20 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: 1dfe5d47b
+Phase 5 Shift Register Optimization | Checksum: 1de6fc0bc
 
-Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.24 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 2146bde52
+Phase 6 Post Processing Netlist | Checksum: 29cb2d6d9
 
-Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.19 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.30 ; elapsed = 00:00:00.25 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7577 ; free virtual = 18360
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 Opt_design Change Summary
 =========================
@@ -813,27 +712,27 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.629 ; gain = 0.000 ; free physical = 7876 ; free virtual = 18626
-Ending Logic Optimization Task | Checksum: 28bd5c726
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.656 ; gain = 0.000 ; free physical = 7576 ; free virtual = 18359
+Ending Logic Optimization Task | Checksum: 1c5a6a394
 
-Time (s): cpu = 00:00:00.32 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3125.629 ; gain = 0.004 ; free physical = 7876 ; free virtual = 18626
+Time (s): cpu = 00:00:00.36 ; elapsed = 00:00:00.32 . Memory (MB): peak = 3125.656 ; gain = 0.004 ; free physical = 7576 ; free virtual = 18359
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-Ending Power Optimization Task | Checksum: 28bd5c726
+Ending Power Optimization Task | Checksum: 1c5a6a394
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3125.629 ; gain = 0.000 ; free physical = 7875 ; free virtual = 18626
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.656 ; gain = 0.000 ; free physical = 7576 ; free virtual = 18359
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 28bd5c726
+Ending Final Cleanup Task | Checksum: 1c5a6a394
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.629 ; gain = 0.000 ; free physical = 7875 ; free virtual = 18626
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.656 ; gain = 0.000 ; free physical = 7576 ; free virtual = 18359
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.629 ; gain = 0.000 ; free physical = 7875 ; free virtual = 18626
-Ending Netlist Obfuscation Task | Checksum: 28bd5c726
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.656 ; gain = 0.000 ; free physical = 7576 ; free virtual = 18359
+Ending Netlist Obfuscation Task | Checksum: 1c5a6a394
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.629 ; gain = 0.000 ; free physical = 7875 ; free virtual = 18626
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3125.656 ; gain = 0.000 ; free physical = 7575 ; free virtual = 18358
 INFO: [Common 17-83] Releasing license: Implementation
 31 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
@@ -842,7 +741,7 @@ Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3133.633 ; gain = 0.004 ; free physical = 7869 ; free virtual = 18621
+Write XDEF Complete: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3133.660 ; gain = 0.004 ; free physical = 7559 ; free virtual = 18342
 INFO: [Common 17-1381] The checkpoint '/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/impl_1/top_vga_basys3_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_vga_basys3_drc_opted.rpt -pb top_vga_basys3_drc_opted.pb -rpx top_vga_basys3_drc_opted.rpx
 Command: report_drc -file top_vga_basys3_drc_opted.rpt -pb top_vga_basys3_drc_opted.pb -rpx top_vga_basys3_drc_opted.rpx
@@ -870,53 +769,53 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7802 ; free virtual = 18553
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1b6fdccff
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7505 ; free virtual = 18289
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 181c49920
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7802 ; free virtual = 18553
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7802 ; free virtual = 18553
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7505 ; free virtual = 18289
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7505 ; free virtual = 18289
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d417eea2
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 8692f0da
 
-Time (s): cpu = 00:00:00.32 ; elapsed = 00:00:00.16 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7833 ; free virtual = 18585
+Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.18 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7536 ; free virtual = 18320
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 114f7ed73
+Phase 1.3 Build Placer Netlist Model | Checksum: a7252048
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.45 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7835 ; free virtual = 18586
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.49 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7549 ; free virtual = 18332
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 114f7ed73
+Phase 1.4 Constrain Clocks/Macros | Checksum: a7252048
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.46 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7833 ; free virtual = 18585
-Phase 1 Placer Initialization | Checksum: 114f7ed73
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.49 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7549 ; free virtual = 18332
+Phase 1 Placer Initialization | Checksum: a7252048
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.47 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7832 ; free virtual = 18583
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.50 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7549 ; free virtual = 18332
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 13de2080e
+Phase 2.1 Floorplanning | Checksum: 133807a80
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.64 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7840 ; free virtual = 18592
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.61 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7544 ; free virtual = 18328
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: d425a6b2
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 13b0d4529
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.73 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7841 ; free virtual = 18592
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.67 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7544 ; free virtual = 18328
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: d425a6b2
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 13b0d4529
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.73 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7841 ; free virtual = 18592
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.68 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7544 ; free virtual = 18328
 
 Phase 2.4 Global Placement Core
 
 Phase 2.4.1 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 2 LUTNM shape to break, 13 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1035] Found 2 LUTNM shape to break, 10 LUT instances to create LUTNM shape
 INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 2, total 2, new lutff created 0
-INFO: [Physopt 32-1138] End 1 Pass. Optimized 7 nets or LUTs. Breaked 2 LUTs, combined 5 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 6 nets or LUTs. Breaked 2 LUTs, combined 4 existing LUTs and moved 0 existing LUT
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -932,7 +831,7 @@ INFO: [Physopt 32-846] No candidate cells for URAM register optimization found i
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7821 ; free virtual = 18572
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7525 ; free virtual = 18309
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -941,7 +840,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            2  |              5  |                     7  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |            2  |              4  |                     6  |           0  |           1  |  00:00:00  |
 |  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
@@ -950,69 +849,69 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            2  |              5  |                     7  |           0  |           9  |  00:00:00  |
+|  Total                                            |            2  |              4  |                     6  |           0  |           9  |  00:00:00  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.4.1 Physical Synthesis In Placer | Checksum: ca0c1503
+Phase 2.4.1 Physical Synthesis In Placer | Checksum: 1161643e2
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18573
-Phase 2.4 Global Placement Core | Checksum: 98a77184
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7526 ; free virtual = 18309
+Phase 2.4 Global Placement Core | Checksum: a006265d
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18574
-Phase 2 Global Placement | Checksum: 98a77184
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7525 ; free virtual = 18309
+Phase 2 Global Placement | Checksum: a006265d
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18573
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7525 ; free virtual = 18309
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: adf2cc88
+Phase 3.1 Commit Multi Column Macros | Checksum: a16463f1
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7823 ; free virtual = 18574
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7524 ; free virtual = 18308
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 15283f31d
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 20afa6d18
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18573
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7523 ; free virtual = 18307
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: e2d54640
+Phase 3.3 Area Swap Optimization | Checksum: 15f127554
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18573
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7523 ; free virtual = 18307
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 190dfd2e4
+Phase 3.4 Pipeline Register Optimization | Checksum: 19a1d2d59
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7822 ; free virtual = 18573
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7523 ; free virtual = 18307
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 1cddd40ec
+Phase 3.5 Fast Optimization | Checksum: 1be90c3ac
 
-Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7805 ; free virtual = 18556
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7522 ; free virtual = 18305
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 12173c493
+Phase 3.6 Small Shape Detail Placement | Checksum: a679020f
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7817 ; free virtual = 18569
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7522 ; free virtual = 18306
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 11d55eb0d
+Phase 3.7 Re-assign LUT pins | Checksum: f80af574
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7818 ; free virtual = 18569
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7522 ; free virtual = 18306
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 8117e71d
+Phase 3.8 Pipeline Register Optimization | Checksum: d977efed
 
-Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7818 ; free virtual = 18569
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:03 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7522 ; free virtual = 18306
 
 Phase 3.9 Fast Optimization
-Phase 3.9 Fast Optimization | Checksum: 85294b28
+Phase 3.9 Fast Optimization | Checksum: 232cf9567
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7816 ; free virtual = 18567
-Phase 3 Detail Placement | Checksum: 85294b28
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7521 ; free virtual = 18305
+Phase 3 Detail Placement | Checksum: 232cf9567
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7816 ; free virtual = 18567
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:04 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7521 ; free virtual = 18305
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -1020,7 +919,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 11e1ee1f8
+Post Placement Optimization Initialization | Checksum: 222c45cac
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -1028,33 +927,33 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.531 | TNS=-337.495 |
-Phase 1 Physical Synthesis Initialization | Checksum: 1c7a2142c
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.993 | TNS=-345.376 |
+Phase 1 Physical Synthesis Initialization | Checksum: 16f364f82
 
-Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7816 ; free virtual = 18568
+Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7521 ; free virtual = 18305
 INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Ending Physical Synthesis Task | Checksum: 18b89a9b3
+Ending Physical Synthesis Task | Checksum: 236970a65
 
-Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7816 ; free virtual = 18568
-Phase 4.1.1.1 BUFG Insertion | Checksum: 11e1ee1f8
+Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7521 ; free virtual = 18305
+Phase 4.1.1.1 BUFG Insertion | Checksum: 222c45cac
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:04 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7816 ; free virtual = 18568
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:04 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7521 ; free virtual = 18305
 
 Phase 4.1.1.2 Post Placement Timing Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=-21.227. For the most accurate timing information please run report_timing.
-Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: d702ee27
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-21.581. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1db3133aa
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
-Phase 4.1 Post Commit Optimization | Checksum: d702ee27
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
+Phase 4.1 Post Commit Optimization | Checksum: 1db3133aa
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: d702ee27
+Phase 4.2 Post Placement Cleanup | Checksum: 1db3133aa
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
 
 Phase 4.3 Placer Reporting
 
@@ -1073,285 +972,214 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: d702ee27
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1db3133aa
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
-Phase 4.3 Placer Reporting | Checksum: d702ee27
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
+Phase 4.3 Placer Reporting | Checksum: 1db3133aa
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 9cdddb77
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1aad50c9f
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
-Ending Placer Task | Checksum: 6b922513
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18300
+Ending Placer Task | Checksum: 120e9d91d
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7813 ; free virtual = 18564
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7516 ; free virtual = 18299
 INFO: [Common 17-83] Releasing license: Implementation
 73 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7828 ; free virtual = 18579
+place_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7530 ; free virtual = 18314
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.56 ; elapsed = 00:00:00.28 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7824 ; free virtual = 18579
+Write XDEF Complete: Time (s): cpu = 00:00:00.70 ; elapsed = 00:00:00.54 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7526 ; free virtual = 18313
 INFO: [Common 17-1381] The checkpoint '/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/impl_1/top_vga_basys3_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file top_vga_basys3_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7809 ; free virtual = 18561
+report_io: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.11 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7523 ; free virtual = 18309
 INFO: [runtcl-4] Executing : report_utilization -file top_vga_basys3_utilization_placed.rpt -pb top_vga_basys3_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_vga_basys3_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7826 ; free virtual = 18578
+report_control_sets: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7527 ; free virtual = 18313
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
-INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 0.92s |  WALL: 0.22s
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7795 ; free virtual = 18547
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 1.02s |  WALL: 0.24s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7498 ; free virtual = 18283
 
 Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.227 | TNS=-332.172 |
-Phase 1 Physical Synthesis Initialization | Checksum: 1c1c56201
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.697 | TNS=-333.754 |
+Phase 1 Physical Synthesis Initialization | Checksum: 13614b588
 
-Time (s): cpu = 00:00:00.86 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7794 ; free virtual = 18546
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.227 | TNS=-332.172 |
+Time (s): cpu = 00:00:00.98 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7498 ; free virtual = 18283
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.697 | TNS=-333.754 |
 
 Phase 2 DSP Register Optimization
 INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Phase 2 DSP Register Optimization | Checksum: 1c1c56201
+Phase 2 DSP Register Optimization | Checksum: 13614b588
 
-Time (s): cpu = 00:00:00.88 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7794 ; free virtual = 18546
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.29 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7498 ; free virtual = 18283
 
 Phase 3 Critical Path Optimization
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.227 | TNS=-332.172 |
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/Q[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_33[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_11_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_38_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_31[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_6_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_28_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_29[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
-INFO: [Physopt 32-735] Processed net button_index_y[3]_i_17_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.225 | TNS=-332.164 |
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_7_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_32_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_27[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_15_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_43_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_25[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_20_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_53_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_23[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_45_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_63_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_21[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_55_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_73_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_19[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_65_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_75_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_93_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_85_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_103_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_14[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_95_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_112_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_ypos0_out[3]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_81_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 8 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_104_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.204 | TNS=-331.894 |
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_104_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_y[0]_i_1_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-663] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1].  Re-placed instance u_top_vga/u_MouseCtl/ypos_reg[1]
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.174 | TNS=-331.307 |
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.697 | TNS=-333.754 |
 INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x_reg[3]_0[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_16[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_18_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_65_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_64_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_14[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_13_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_55_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_12[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_14_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_x[3]_i_59_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_60_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_10[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_22_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_x[3]_i_69_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_70_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_8[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
-INFO: [Physopt 32-735] Processed net button_index_x[3]_i_74_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.170 | TNS=-331.291 |
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_27_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_80_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_79_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_6[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_72_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_x[3]_i_100_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_101_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_4[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_93_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_127_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_2[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_119_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_134_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_137_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_0[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_129_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_147_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_3[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_2[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_139_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_157_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/CO[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_149_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_167_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_xpos1_out[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_87_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
+INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_115_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.565 | TNS=-333.226 |
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_86_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x[1]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/Q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x_reg[3]_0[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_16[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_64_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_14[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_55_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_12[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_60_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_10[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_70_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_8[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_6[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_101_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_4[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_127_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_137_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_147_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_157_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/CO[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_167_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_xpos1_out[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x[1]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/Q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.565 | TNS=-333.226 |
+Phase 3 Critical Path Optimization | Checksum: 13614b588
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7496 ; free virtual = 18281
+
+Phase 4 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.565 | TNS=-333.226 |
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x_reg[3]_0[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_16[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_18_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_64_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_14[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_13_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_55_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_12[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_14_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_60_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_10[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_22_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_70_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_8[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_27_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_6[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_72_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_101_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_4[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_93_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_127_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_119_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_137_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_129_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_147_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_139_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_157_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/CO[0]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x_reg[3]_i_149_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_167_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_xpos1_out[3]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_87_n_0. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_86_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 9 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_112_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.147 | TNS=-330.589 |
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_109_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.140 | TNS=-330.561 |
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 8 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_102_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.121 | TNS=-330.161 |
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 10 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_109_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.104 | TNS=-330.093 |
-INFO: [Physopt 32-608] Optimized 1 net.  Swapped 8 pins.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_102_n_0. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.064 | TNS=-329.589 |
-INFO: [Physopt 32-81] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]. Replicated 1 times.
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.059 | TNS=-328.125 |
-INFO: [Physopt 32-663] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN.  Re-placed instance u_top_vga/u_MouseCtl/ypos_reg[1]_replica
-INFO: [Physopt 32-735] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN. Optimization improves timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.054 | TNS=-328.065 |
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/Q[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x[1]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/Q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x_reg[3]_0[1]. Optimizations did not improve timing on the net.
 INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_33[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_38_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_31[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_28_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_29[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_32_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_27[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_43_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_25[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_53_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_23[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_63_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_21[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_73_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_19[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_93_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_103_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_14[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_112_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_ypos0_out[3]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_104_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_y[0]_i_1_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.054 | TNS=-328.065 |
-Phase 3 Critical Path Optimization | Checksum: 1c1c56201
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_16[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_64_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_14[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_55_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_12[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_60_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_10[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_70_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_8[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net button_index_x[3]_i_79_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_6[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_101_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_4[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_127_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_137_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_147_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_2[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_157_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/CO[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_x[3]_i_167_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_xpos1_out[3]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_x[1]_i_1_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/Q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.565 | TNS=-333.226 |
+Phase 4 Critical Path Optimization | Checksum: 13614b588
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7788 ; free virtual = 18541
-
-Phase 4 Critical Path Optimization
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.054 | TNS=-328.065 |
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/Q[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_33[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_11_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_38_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_31[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_6_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_28_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_29[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_7_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_32_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_27[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_15_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_43_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_25[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_20_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_53_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_23[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_45_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_63_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_21[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_55_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_73_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_19[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_65_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_75_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_93_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_85_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_103_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_14[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y_reg[3]_i_95_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_112_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_ypos0_out[3]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x_reg[3]_i_81_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_104_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_y[0]_i_1_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/Q[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net clk0_wiz/inst/clk100MHz_clk_wiz_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_33[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_38_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_31[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_28_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_29[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_32_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_27[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_43_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_25[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_53_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_23[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_63_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_21[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_73_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_19[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net button_index_y[3]_i_82_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[5]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_93_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_17[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_103_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/out\\.button_size_reg[1]_14[0]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_settings_latch/button_index_y[3]_i_112_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/cur_ypos0_out[3]. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/button_index_x[3]_i_104_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_detect_index/button_index_y[0]_i_1_n_0. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-702] Processed net u_top_vga/u_MouseCtl/ypos_reg[10]_0[1]_repN. Optimizations did not improve timing on the net.
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-21.054 | TNS=-328.065 |
-Phase 4 Critical Path Optimization | Checksum: 1c1c56201
-
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7789 ; free virtual = 18541
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7789 ; free virtual = 18541
-INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-21.054 | TNS=-328.065 |
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7494 ; free virtual = 18279
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7494 ; free virtual = 18279
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-21.565 | TNS=-333.226 |
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -1361,31 +1189,28 @@ Summary of Physical Synthesis Optimizations
 |  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 |  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Critical Path  |          0.173  |          4.107  |            1  |              0  |                    11  |           0  |           2  |  00:00:02  |
-|  Total          |          0.173  |          4.107  |            1  |              0  |                    11  |           0  |           3  |  00:00:02  |
+|  Critical Path  |          0.132  |          0.528  |            0  |              0  |                     1  |           0  |           2  |  00:00:02  |
+|  Total          |          0.132  |          0.528  |            0  |              0  |                     1  |           0  |           3  |  00:00:02  |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7789 ; free virtual = 18541
-Ending Physical Synthesis Task | Checksum: acb51f31
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7494 ; free virtual = 18279
+Ending Physical Synthesis Task | Checksum: aacd877c
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7789 ; free virtual = 18541
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7494 ; free virtual = 18279
 INFO: [Common 17-83] Releasing license: Implementation
-299 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+228 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.57 ; elapsed = 00:00:00.58 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7788 ; free virtual = 18544
+Write XDEF Complete: Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.35 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7491 ; free virtual = 18280
 INFO: [Common 17-1381] The checkpoint '/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/impl_1/top_vga_basys3_physopt.dcp' has been generated.
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
-INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
-INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 Running DRC as a precondition to command route_design
 INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
@@ -1396,73 +1221,72 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: 1ec5f6e ConstDB: 0 ShapeSum: 9a95d639 RouteDB: 0
-Post Restoration Checksum: NetGraph: 4bc0566c NumContArr: 20ffb6c8 Constraints: 0 Timing: 0
-Phase 1 Build RT Design | Checksum: 6cc00d34
+Checksum: PlaceDB: 1454d2ea ConstDB: 0 ShapeSum: 5296aa1e RouteDB: 0
+Post Restoration Checksum: NetGraph: 64d918cd NumContArr: 47f51eb8 Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: acce3785
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7676 ; free virtual = 18430
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7387 ; free virtual = 18173
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 6cc00d34
+Phase 2.1 Create Timer | Checksum: acce3785
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3285.172 ; gain = 0.000 ; free physical = 7678 ; free virtual = 18431
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3284.195 ; gain = 0.000 ; free physical = 7388 ; free virtual = 18174
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 6cc00d34
+Phase 2.2 Fix Topology Constraints | Checksum: acce3785
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3289.582 ; gain = 4.410 ; free physical = 7645 ; free virtual = 18398
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3292.609 ; gain = 8.414 ; free physical = 7355 ; free virtual = 18141
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 6cc00d34
+Phase 2.3 Pre Route Cleanup | Checksum: acce3785
 
-Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3289.582 ; gain = 4.410 ; free physical = 7645 ; free virtual = 18398
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3292.609 ; gain = 8.414 ; free physical = 7355 ; free virtual = 18141
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 1e5c3baf0
+Phase 2.4 Update Timing | Checksum: 1cb818cb1
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 3303.582 ; gain = 18.410 ; free physical = 7637 ; free virtual = 18390
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-20.511| TNS=-320.673| WHS=-0.281 | THS=-20.748|
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 3302.609 ; gain = 18.414 ; free physical = 7346 ; free virtual = 18132
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.012| TNS=-325.639| WHS=-0.208 | THS=-24.911|
 
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.000318903 %
-  Global Horizontal Routing Utilization  = 0.00130141 %
+  Global Vertical Routing Utilization    = 0.00111616 %
+  Global Horizontal Routing Utilization  = 0.00156169 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 1640
+  Number of Failed Nets               = 1827
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 1640
+  Number of Unrouted Nets             = 1827
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 2 Router Initialization | Checksum: 2145a945b
+Phase 2 Router Initialization | Checksum: 150d6b12e
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 3305.582 ; gain = 20.410 ; free physical = 7635 ; free virtual = 18389
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 3307.609 ; gain = 23.414 ; free physical = 7345 ; free virtual = 18131
 
 Phase 3 Initial Routing
 
 Phase 3.1 Global Routing
-Phase 3.1 Global Routing | Checksum: 2145a945b
+Phase 3.1 Global Routing | Checksum: 150d6b12e
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 3305.582 ; gain = 20.410 ; free physical = 7635 ; free virtual = 18389
-Phase 3 Initial Routing | Checksum: 1be859c63
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 3307.609 ; gain = 23.414 ; free physical = 7345 ; free virtual = 18131
+Phase 3 Initial Routing | Checksum: 18b428870
 
-Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 3337.598 ; gain = 52.426 ; free physical = 7635 ; free virtual = 18388
-INFO: [Route 35-580] Design has 3 pins with tight setup and hold constraints.
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 3339.625 ; gain = 55.430 ; free physical = 7344 ; free virtual = 18130
+INFO: [Route 35-580] Design has 2 pins with tight setup and hold constraints.
 
 The top 5 pins with tight setup and hold constraints:
 
-+=====================+========================+========================================================+
-| Launch Clock        | Capture Clock          | Pin                                                    |
-+=====================+========================+========================================================+
-| clk100MHz_clk_wiz_0 | clk88_750MHz_clk_wiz_0 | u_top_vga/u_detect_index/bomb_reg/D                    |
-| clk100MHz_clk_wiz_0 | clk88_750MHz_clk_wiz_0 | u_top_vga/u_detect_index/flag_reg/D                    |
-| clk100MHz_clk_wiz_0 | clk88_750MHz_clk_wiz_0 | u_top_vga/u_draw_mouse/u_MouseDisplay/rgb_out_reg[2]/D |
-+---------------------+------------------------+--------------------------------------------------------+
++=====================+========================+=====================================+
+| Launch Clock        | Capture Clock          | Pin                                 |
++=====================+========================+=====================================+
+| clk100MHz_clk_wiz_0 | clk88_750MHz_clk_wiz_0 | u_top_vga/u_detect_index/flag_reg/D |
+| clk100MHz_clk_wiz_0 | clk88_750MHz_clk_wiz_0 | u_top_vga/u_detect_index/bomb_reg/D |
++---------------------+------------------------+-------------------------------------+
 
 File with complete list of pins: tight_setup_hold_pins.txt
 
@@ -1470,72 +1294,74 @@ File with complete list of pins: tight_setup_hold_pins.txt
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 147
- Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 198
+ Number of Nodes with overlaps = 10
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.074| TNS=-362.931| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.165| TNS=-363.985| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 24dbdef5b
+Phase 4.1 Global Iteration 0 | Checksum: 20509892c
 
-Time (s): cpu = 00:00:19 ; elapsed = 00:00:14 . Memory (MB): peak = 3392.598 ; gain = 107.426 ; free physical = 7618 ; free virtual = 18371
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 3389.625 ; gain = 105.430 ; free physical = 7333 ; free virtual = 18119
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 45
+ Number of Nodes with overlaps = 33
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-22.104| TNS=-347.307| WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-22.101| TNS=-352.463| WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: a40d631e
+Phase 4.2 Global Iteration 1 | Checksum: 16075ffbb
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7603 ; free virtual = 18356
-Phase 4 Rip-up And Reroute | Checksum: a40d631e
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7328 ; free virtual = 18113
+Phase 4 Rip-up And Reroute | Checksum: 16075ffbb
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7603 ; free virtual = 18356
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7328 ; free virtual = 18113
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 90d5c9fb
+Phase 5.1.1 Update Timing | Checksum: 18608d400
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7604 ; free virtual = 18358
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.074| TNS=-362.931| WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7328 ; free virtual = 18113
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.165| TNS=-362.919| WHS=N/A    | THS=N/A    |
 
  Number of Nodes with overlaps = 0
-Phase 5.1 Delay CleanUp | Checksum: ffc2061e
+Phase 5.1 Delay CleanUp | Checksum: 22577c9cc
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7604 ; free virtual = 18357
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: ffc2061e
+Phase 5.2 Clock Skew Optimization | Checksum: 22577c9cc
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7604 ; free virtual = 18357
-Phase 5 Delay and Skew Optimization | Checksum: ffc2061e
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
+Phase 5 Delay and Skew Optimization | Checksum: 22577c9cc
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7604 ; free virtual = 18357
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 13087d0e5
+Phase 6.1.1 Update Timing | Checksum: 2142537d9
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7605 ; free virtual = 18359
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.074| TNS=-359.369| WHS=0.109  | THS=0.000  |
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-21.125| TNS=-354.884| WHS=0.125  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 13087d0e5
+Phase 6.1 Hold Fix Iter | Checksum: 2142537d9
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7605 ; free virtual = 18359
-Phase 6 Post Hold Fix | Checksum: 13087d0e5
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
+Phase 6 Post Hold Fix | Checksum: 2142537d9
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7605 ; free virtual = 18359
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.446783 %
-  Global Horizontal Routing Utilization  = 0.478527 %
+  Global Vertical Routing Utilization    = 0.51439 %
+  Global Horizontal Routing Utilization  = 0.532275 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -1546,10 +1372,10 @@ Router Utilization Summary
   Number of Node Overlaps             = 0
 
 Congestion Report
-North Dir 1x1 Area, Max Cong = 32.4324%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 36.9369%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 36.7647%, No Congested Regions.
-West Dir 1x1 Area, Max Cong = 25%, No Congested Regions.
+North Dir 1x1 Area, Max Cong = 36.9369%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 31.5315%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 38.2353%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 35.2941%, No Congested Regions.
 
 ------------------------------
 Reporting congestion hotspots
@@ -1571,45 +1397,45 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 7 Route finalize | Checksum: 1c1c71634
+Phase 7 Route finalize | Checksum: 2031f0a66
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7605 ; free virtual = 18359
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7327 ; free virtual = 18113
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 1c1c71634
+Phase 8 Verifying routed nets | Checksum: 2031f0a66
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 3413.598 ; gain = 128.426 ; free physical = 7604 ; free virtual = 18358
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 3398.625 ; gain = 114.430 ; free physical = 7324 ; free virtual = 18110
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 117062e23
+Phase 9 Depositing Routes | Checksum: 1415b1412
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 3461.617 ; gain = 176.445 ; free physical = 7598 ; free virtual = 18352
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 3446.645 ; gain = 162.449 ; free physical = 7323 ; free virtual = 18109
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=-21.074| TNS=-359.369| WHS=0.109  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-21.125| TNS=-354.884| WHS=0.125  | THS=0.000  |
 
 WARNING: [Route 35-328] Router estimated timing not met.
 Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
-Phase 10 Post Router Timing | Checksum: 117062e23
+Phase 10 Post Router Timing | Checksum: 1415b1412
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 3461.617 ; gain = 176.445 ; free physical = 7594 ; free virtual = 18347
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 3446.645 ; gain = 162.449 ; free physical = 7323 ; free virtual = 18109
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:26 ; elapsed = 00:00:19 . Memory (MB): peak = 3461.617 ; gain = 176.445 ; free physical = 7638 ; free virtual = 18392
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 3446.645 ; gain = 162.449 ; free physical = 7364 ; free virtual = 18150
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-318 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+244 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:20 . Memory (MB): peak = 3461.617 ; gain = 176.445 ; free physical = 7638 ; free virtual = 18392
+route_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:17 . Memory (MB): peak = 3446.645 ; gain = 162.449 ; free physical = 7365 ; free virtual = 18151
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.62 ; elapsed = 00:00:00.54 . Memory (MB): peak = 3461.617 ; gain = 0.000 ; free physical = 7648 ; free virtual = 18405
+Write XDEF Complete: Time (s): cpu = 00:00:00.65 ; elapsed = 00:00:00.58 . Memory (MB): peak = 3446.645 ; gain = 0.000 ; free physical = 7358 ; free virtual = 18148
 INFO: [Common 17-1381] The checkpoint '/home/student/wmiskowicz/Projekt/Ver4_1/Saper_game/fpga/build/vga_project.runs/impl_1/top_vga_basys3_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file top_vga_basys3_drc_routed.rpt -pb top_vga_basys3_drc_routed.pb -rpx top_vga_basys3_drc_routed.rpx
 Command: report_drc -file top_vga_basys3_drc_routed.rpt -pb top_vga_basys3_drc_routed.pb -rpx top_vga_basys3_drc_routed.rpx
@@ -1629,7 +1455,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-330 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+256 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file top_vga_basys3_route_status.rpt -pb top_vga_basys3_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file top_vga_basys3_timing_summary_routed.rpt -pb top_vga_basys3_timing_summary_routed.pb -rpx top_vga_basys3_timing_summary_routed.rpx -warn_on_violation 
@@ -1662,9 +1488,9 @@ INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Common 17-83] Releasing license: Implementation
 11 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 3668.113 ; gain = 187.496 ; free physical = 7619 ; free virtual = 18378
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 13:20:34 2023...
-[Sun Jun 25 13:20:39 2023] impl_1 finished
-wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:01:30 . Memory (MB): peak = 2715.801 ; gain = 0.000 ; free physical = 9142 ; free virtual = 19900
+write_bitstream: Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 3670.570 ; gain = 200.434 ; free physical = 7321 ; free virtual = 18116
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 14:17:11 2023...
+[Sun Jun 25 14:17:11 2023] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:01:40 ; elapsed = 00:01:24 . Memory (MB): peak = 2715.805 ; gain = 0.000 ; free physical = 8846 ; free virtual = 19640
 # exit
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 13:20:39 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 14:17:11 2023...

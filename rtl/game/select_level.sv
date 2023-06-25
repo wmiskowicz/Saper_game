@@ -4,7 +4,7 @@
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-12
  Coding style: safe with FPGA sync reset
- Description:  Selects difficulty level
+ Description:  Selects difficulty level of the game
  */
 //////////////////////////////////////////////////////////////////////////////
  module select_level
@@ -109,7 +109,7 @@
             CHOSE_LEVEL: begin
                 
                 if(level == 3)begin
-                    mines_nxt    = 6'd50;
+                    mines_nxt    = 6'd60;
                     button_num_nxt = 5'd16;
                     board_size_nxt = 10'd640;
                     board_xpos_nxt = 11'd400;

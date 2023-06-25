@@ -1,10 +1,10 @@
 `timescale 1 ns / 1ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   Counter
+ Module name:   dim_counter
  Author:        Wojciech Miskowicz
- Last modified: 2023-06-17
- Description:  Counts to wanted value when posedge on 'counting' detected
+ Last modified: 2023-06-25
+ Description:  Counts dim_size x dim_size array. When done returns done_counting = '1
  */
 //////////////////////////////////////////////////////////////////////////////
 module dim_counter

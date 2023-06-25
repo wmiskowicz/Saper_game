@@ -11,14 +11,14 @@ module mine_board
     (
     input wire clk,
     input wire rst,
+    input wire [1:0] level,
     input wire [5:0] mines,
     input wire [4:0] dimension_size,
-    output reg array_easy [7:0] [7:0],
-    output reg array_medium [9:0] [9:0],
-    output reg array_hard [15:0] [15:0]
+    output reg array_easy_out [7:0] [7:0],
+    output reg array_medium_out [9:0] [9:0],
+    output reg array_hard_out [15:0] [15:0]
     );
-    //Local parameters
-    
+   
 
     //Local variables
     int x_rst, y_rst;
@@ -27,26 +27,41 @@ module mine_board
     reg data_nxt, data_prev, random_data;
     reg [5:0] mines_ctr, mines_ctr_nxt, mines_left;
 
+    //Signal assignments
     assign mines_left = mines - mines_ctr;
     assign random_data = x_out % 2;
 
-
+    //Module logic
     
     always_ff @(posedge clk) begin
         if (rst) begin
-            for(x_rst = 0; x_rst < dimension_size; x_rst++) begin
-                for (y_rst = 0; y_rst < dimension_size; y_rst++) begin
-                    array_easy [x_rst] [y_rst] <= '0;
-                    array_medium [x_rst] [y_rst] <= '0;
-                    array_hard [x_rst] [y_rst] <= '0;
+            for(x_rst = 0; x_rst < 8; x_rst++) begin
+                for (y_rst = 0; y_rst < 8; y_rst++) begin
+                    array_easy_out [x_rst] [y_rst] <= '0;
+                end
+            end
+            for(x_rst = 0; x_rst < 10; x_rst++) begin
+                for (y_rst = 0; y_rst < 10; y_rst++) begin
+                    array_medium_out [x_rst] [y_rst] <= '0;
+                end
+            end
+            for(x_rst = 0; x_rst < 16; x_rst++) begin
+                for (y_rst = 0; y_rst < 16; y_rst++) begin
+                    array_hard_out [x_rst] [y_rst] <= '0;
                 end
             end
             mines_ctr <= '0;
         end
         else if(~done_counting) begin
-            array_easy [x_out] [y_out] <= data_nxt;
-            array_medium [x_out] [y_out] <= data_nxt;
-            array_hard [x_out] [y_out] <= data_nxt;
+            if(level == 3)begin
+                array_hard_out [x_out] [y_out] <= data_nxt;
+            end
+            else if(level == 2)begin
+                array_medium_out [x_out] [y_out] <= data_nxt;
+            end
+            else begin
+                array_easy_out [x_out] [y_out] <= data_nxt;
+            end
             mines_ctr <= mines_ctr_nxt;
         end
     end
@@ -69,7 +84,7 @@ module mine_board
                
     end
     
-    dim_counter u_xdim_ctr(
+    dim_counter array_dim_ctr(
         .clk,
         .rst,
         .dimension_size(dimension_size),

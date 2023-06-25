@@ -3,7 +3,7 @@
 /*
  Module name:   Counter
  Author:        Wojciech Miskowicz
- Last modified: 2023-06-17
+ Last modified: 2023-06-25
  Description:  Counts to wanted value when posedge on 'counting' detected
  */
 //////////////////////////////////////////////////////////////////////////////
@@ -16,11 +16,9 @@ module counter#(
     input wire counting,
     input wire [DATA_SIZE-1:0] max,
     output reg [DATA_SIZE-1:0] ctr_out
-    //output wire done
     );
     
     logic [DATA_SIZE-1:0] ctr_nxt;
-    //assign done = (ctr_out >= max);
     
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -39,6 +37,9 @@ module counter#(
             else begin
                 ctr_nxt <= 0;    
             end
+        end
+        else begin
+            ctr_nxt <= ctr_out;
         end
     end
  

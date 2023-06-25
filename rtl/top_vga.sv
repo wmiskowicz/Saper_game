@@ -208,11 +208,12 @@ detect_index u_detect_index(
  mine_board u_mine_board(
    .clk,
    .rst,
+   .level(game_level_latch),
    .mines(mines_latch),
    .dimension_size(game_enable_if.button_num),
-   .array_easy(array_easy),
-   .array_medium(array_medium),
-   .array_hard(array_hard)
+   .array_easy_out(array_easy),
+   .array_medium_out(array_medium),
+   .array_hard_out(array_hard)
  );
 
  mine_check u_mine_check(
@@ -223,9 +224,9 @@ detect_index u_detect_index(
    .flag(flag),
    .bomb(bomb),
    .level(game_level_latch),
-   .array_easy(array_easy),
-   .array_medium(array_medium),
-   .array_hard(array_hard),
+   .array_easy_in(array_easy),
+   .array_medium_in(array_medium),
+   .array_hard_in(array_hard),
    .explode(explode),
    .mark_flag(mark_flag)
  );

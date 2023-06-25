@@ -13,9 +13,9 @@ module mine_check
     input wire rst,
     input wire [4:0] button_ind_x_in,
     input wire [4:0] button_ind_y_in,
-    input wire array_easy [7:0] [7:0],
-    input wire array_medium [9:0] [9:0],
-    input wire array_hard [15:0] [15:0],
+    input wire array_easy_in [7:0] [7:0],
+    input wire array_medium_in [9:0] [9:0],
+    input wire array_hard_in [15:0] [15:0],
     input wire flag, bomb,
     input wire [1:0] level, 
 
@@ -64,7 +64,7 @@ module mine_check
             button_ind_y_nxt = button_ind_y_in;
             mark_flag_nxt = '0;
             if(level == 3) begin
-                if(array_hard[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                if(array_hard_in[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
                     explode_nxt = '1;
                 end
                 else begin
@@ -72,7 +72,7 @@ module mine_check
                 end
             end
             else if(level == 2) begin
-                if(array_medium[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                if(array_medium_in[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
                     explode_nxt = '1;
                 end
                 else begin
@@ -80,7 +80,7 @@ module mine_check
                 end
             end
             else begin
-                if(array_easy[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
+                if(array_easy_in[button_ind_y_nxt] [button_ind_x_nxt] == '1)begin
                     explode_nxt = '1;
                 end
                 else begin
