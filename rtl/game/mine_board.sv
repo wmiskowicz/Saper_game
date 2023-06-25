@@ -21,7 +21,7 @@ module mine_board
     
 
     //Local variables
-    int x_dim, y_dim;
+    int x_rst, y_rst;
     logic [5:0] x_out, y_out;
     wire done_counting;
     reg data_nxt, data_prev, random_data;
@@ -30,22 +30,23 @@ module mine_board
     assign mines_left = mines - mines_ctr;
     assign random_data = x_out % 2;
 
+
     
     always_ff @(posedge clk) begin
         if (rst) begin
-            for(x_dim = 0; x_dim < 5; x_dim++) begin
-                for (y_dim = 0; y_dim < 5; y_dim++) begin
-                    array_easy [x_dim] [y_dim] <= '0;
-                    array_medium [x_dim] [y_dim] <= '0;
-                    array_hard [x_dim] [y_dim] <= '0;
+            for(x_rst = 0; x_rst < dimension_size; x_rst++) begin
+                for (y_rst = 0; y_rst < dimension_size; y_rst++) begin
+                    array_easy [x_rst] [y_rst] <= '0;
+                    array_medium [x_rst] [y_rst] <= '0;
+                    array_hard [x_rst] [y_rst] <= '0;
                 end
             end
             mines_ctr <= '0;
         end
         else if(~done_counting) begin
             array_easy [x_out] [y_out] <= data_nxt;
-            array_medium [x_dim] [y_dim] <= data_nxt;
-            array_hard [x_dim] [y_dim] <= data_nxt;
+            array_medium [x_out] [y_out] <= data_nxt;
+            array_hard [x_out] [y_out] <= data_nxt;
             mines_ctr <= mines_ctr_nxt;
         end
     end
@@ -76,17 +77,6 @@ module mine_board
         .y_out(y_out),
         .done_counting(done_counting)  
     );
-
-    
-/*
-    counter u_counter(
-        .clk,
-        .rst,
-        .counting(),
-        .max(),
-        .ctr_out()
-    );*/
-
  
  endmodule
     
