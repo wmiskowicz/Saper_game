@@ -14,9 +14,10 @@ module mine_board
     input wire [1:0] level,
     input wire [5:0] mines,
     input wire [4:0] dimension_size,
-    output reg array_easy_out [7:0] [7:0],
-    output reg array_medium_out [9:0] [9:0],
-    output reg array_hard_out [15:0] [15:0]
+    input wire random_data,
+    output logic array_easy_out [7:0] [7:0],
+    output logic array_medium_out [9:0] [9:0],
+    output logic array_hard_out [15:0] [15:0]
     );
    
 
@@ -24,12 +25,11 @@ module mine_board
     int x_rst, y_rst;
     logic [5:0] x_out, y_out;
     wire done_counting;
-    reg data_nxt, data_prev, random_data;
+    reg data_nxt, data_prev;
     reg [5:0] mines_ctr, mines_ctr_nxt, mines_left;
 
     //Signal assignments
     assign mines_left = mines - mines_ctr;
-    assign random_data = x_out % 2;
 
     //Module logic
     

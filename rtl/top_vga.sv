@@ -45,6 +45,7 @@
  wire draw_button, done_x, done_y, enable_game, level_enable;
  wire explode, mark_flag;
  wire bomb, flag, left, right;
+ wire random_data;
 
  wire array_easy [7:0] [7:0];
  wire array_medium [9:0] [9:0];
@@ -205,9 +206,16 @@ detect_index u_detect_index(
 
 );
 
+ random_gen u_random_gen(
+   .clk,
+   .rst,
+   .random_data(random_data)
+ );
+
  mine_board u_mine_board(
    .clk,
    .rst,
+   .random_data(random_data),
    .level(game_level_latch),
    .mines(mines_latch),
    .dimension_size(game_enable_if.button_num),

@@ -48,6 +48,7 @@ set sv_files {
     ../rtl/game/mine_board.sv
     ../rtl/game/mine_check.sv
     ../rtl/game/dim_counter.sv
+    ../rtl/game/random_gen.sv
     ../rtl/mouse/draw_mouse.sv
     ../rtl/mouse/synchr.sv
     rtl/top_vga_basys3.sv

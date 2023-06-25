@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-06-25 14:17:22
+Created: 2023-06-25 15:14:35
 
 ----SYNTHESIS----
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
@@ -10,7 +10,7 @@ WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.
 WARNING: [Synth 8-5856] 3D RAM array_easy_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM array_medium_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM array_hard_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [rtl/top_vga.sv:243]
+WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [rtl/top_vga.sv:251]
 WARNING: [Synth 8-3848] Net pclk in module/entity top_vga_basys3 does not have driver. [fpga/rtl/top_vga_basys3.sv:43]
 WARNING: [Synth 8-7129] Port dp_in[3] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnected or has no load
