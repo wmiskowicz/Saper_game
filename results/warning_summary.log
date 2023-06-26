@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-06-25 15:14:35
+Created: 2023-06-27 00:01:10
 
 ----SYNTHESIS----
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
@@ -10,18 +10,68 @@ WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.
 WARNING: [Synth 8-5856] 3D RAM array_easy_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM array_medium_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM array_hard_out_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [rtl/top_vga.sv:251]
+WARNING: [Synth 8-689] width (12) of port connection 'mouse_xpos' does not match port width (11) of module 'top_mine' [rtl/top_vga.sv:128]
+WARNING: [Synth 8-689] width (12) of port connection 'mouse_ypos' does not match port width (11) of module 'top_mine' [rtl/top_vga.sv:129]
+WARNING: [Synth 8-689] width (7) of port connection 'sseg' does not match port width (8) of module 'disp_hex_mux' [rtl/top_vga.sv:153]
+WARNING: [Synth 8-3848] Net button_index_x in module/entity top_vga does not have driver. [rtl/top_vga.sv:43]
+WARNING: [Synth 8-3848] Net button_index_y in module/entity top_vga does not have driver. [rtl/top_vga.sv:43]
 WARNING: [Synth 8-3848] Net pclk in module/entity top_vga_basys3 does not have driver. [fpga/rtl/top_vga_basys3.sv:43]
 WARNING: [Synth 8-7129] Port dp_in[3] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[4] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[3] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[2] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[1] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[0] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[9] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[8] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[7] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[6] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[5] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[4] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[3] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[2] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[1] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[0] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mark_flag in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[1] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[0] in module draw_flag is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[1] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[0] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port explode in module top_redraw_board is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-7129] Port dp_in[3] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[2] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[4] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[3] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[2] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[1] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.button_num[0] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[9] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[8] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[7] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[6] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[5] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[4] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[3] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[2] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[1] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gin\.board_size[0] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[1] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port level[0] in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port explode in module top_redraw_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port mark_flag in module top_redraw_board is either unconnected or has no load
 
 ----IMPLEMENTATION----
 WARNING: [Route 35-328] Router estimated timing not met.
 CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0 input u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0 input u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0 output u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0 output u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0 multiplier stage u_top_vga/u_redraw_board/u_draw_flag/rect_xpos0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0 multiplier stage u_top_vga/u_redraw_board/u_draw_flag/rect_ypos0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.

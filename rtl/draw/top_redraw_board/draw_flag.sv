@@ -20,8 +20,8 @@ logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 
 //************LOCAL PARAMETERS*****************
-assign rect_xpos = gin.board_xpos; // + flag_ind_x * gin.button_size;
-assign rect_ypos = gin.board_ypos; // + flag_ind_y * gin.button_size;
+assign rect_xpos = gin.board_xpos + (flag_ind_x-1) * gin.button_size;
+assign rect_ypos = gin.board_ypos + (flag_ind_y-1) * gin.button_size;
 
 
 assign mid_x = gin.button_size/2;
@@ -51,7 +51,7 @@ assign cur_ypos = in.vcount - rect_ypos;
 
  always_comb begin : flag_comb_blk
  
-    if((cur_xpos < mid_x) && (cur_ypos < 0.7*cur_xpos + 5) && (cur_ypos > (-0.7*cur_xpos+gin.button_size/2)))begin
+    if((cur_xpos < mid_x) && (cur_ypos < cur_xpos + 5) && (cur_ypos > (-cur_xpos+gin.button_size/2)))begin
         rgb_nxt = RED;
     end
     else if(((cur_xpos >= mid_x) && (cur_xpos < mid_x+2) && (cur_ypos > 8) && (cur_ypos < gin.button_size-14)) || 

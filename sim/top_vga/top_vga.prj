@@ -25,11 +25,13 @@ sv work ../../rtl/draw/vga_pkg.sv \
         ../../rtl/game/game_set_if.sv \
         ../../rtl/game/top_game_setup/latch.sv \
         ../../rtl/game/top_game_setup/settings_latch.sv \
+        ../../rtl/game/top_mine/top_mine.sv \
         ../../rtl/game/detect_index.sv \
         ../../rtl/game/mine_board.sv \
         ../../rtl/game/dim_counter.sv \
         ../../rtl/game/mine_check.sv \
         ../../rtl/game/random_gen.sv \
+        ../../rtl/mouse/top_mouse.sv \
         ../../rtl/mouse/draw_mouse.sv \
         ../../rtl/mouse/synchr.sv \
         ../../rtl/top_vga.sv \

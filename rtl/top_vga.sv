@@ -40,16 +40,13 @@
  wire [1:0] level, game_level_latch; 
  wire [11:0] mouse_xpos, mouse_ypos;
  wire [5:0] mines_latch;
- wire [4:0] button_index_x, button_index_y;
+ wire [4:0] button_index_x, button_index_y, button_ind_x_out, button_ind_y_out;
+
 
  wire enable_game;
  wire explode, mark_flag;
- wire bomb, flag, left, right;
- wire random_data;
+ wire left, right;
 
- wire array_easy [7:0] [7:0];
- wire array_medium [9:0] [9:0];
- wire array_hard [15:0] [15:0];
  
 
 
@@ -95,8 +92,8 @@
  top_redraw_board u_redraw_board(
   .clk,
   .rst,
-  .flag_ind_x(),
-  .flag_ind_y(),
+  .flag_ind_x(button_ind_x_out),
+  .flag_ind_y(button_ind_y_out),
   .gin(game_enable_if.in),
   .in(board_out_if.in),
   .out(redraw_board_if.out)
@@ -111,82 +108,38 @@
     .out(game_enable_if.out)
  );
 
- draw_mouse u_draw_mouse(
+ top_mouse u_top_mouse(
+    .clk,
+    .clk100MHz,
+    .rst,
     .in(redraw_board_if.in),
     .out(draw_mouse_if.out),
-    .mouse_x_pos(mouse_xpos),
-    .mouse_y_pos(mouse_ypos),
-    .clk,
-    .rst
- );
-
-
- MouseCtl u_MouseCtl(
-    .clk(clk100MHz),
-    .rst(rst),
-    .xpos(mouse_xpos),
-    .ypos(mouse_ypos),
+    .mouse_xpos(mouse_xpos),
+    .mouse_ypos(mouse_ypos),
     .ps2_clk(ps2_clk),
     .ps2_data(ps2_data),
-    .zpos(),
-    .left(left),
-    .middle(),
     .right(right),
-    .new_event(),
-    .value(),
-    .setx(),
-    .sety(),
-    .setmax_x(),
-    .setmax_y()
+    .left(left)
  );
 
-detect_index u_detect_index(
+top_mine u_top_mine(
    .clk,
    .rst,
    .mouse_xpos(mouse_xpos),
    .mouse_ypos(mouse_ypos),
+   .level(game_level_latch),
    .left(left),
    .right(right),
-   .button_index_x(button_index_x),
-   .button_index_y(button_index_y),
-   .bomb(bomb),
-   .flag(flag),
-   .in(game_enable_if.in)
+   .mines(mines_latch),
+   .button_num(game_enable_if.button_num),
+   .explode(explode),
+   .mark_flag(mark_flag),
+   .button_ind_x_out(button_ind_x_out),
+   .button_ind_y_out(button_ind_y_out),
+   .gin(game_enable_if.in)
 
 );
 
- random_gen u_random_gen(
-   .clk,
-   .rst,
-   .random_data(random_data)
- );
-
- mine_board u_mine_board(
-   .clk,
-   .rst,
-   .random_data(random_data),
-   .level(game_level_latch),
-   .mines(mines_latch),
-   .dimension_size(game_enable_if.button_num),
-   .array_easy_out(array_easy),
-   .array_medium_out(array_medium),
-   .array_hard_out(array_hard)
- );
-
- mine_check u_mine_check(
-   .clk,
-   .rst,
-   .button_ind_x_in(button_index_x),
-   .button_ind_y_in(button_index_y),
-   .flag(flag),
-   .bomb(bomb),
-   .level(game_level_latch),
-   .array_easy_in(array_easy),
-   .array_medium_in(array_medium),
-   .array_hard_in(array_hard),
-   .explode(explode),
-   .mark_flag(mark_flag)
- );
  
  disp_hex_mux u_disp(
     .clk(clk), 

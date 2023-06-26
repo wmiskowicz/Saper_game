@@ -33,22 +33,29 @@ set xdc_files {
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
     ../rtl/draw/vga_pkg.sv
-    ../rtl/draw/vga_timing.sv
-    ../rtl/draw/draw_bg.sv
-    ../rtl/draw/draw_board.sv
-    ../rtl/draw/draw_button.sv
+    ../rtl/draw/colour_pkg.sv
+    ../rtl/draw/top_draw_board/top_draw_board.sv
+    ../rtl/draw/top_draw_board/vga_timing.sv
+    ../rtl/draw/top_draw_board/draw_bg.sv
+    ../rtl/draw/top_draw_board/draw_board.sv
+    ../rtl/draw/top_draw_board/draw_button.sv
+    ../rtl/draw/top_redraw_board/top_redraw_board.sv
+    ../rtl/draw/top_redraw_board/draw_flag.sv
     ../rtl/draw/counter.sv
     ../rtl/top_vga.sv
     ../rtl/draw/vga_if.sv
-    ../rtl/game/select_level.sv
-    ../rtl/game/latch.sv
-    ../rtl/game/settings_latch.sv
+    ../rtl/game/top_game_setup/top_game_setup.sv
+    ../rtl/game/top_game_setup/select_level.sv
+    ../rtl/game/top_game_setup/latch.sv
+    ../rtl/game/top_game_setup/settings_latch.sv
+    ../rtl/game/top_mine/top_mine.sv
     ../rtl/game/game_set_if.sv
     ../rtl/game/detect_index.sv
     ../rtl/game/mine_board.sv
     ../rtl/game/mine_check.sv
     ../rtl/game/dim_counter.sv
     ../rtl/game/random_gen.sv
+    ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
     ../rtl/mouse/synchr.sv
     rtl/top_vga_basys3.sv
