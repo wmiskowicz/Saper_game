@@ -3,11 +3,11 @@
 module draw_flag (
     input wire clk,
     input wire rst,
-    input wire mark_flag,
-    input wire [1:0] level,
-    input wire [4:0] flag_ind_x,
-    input wire [4:0] flag_ind_y,
+    input wire flag_arr_easy [7:0] [7:0],
+    input wire flag_arr_medium [9:0] [9:0],
+    input wire flag_arr_hard [15:0] [15:0],
     game_set_if.in gin,
+    output reg [9:0] board_size,
     vga_if.in in,
     vga_if.out out
 );
@@ -19,9 +19,13 @@ logic [10:0] mid_x;
 logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 
+logic done_x, done_y, done_x_nxt, done_y_nxt;
+logic [4:0] array_vcount, array_hcount;
+logic [4:0] array_vcount_nxt, array_hcount_nxt;
+
 //************LOCAL PARAMETERS*****************
-assign rect_xpos = gin.board_xpos + (flag_ind_x-1) * gin.button_size;
-assign rect_ypos = gin.board_ypos + (flag_ind_y-1) * gin.button_size;
+assign rect_xpos = gin.board_xpos + (array_hcount-1) * gin.button_size;
+assign rect_ypos = gin.board_ypos + (array_vcount-1) * gin.button_size;
 
 
 assign mid_x = gin.button_size/2;
@@ -38,6 +42,11 @@ assign cur_ypos = in.vcount - rect_ypos;
         out.hsync <= '0;
         out.hblnk <= '0;
         out.rgb <= '0;
+        done_x <= '0;
+        done_y <= '0;
+        array_vcount <= '0;
+        array_hcount <= '0;
+        board_size <= '0;
     end else begin
         out.vcount <= in.vcount;
         out.vsync <= in.vsync;
@@ -46,23 +55,61 @@ assign cur_ypos = in.vcount - rect_ypos;
         out.hsync <= in.hsync;
         out.hblnk <= in.hblnk;
         out.rgb <= rgb_nxt;
+        done_x <= done_x_nxt;
+        done_y <= done_y_nxt;
+        array_vcount <= array_vcount_nxt;
+        array_hcount <= array_hcount_nxt;
+        board_size <= gin.board_size;
     end
  end
 
  always_comb begin : flag_comb_blk
- 
-    if((cur_xpos < mid_x) && (cur_ypos < cur_xpos + 5) && (cur_ypos > (-cur_xpos+gin.button_size/2)))begin
-        rgb_nxt = RED;
-    end
-    else if(((cur_xpos >= mid_x) && (cur_xpos < mid_x+2) && (cur_ypos > 8) && (cur_ypos < gin.button_size-14)) || 
-    ((cur_xpos >= mid_x-4) && (cur_xpos < mid_x+6) && (cur_ypos >= gin.button_size-14) && (cur_ypos < gin.button_size-11)) ||
-    ((cur_xpos >= mid_x-8) && (cur_xpos < mid_x+10) && (cur_ypos >= gin.button_size-11) && (cur_ypos < gin.button_size-8))
-    ) begin
-        rgb_nxt = BLACK;
+    if(flag_arr_easy[array_hcount][array_vcount] || flag_arr_medium[array_hcount][array_vcount] ||flag_arr_hard[array_hcount][array_vcount]) begin
+        if((cur_xpos < mid_x) && (cur_ypos < cur_xpos + 5) && (cur_ypos > (-cur_xpos+gin.button_size/2)))begin
+            rgb_nxt = RED;
+        end
+        else if(((cur_xpos >= mid_x) && (cur_xpos < mid_x+2) && (cur_ypos > 8) && (cur_ypos < gin.button_size-14)) || 
+        ((cur_xpos >= mid_x-4) && (cur_xpos < mid_x+6) && (cur_ypos >= gin.button_size-14) && (cur_ypos < gin.button_size-11)) ||
+        ((cur_xpos >= mid_x-8) && (cur_xpos < mid_x+10) && (cur_ypos >= gin.button_size-11) && (cur_ypos < gin.button_size-8))
+        ) begin
+            rgb_nxt = BLACK;
+        end
+        else begin
+            rgb_nxt = in.rgb;
+        end
     end
     else begin
         rgb_nxt = in.rgb;
     end
+
+    if(cur_xpos == gin.button_size) begin
+        done_x_nxt = '1;
+    end
+    else begin
+        done_x_nxt = '0;
+    end
+
+    if(cur_ypos == gin.button_size)begin
+        done_y_nxt = '1;
+    end
+    else begin
+        done_y_nxt = '0;
+    end
  end
+
+ counter y_counter(
+    .clk,
+    .rst,
+    .max(gin.button_num),
+    .ctr_out(array_vcount_nxt),
+    .counting(done_y)
+ );
+    counter x_counter(
+    .clk,
+    .rst,
+    .max(gin.button_num),
+    .ctr_out(array_hcount_nxt),
+    .counting(done_x)
+ );
 
 endmodule

@@ -41,9 +41,12 @@ set sv_files {
     ../rtl/draw/top_draw_board/draw_button.sv
     ../rtl/draw/top_redraw_board/top_redraw_board.sv
     ../rtl/draw/top_redraw_board/draw_flag.sv
+    ../rtl/draw/top_redraw_board/generate_flag_array.sv
+    ../rtl/draw/top_redraw_board/edge_detector.sv
     ../rtl/draw/counter.sv
     ../rtl/top_vga.sv
     ../rtl/draw/vga_if.sv
+    ../rtl/draw/ts_counter.sv
     ../rtl/game/top_game_setup/top_game_setup.sv
     ../rtl/game/top_game_setup/select_level.sv
     ../rtl/game/top_game_setup/latch.sv

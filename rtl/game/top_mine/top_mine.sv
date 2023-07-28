@@ -13,8 +13,8 @@
      input  wire clk,
      input  logic rst,
      input wire [1:0] level,
-     input wire [10:0] mouse_xpos,
-     input wire [10:0] mouse_ypos,
+     input wire [11:0] mouse_xpos,
+     input wire [11:0] mouse_ypos,
      input wire [5:0] mines,
      input wire left, right,
      input wire [4:0] button_num,
@@ -39,8 +39,8 @@
    .mouse_ypos(mouse_ypos),
    .left(left),
    .right(right),
-   .button_index_x(button_index_x),
-   .button_index_y(button_index_y),
+   .button_index_x(button_ind_x_out),
+   .button_index_y(button_ind_y_out),
    .bomb(bomb),
    .flag(flag),
    .in(gin)
@@ -78,8 +78,8 @@
    .array_hard_in(array_hard),
    .explode(explode),
    .mark_flag(mark_flag),
-   .button_ind_x_out(button_ind_x_out),
-   .button_ind_y_out(button_ind_y_out)
+   .button_ind_x_out(),
+   .button_ind_y_out()
  );
 
  endmodule

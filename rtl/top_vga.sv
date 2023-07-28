@@ -40,12 +40,14 @@
  wire [1:0] level, game_level_latch; 
  wire [11:0] mouse_xpos, mouse_ypos;
  wire [5:0] mines_latch;
- wire [4:0] button_index_x, button_index_y, button_ind_x_out, button_ind_y_out;
+ wire [4:0] button_ind_x_out, button_ind_y_out;
 
 
  wire enable_game;
  wire explode, mark_flag;
  wire left, right;
+ wire detected;
+ wire [3:0] ctr_test;
 
  
 
@@ -92,6 +94,9 @@
  top_redraw_board u_redraw_board(
   .clk,
   .rst,
+  .level(game_level_latch),
+  .explode(explode),
+  .mark_flag(mark_flag),
   .flag_ind_x(button_ind_x_out),
   .flag_ind_y(button_ind_y_out),
   .gin(game_enable_if.in),
@@ -140,13 +145,27 @@ top_mine u_top_mine(
 
 );
 
+edge_detector u_edge_detector(
+    .clk,
+    .rst,
+    .signal(mark_flag),
+    .detected(detected)
+ );
+
+ ts_counter u_ts_counter(
+   .clk,
+   .rst,
+   .counting(detected),
+   .max(4'd6),
+   .ctr_out(ctr_test)
+ );
  
  disp_hex_mux u_disp(
     .clk(clk), 
     .reset(rst),
-    .hex3(button_index_x[3:0]), 
-    .hex2(button_index_y[3:0]), 
-    .hex1(explode), 
+    .hex3(button_ind_x_out[3:0]), 
+    .hex2(button_ind_y_out[3:0]), 
+    .hex1(ctr_test), 
     .hex0(mark_flag),
     .dp_in(4'b1011), 
     .an(an), 
