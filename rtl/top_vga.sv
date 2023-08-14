@@ -42,9 +42,13 @@
  wire [5:0] mines_latch;
  wire [4:0] button_ind_x_out, button_ind_y_out;
 
+ wire [7:0] [7:0] mine_arr_easy;
+ wire [9:0] [9:0] mine_arr_medium;
+ wire [15:0] [15:0] mine_arr_hard;
+
 
  wire enable_game;
- wire explode, mark_flag;
+ wire explode, mark_flag, defuse;
  wire left, right;
  wire detected;
  wire [3:0] ctr_test;
@@ -95,10 +99,14 @@
   .clk,
   .rst,
   .level(game_level_latch),
-  .explode(explode),
-  .mark_flag(mark_flag),
-  .flag_ind_x(button_ind_x_out),
-  .flag_ind_y(button_ind_y_out),
+  .explode,
+  .mark_flag,
+  .defuse,
+  .symbol_ind_x(button_ind_x_out),
+  .symbol_ind_y(button_ind_y_out),
+  .mine_arr_easy,
+  .mine_arr_medium,
+  .mine_arr_hard,
   .gin(game_enable_if.in),
   .in(board_out_if.in),
   .out(redraw_board_if.out)
@@ -130,17 +138,21 @@
 top_mine u_top_mine(
    .clk,
    .rst,
-   .mouse_xpos(mouse_xpos),
-   .mouse_ypos(mouse_ypos),
+   .mouse_xpos,
+   .mouse_ypos,
    .level(game_level_latch),
-   .left(left),
-   .right(right),
+   .left,
+   .right,
    .mines(mines_latch),
    .button_num(game_enable_if.button_num),
-   .explode(explode),
-   .mark_flag(mark_flag),
-   .button_ind_x_out(button_ind_x_out),
-   .button_ind_y_out(button_ind_y_out),
+   .explode,
+   .mark_flag,
+   .defuse,
+   .button_ind_x_out,
+   .button_ind_y_out,
+   .mine_arr_easy,
+   .mine_arr_medium,
+   .mine_arr_hard,
    .gin(game_enable_if.in)
 
 );
@@ -166,7 +178,7 @@ edge_detector u_edge_detector(
     .hex3(button_ind_x_out[3:0]), 
     .hex2(button_ind_y_out[3:0]), 
     .hex1(ctr_test), 
-    .hex0(mark_flag),
+    .hex0(defuse),
     .dp_in(4'b1011), 
     .an(an), 
     .sseg(sseg)

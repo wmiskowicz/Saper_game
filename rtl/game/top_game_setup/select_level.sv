@@ -142,7 +142,7 @@
                 end
                 level_enable_nxt = '1;
             end
-            DISABLE: begin //bypasess following signals
+            DISABLE: begin 
                 level_enable_nxt = '0;
                 mines_nxt = 6'b0;
                 button_num_nxt = 5'b0;

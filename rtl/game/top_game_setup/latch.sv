@@ -19,13 +19,13 @@
     );
 
 
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk) begin
         if(rst)begin
             Data_out <= '0;
         end
         else begin
             if(enable) begin
-            Data_out <= Data_in;
+                Data_out <= Data_in;
             end
         end
     end

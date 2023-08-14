@@ -15,14 +15,13 @@ module mine_board
     input wire [5:0] mines,
     input wire [4:0] dimension_size,
     input wire random_data,
-    output logic array_easy_out [7:0] [7:0],
-    output logic array_medium_out [9:0] [9:0],
-    output logic array_hard_out [15:0] [15:0]
+    output logic [7:0] [7:0] array_easy_out,
+    output logic [9:0] [9:0] array_medium_out,
+    output logic [15:0] [15:0] array_hard_out
     );
    
 
     //Local variables
-    int x_rst, y_rst;
     logic [5:0] x_out, y_out;
     wire done_counting;
     reg data_nxt, data_prev;
@@ -35,33 +34,15 @@ module mine_board
     
     always_ff @(posedge clk) begin
         if (rst) begin
-            for(x_rst = 0; x_rst < 8; x_rst++) begin
-                for (y_rst = 0; y_rst < 8; y_rst++) begin
-                    array_easy_out [x_rst] [y_rst] <= '0;
-                end
-            end
-            for(x_rst = 0; x_rst < 10; x_rst++) begin
-                for (y_rst = 0; y_rst < 10; y_rst++) begin
-                    array_medium_out [x_rst] [y_rst] <= '0;
-                end
-            end
-            for(x_rst = 0; x_rst < 16; x_rst++) begin
-                for (y_rst = 0; y_rst < 16; y_rst++) begin
-                    array_hard_out [x_rst] [y_rst] <= '0;
-                end
-            end
+            array_easy_out <= '0;
+            array_medium_out <= '0;
+            array_hard_out <= '0;    
             mines_ctr <= '0;
         end
-        else if(~done_counting) begin
-            if(level == 3)begin
-                array_hard_out [x_out] [y_out] <= data_nxt;
-            end
-            else if(level == 2)begin
-                array_medium_out [x_out] [y_out] <= data_nxt;
-            end
-            else begin
-                array_easy_out [x_out] [y_out] <= data_nxt;
-            end
+        else if(~done_counting && level > 0) begin
+            array_hard_out [x_out] [y_out] <= data_nxt;
+            array_medium_out [x_out] [y_out] <= data_nxt;
+            array_easy_out [x_out] [y_out] <= data_nxt;
             mines_ctr <= mines_ctr_nxt;
         end
     end

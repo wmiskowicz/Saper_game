@@ -3,9 +3,9 @@
 module draw_flag (
     input wire clk,
     input wire rst,
-    input wire flag_arr_easy [7:0] [7:0],
-    input wire flag_arr_medium [9:0] [9:0],
-    input wire flag_arr_hard [15:0] [15:0],
+    input wire  [7:0] [7:0] flag_arr_easy,
+    input wire  [9:0] [9:0] flag_arr_medium,
+    input wire  [15:0] [15:0] flag_arr_hard,
     game_set_if.in gin,
     output reg [9:0] board_size,
     vga_if.in in,
@@ -97,19 +97,19 @@ assign cur_ypos = in.vcount - rect_ypos;
     end
  end
 
- counter y_counter(
+ edge_ctr y_counter(
     .clk,
     .rst,
     .max(gin.button_num),
     .ctr_out(array_vcount_nxt),
-    .counting(done_y)
+    .signal(done_y)
  );
-    counter x_counter(
+ edge_ctr x_counter(
     .clk,
     .rst,
     .max(gin.button_num),
     .ctr_out(array_hcount_nxt),
-    .counting(done_x)
+    .signal(done_x)
  );
 
 endmodule

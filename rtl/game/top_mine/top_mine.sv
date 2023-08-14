@@ -18,31 +18,40 @@
      input wire [5:0] mines,
      input wire left, right,
      input wire [4:0] button_num,
-     output logic explode, mark_flag,
+     output logic explode, mark_flag, defuse,
      output logic [4:0] button_ind_x_out,
      output logic [4:0] button_ind_y_out,
+     output reg [7:0] [7:0] mine_arr_easy,
+     output reg [9:0] [9:0] mine_arr_medium,
+     output reg [15:0] [15:0] mine_arr_hard,
      game_set_if.in gin
  );
 
- wire array_easy [7:0] [7:0];
- wire array_medium [9:0] [9:0];
- wire array_hard [15:0] [15:0];
+ wire [7:0] [7:0] array_easy;
+ wire [9:0] [9:0] array_medium;
+ wire [15:0] [15:0] array_hard;
 
  wire [4:0] button_index_x, button_index_y;
  wire bomb, flag, random_data;
 
+ assign button_ind_x_out = button_index_x;
+ assign button_ind_y_out = button_index_y;
+
+ assign mine_arr_easy = array_easy;
+ assign mine_arr_medium = array_medium;
+ assign mine_arr_hard = array_hard;
 
  detect_index u_detect_index(
    .clk,
    .rst,
-   .mouse_xpos(mouse_xpos),
-   .mouse_ypos(mouse_ypos),
-   .left(left),
-   .right(right),
-   .button_index_x(button_ind_x_out),
-   .button_index_y(button_ind_y_out),
-   .bomb(bomb),
-   .flag(flag),
+   .mouse_xpos,
+   .mouse_ypos,
+   .left,
+   .right,
+   .button_index_x,
+   .button_index_y,
+   .bomb,
+   .flag,
    .in(gin)
 
 );
@@ -50,15 +59,15 @@
  random_gen u_random_gen(
    .clk,
    .rst,
-   .random_data(random_data)
+   .random_data
  );
 
  mine_board u_mine_board(
    .clk,
    .rst,
-   .random_data(random_data),
-   .level(level),
-   .mines(mines),
+   .random_data,
+   .level,
+   .mines,
    .dimension_size(button_num),
    .array_easy_out(array_easy),
    .array_medium_out(array_medium),
@@ -70,16 +79,15 @@
    .rst,
    .button_ind_x_in(button_index_x),
    .button_ind_y_in(button_index_y),
-   .flag(flag),
-   .bomb(bomb),
-   .level(level),
+   .flag,
+   .bomb,
+   .level,
    .array_easy_in(array_easy),
    .array_medium_in(array_medium),
    .array_hard_in(array_hard),
-   .explode(explode),
-   .mark_flag(mark_flag),
-   .button_ind_x_out(),
-   .button_ind_y_out()
+   .explode,
+   .defuse,
+   .mark_flag
  );
 
  endmodule
