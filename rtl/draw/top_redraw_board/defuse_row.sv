@@ -14,8 +14,10 @@ module defuse_row
     input wire [1:0] level,
     input wire defuse,
     input wire [4:0] button_num,
-    input wire [4:0] defuse_ind_x,
-    input wire [4:0] defuse_ind_y,
+    input wire [4:0] ind_x_trans,
+    input wire [4:0] ind_y_trans,
+    input wire [4:0] arr_x_refresh,
+    input wire [4:0] arr_y_refresh,
     input wire [7:0] [7:0] mine_arr_easy,
     input wire [9:0] [9:0] mine_arr_medium,
     input wire [15:0] [15:0] mine_arr_hard,
@@ -27,13 +29,6 @@ module defuse_row
 
     //Local variables
     logic [4:0] arr_hcount_r, arr_hcount_l;
-    logic [4:0] arr_x_refresh, arr_y_refresh;
-    logic [4:0] arr_x_refresh_nxt, arr_y_refresh_nxt;
-
-    wire [4:0] ind_x_trans, ind_y_trans;
-
-    assign ind_x_trans = defuse_ind_x - 1;
-    assign ind_y_trans = defuse_ind_y - 1;
    
 
     //Module logic
@@ -42,15 +37,11 @@ module defuse_row
         if (rst) begin
             arr_hcount_r <= '0;
             arr_hcount_l <= '0;
-            arr_x_refresh <= '0;
-            arr_y_refresh <= '0;
             defuse_arr_easy <= '0;
             defuse_arr_medium <= '0;
             defuse_arr_hard <= '0;
         end
         else begin
-            arr_x_refresh <= arr_x_refresh_nxt;
-            arr_y_refresh <= arr_y_refresh_nxt;
             if(defuse && level > 0)begin
                 
                 if((~mine_arr_easy[ind_x_trans - arr_hcount_l][ind_y_trans] || ~mine_arr_medium[ind_x_trans - arr_hcount_l][ind_y_trans] 
@@ -84,27 +75,6 @@ module defuse_row
     end
 
     
-
-    always_comb begin: refresh_ctr_comb_blk
-        if(arr_x_refresh == button_num && level > 0)begin
-            arr_x_refresh_nxt = '0;
-        end
-        else begin
-            arr_x_refresh_nxt = arr_x_refresh + 1;
-        end
-
-        if(arr_x_refresh == button_num && level > 0) begin
-            if (arr_y_refresh==button_num)begin
-                arr_y_refresh_nxt = '0;
-            end
-            else begin
-                arr_y_refresh_nxt = arr_y_refresh + 1;
-            end
-          end
-        else begin
-            arr_y_refresh_nxt = arr_y_refresh;
-        end
-    end
  
  endmodule
     

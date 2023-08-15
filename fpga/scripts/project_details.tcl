@@ -46,6 +46,9 @@ set sv_files {
     ../rtl/draw/top_redraw_board/draw_mine.sv
     ../rtl/draw/top_redraw_board/generate_flag_array.sv
     ../rtl/draw/top_redraw_board/generate_defuse_array.sv
+    ../rtl/draw/top_redraw_board/defuse_row.sv \
+    ../rtl/draw/top_redraw_board/defuse_column.sv \
+    ../rtl/draw/top_redraw_board/array_timing.sv \
     ../rtl/draw/edge_ctr/edge_detector.sv
     ../rtl/draw/edge_ctr/edge_ctr.sv
     ../rtl/draw/edge_ctr/ts_counter.sv

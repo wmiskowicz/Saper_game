@@ -26,6 +26,9 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_redraw_board/draw_mine.sv \
         ../../rtl/draw/top_redraw_board/generate_flag_array.sv \
         ../../rtl/draw/top_redraw_board/generate_defuse_array.sv \
+        ../../rtl/draw/top_redraw_board/defuse_row.sv \
+        ../../rtl/draw/top_redraw_board/defuse_column.sv \
+        ../../rtl/draw/top_redraw_board/array_timing.sv \
         ../../rtl/game/top_game_setup/top_game_setup.sv \
         ../../rtl/game/top_game_setup/select_level.sv \
         ../../rtl/game/game_set_if.sv \

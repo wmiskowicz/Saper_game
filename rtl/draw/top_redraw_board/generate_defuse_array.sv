@@ -28,8 +28,7 @@ module generate_defuse_array
     //Local variables
     logic [4:0] arr_hcount_r, arr_vcount_up;
     logic [4:0] arr_hcount_l;
-    logic [4:0] arr_x_refresh, arr_y_refresh;
-    logic [4:0] arr_x_refresh_nxt, arr_y_refresh_nxt;
+    wire [4:0] arr_x_refresh, arr_y_refresh;
 
     wire [4:0] ind_x_trans, ind_y_trans;
 
@@ -43,16 +42,12 @@ module generate_defuse_array
         if (rst) begin
             arr_hcount_r <= '0;
             arr_hcount_l <= '0;
-            arr_x_refresh <= '0;
-            arr_y_refresh <= '0;
             arr_vcount_up <= '0;
             defuse_arr_easy <= '0;
             defuse_arr_medium <= '0;
             defuse_arr_hard <= '0;
         end
         else begin
-            arr_x_refresh <= arr_x_refresh_nxt;
-            arr_y_refresh <= arr_y_refresh_nxt;
             if(defuse && level > 0)begin
                 
                 if((~mine_arr_easy[ind_x_trans - arr_hcount_l][ind_y_trans] || ~mine_arr_medium[ind_x_trans - arr_hcount_l][ind_y_trans] 
@@ -84,85 +79,16 @@ module generate_defuse_array
 
         end
     end
-/*
-    always_comb begin: gen_def_array_comb_blk
-        if(defuse && level > 0)begin
-           
-            if((~mine_arr_easy[defuse_ind_x + arr_hcount_r][defuse_ind_y] || ~mine_arr_medium[defuse_ind_x + arr_hcount_r][defuse_ind_y] 
-            || ~mine_arr_hard[defuse_ind_x + arr_hcount_r][defuse_ind_y]) && defuse_ind_x + arr_hcount_r <= button_num)begin
-                defuse_arr_easy_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '1;
-                defuse_arr_medium_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '1;
-                defuse_arr_hard_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '1;
-                arr_hcount_r_nxt = arr_hcount_r + 1;
-            end
-            else begin
-                defuse_arr_easy_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '0;
-                defuse_arr_medium_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '0;
-                defuse_arr_hard_nxt[defuse_ind_x + arr_hcount_r][defuse_ind_y] = '0;
-                arr_hcount_r_nxt = 0;
-            end
-
-        end
-        else begin
-            arr_hcount_r_nxt = '0;
-            defuse_arr_hard_nxt [arr_x_refresh] [arr_y_refresh] = defuse_arr_hard_nxt [arr_x_refresh] [arr_y_refresh];
-            defuse_arr_medium_nxt [arr_x_refresh] [arr_y_refresh] = defuse_arr_medium_nxt [arr_x_refresh] [arr_y_refresh];
-            defuse_arr_easy_nxt [arr_x_refresh] [arr_y_refresh] = defuse_arr_easy_nxt [arr_x_refresh] [arr_y_refresh];
-        end
-        
-        
-
-            
-            if(defuse_ind_x >= arr_hcount_l) begin
-                if(~mine_arr_easy[defuse_ind_x - arr_hcount_l][defuse_ind_y] || ~mine_arr_medium[defuse_ind_x - arr_hcount_l][defuse_ind_y] 
-                || ~mine_arr_hard[defuse_ind_x - arr_hcount_l][defuse_ind_y])begin
-                    if(level == 3)begin
-                        defuse_arr_hard_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '1;
-                    end
-                    else if(level == 2)begin
-                        defuse_arr_medium_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '1;
-                    end
-                    else if (level == 1)begin
-                        defuse_arr_easy_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '1;
-                    end
-                    else begin
-                        defuse_arr_easy_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '0;
-                        defuse_arr_medium_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '0;
-                        defuse_arr_hard_nxt[defuse_ind_x - arr_hcount_l][defuse_ind_y] = '0;
-                    end
-                    arr_hcount_l_nxt = defuse_ind_x - arr_hcount_l == 0 ? 0 : arr_hcount_l+1;
-                end
-                else begin
-                    arr_hcount_l_nxt = '0;
-                end
-            end
-            else begin
-                arr_hcount_l_nxt = '0;
-            end
-              
-    end*/
     
 
-    always_comb begin: refresh_ctr_comb_blk
-        if(arr_x_refresh == button_num && level > 0)begin
-            arr_x_refresh_nxt = '0;
-        end
-        else begin
-            arr_x_refresh_nxt = arr_x_refresh + 1;
-        end
-
-        if(arr_x_refresh == button_num && level > 0) begin
-            if (arr_y_refresh==button_num)begin
-                arr_y_refresh_nxt = '0;
-            end
-            else begin
-                arr_y_refresh_nxt = arr_y_refresh + 1;
-            end
-          end
-        else begin
-            arr_y_refresh_nxt = arr_y_refresh;
-        end
-    end
+    array_timing u_array_timing (
+        .clk,
+        .rst,
+        .level,
+        .button_num,
+        .arr_x_refresh,
+        .arr_y_refresh
+    );
  
  endmodule
     
