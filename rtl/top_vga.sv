@@ -90,7 +90,7 @@
  top_draw_board u_top_draw_board (
      .clk,
      .rst,
-     .enable_game(enable_game),
+     .enable_game,
      .gin(game_enable_if.in),
      .out(board_out_if.out)
  );

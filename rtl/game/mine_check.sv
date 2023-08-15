@@ -29,9 +29,6 @@ module mine_check
 
 
     
-
-
-    
     always_ff @(posedge clk) begin
         if (rst) begin
             explode <= '0;
@@ -51,37 +48,16 @@ module mine_check
             explode_nxt = '0;
             defuse_nxt = '0;
         end
-        else if(bomb) begin
+        else if(bomb && level > 0) begin
             mark_flag_nxt = '0;
-            if(level == 3) begin
-                if(array_hard_in[button_ind_y_in] [button_ind_x_in] == '1)begin
-                    explode_nxt = '1;
-                    defuse_nxt = '0;
-                end
-                else begin
-                    explode_nxt = '0;
-                    defuse_nxt = '1;
-                end
-            end
-            else if(level == 2) begin
-                if(array_medium_in[button_ind_y_in] [button_ind_x_in] == '1)begin
-                    explode_nxt = '1;
-                    defuse_nxt = '0;
-                end
-                else begin
-                    explode_nxt = '0;
-                    defuse_nxt = '1;
-                end
+            if(array_hard_in[button_ind_y_in] [button_ind_x_in] || array_medium_in[button_ind_y_in] [button_ind_x_in]
+            || array_easy_in[button_ind_y_in] [button_ind_x_in])begin
+                explode_nxt = '1;
+                defuse_nxt = '0;
             end
             else begin
-                if(array_easy_in[button_ind_y_in] [button_ind_x_in] == '1)begin
-                    explode_nxt = '1;
-                    defuse_nxt = '0;
-                end
-                else begin
-                    explode_nxt = '0;
-                    defuse_nxt = '1;
-                end
+                explode_nxt = '0;
+                defuse_nxt = '1;
             end
         end
         else begin

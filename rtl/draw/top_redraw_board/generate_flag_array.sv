@@ -22,25 +22,28 @@ module generate_flag_array
    
 
     //Local variables
+    wire [4:0] ind_x_trans, ind_y_trans;
 
+    assign ind_x_trans = flag_ind_x - 1;
+    assign ind_y_trans = flag_ind_y - 1;
 
     //Module logic
     
-    always_ff @(posedge clk) begin
+    always_ff @(posedge clk) begin: gen_flag_blk
         if (rst) begin
             flag_arr_easy <= '0;
             flag_arr_medium <= '0;
             flag_arr_hard <= '0;
         end
         else if(mark_flag && level > 0)begin
-            flag_arr_hard [flag_ind_x] [flag_ind_y] <= ~flag_arr_hard [flag_ind_x] [flag_ind_y];
-            flag_arr_medium [flag_ind_x] [flag_ind_y] <= ~flag_arr_medium [flag_ind_x] [flag_ind_y];
-            flag_arr_easy [flag_ind_x] [flag_ind_y] <= ~flag_arr_easy [flag_ind_x] [flag_ind_y];
+            flag_arr_hard [ind_x_trans] [ind_y_trans] <= ~flag_arr_hard [ind_x_trans] [ind_y_trans];
+            flag_arr_medium [ind_x_trans] [ind_y_trans] <= ~flag_arr_medium [ind_x_trans] [ind_y_trans];
+            flag_arr_easy [ind_x_trans] [ind_y_trans] <= ~flag_arr_easy [ind_x_trans] [ind_y_trans];
         end
         else begin
-            flag_arr_hard [flag_ind_x] [flag_ind_y] <= flag_arr_hard [flag_ind_x] [flag_ind_y];
-            flag_arr_medium [flag_ind_x] [flag_ind_y] <= flag_arr_medium [flag_ind_x] [flag_ind_y];
-            flag_arr_easy [flag_ind_x] [flag_ind_y] <= flag_arr_easy [flag_ind_x] [flag_ind_y];
+            flag_arr_hard [ind_x_trans] [ind_y_trans] <= flag_arr_hard [ind_x_trans] [ind_y_trans];
+            flag_arr_medium [ind_x_trans] [ind_y_trans] <= flag_arr_medium [ind_x_trans] [ind_y_trans];
+            flag_arr_easy [ind_x_trans] [ind_y_trans] <= flag_arr_easy [ind_x_trans] [ind_y_trans];
         end
     end
  

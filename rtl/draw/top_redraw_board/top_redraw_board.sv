@@ -142,17 +142,17 @@ latch #(
  generate_defuse_array u_generate_defuse_array(
     .clk,
     .rst,
-    .defuse(defuse_latched),
+    .defuse('1),//(defuse_latched),
     .level,
-    .defuse_ind_x(symbol_ind_x),
-    .defuse_ind_y(symbol_ind_y),
+    .defuse_ind_x(5'd3),//(symbol_ind_x),
+    .defuse_ind_y(5'd1),//(symbol_ind_y),
     .mine_arr_easy,
     .mine_arr_medium,
     .mine_arr_hard,
     .defuse_arr_easy,
     .defuse_arr_medium,
     .defuse_arr_hard,
-    .gin
+    .button_num(gin.button_num)
  );
 
 

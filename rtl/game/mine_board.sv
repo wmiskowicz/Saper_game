@@ -40,9 +40,15 @@ module mine_board
             mines_ctr <= '0;
         end
         else if(~done_counting && level > 0) begin
-            array_hard_out [x_out] [y_out] <= data_nxt;
-            array_medium_out [x_out] [y_out] <= data_nxt;
-            array_easy_out [x_out] [y_out] <= data_nxt;
+            if(level == 3)begin
+                array_hard_out [x_out] [y_out] <= data_nxt;
+            end
+            else if (level == 2) begin
+                array_medium_out [x_out] [y_out] <= data_nxt;
+            end
+            else begin
+                array_easy_out [x_out] [y_out] <= data_nxt;
+            end
             mines_ctr <= mines_ctr_nxt;
         end
     end
@@ -68,10 +74,10 @@ module mine_board
     dim_counter array_dim_ctr(
         .clk,
         .rst,
-        .dimension_size(dimension_size),
-        .x_out(x_out),
-        .y_out(y_out),
-        .done_counting(done_counting)  
+        .dimension_size,
+        .x_out,
+        .y_out,
+        .done_counting  
     );
  
  endmodule

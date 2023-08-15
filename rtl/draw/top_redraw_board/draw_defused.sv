@@ -16,7 +16,6 @@ module draw_defused (
 import colour_pkg::*;
 
 logic [11:0] rgb_nxt;
-logic [10:0] mid_x;
 logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 
@@ -25,11 +24,10 @@ logic [4:0] array_vcount, array_hcount;
 logic [4:0] array_vcount_nxt, array_hcount_nxt;
 
 //************LOCAL PARAMETERS*****************
-assign rect_xpos = gin.board_xpos + (array_hcount-1) * gin.button_size;
-assign rect_ypos = gin.board_ypos + (array_vcount-1) * gin.button_size;
+assign rect_xpos = gin.board_xpos + (array_hcount) * gin.button_size;
+assign rect_ypos = gin.board_ypos + (array_vcount) * gin.button_size;
 
 
-assign mid_x = gin.button_size/2;
 assign cur_xpos = in.hcount - rect_xpos;
 assign cur_ypos = in.vcount - rect_ypos;
 

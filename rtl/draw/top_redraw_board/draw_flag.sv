@@ -24,8 +24,8 @@ logic [4:0] array_vcount, array_hcount;
 logic [4:0] array_vcount_nxt, array_hcount_nxt;
 
 //************LOCAL PARAMETERS*****************
-assign rect_xpos = gin.board_xpos + (array_hcount-1) * gin.button_size;
-assign rect_ypos = gin.board_ypos + (array_vcount-1) * gin.button_size;
+assign rect_xpos = gin.board_xpos + (array_hcount) * gin.button_size;
+assign rect_ypos = gin.board_ypos + (array_vcount) * gin.button_size;
 
 
 assign mid_x = gin.button_size/2;
