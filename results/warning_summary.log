@@ -1,9 +1,10 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-08-15 17:34:51
+Created: 2023-08-16 17:39:46
 
 ----SYNTHESIS----
-WARNING: [Synth 8-6014] Unused sequential element arr_vcount_up_reg was removed.  [rtl/draw/top_redraw_board/generate_defuse_array.sv:45]
+WARNING: [Synth 8-6014] Unused sequential element increment_x_reg was removed.  [rtl/draw/top_redraw_board/defuse_missing.sv:45]
+WARNING: [Synth 8-6014] Unused sequential element increment_y_reg was removed.  [rtl/draw/top_redraw_board/defuse_missing.sv:46]
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
 WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/mouse/MouseCtl.vhd:456]
 WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:514]
@@ -38,7 +39,6 @@ WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnect
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port button_ind_x_in[4] in module mine_check is either unconnected or has no load
 WARNING: [Synth 8-7129] Port button_ind_y_in[4] in module mine_check is either unconnected or has no load
-WARNING: [Synth 8-7129] Port defuse in module top_redraw_board is either unconnected or has no load
 
 ----IMPLEMENTATION----
 WARNING: [Route 35-328] Router estimated timing not met.

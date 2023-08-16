@@ -11,8 +11,7 @@ module defuse_row
     (
     input wire clk,
     input wire rst,
-    input wire [1:0] level,
-    input wire defuse,
+    input wire defuse, reset_ctr,
     input wire [4:0] button_num,
     input wire [4:0] ind_x_trans,
     input wire [4:0] ind_y_trans,
@@ -23,12 +22,16 @@ module defuse_row
     input wire [15:0] [15:0] mine_arr_hard,
     output logic [7:0] [7:0] defuse_arr_easy,
     output logic [9:0] [9:0] defuse_arr_medium,
-    output logic [15:0] [15:0] defuse_arr_hard
+    output logic [15:0] [15:0] defuse_arr_hard,
+    output reg done_row
     );
    
 
     //Local variables
     logic [4:0] arr_hcount_r, arr_hcount_l;
+    logic done_r, done_l;
+
+    assign done_row = done_r && done_l;
    
 
     //Module logic
@@ -40,9 +43,11 @@ module defuse_row
             defuse_arr_easy <= '0;
             defuse_arr_medium <= '0;
             defuse_arr_hard <= '0;
+            done_l <= '0;
+            done_r <= '0;
         end
         else begin
-            if(defuse && level > 0)begin
+            if(defuse)begin
                 
                 if((~mine_arr_easy[ind_x_trans - arr_hcount_l][ind_y_trans] || ~mine_arr_medium[ind_x_trans - arr_hcount_l][ind_y_trans] 
                     || ~mine_arr_hard[ind_x_trans - arr_hcount_l][ind_y_trans]) && (ind_x_trans >= arr_hcount_l))begin
@@ -50,7 +55,12 @@ module defuse_row
                     defuse_arr_easy[ind_x_trans - arr_hcount_l][ind_y_trans] <= '1;
                     defuse_arr_medium[ind_x_trans - arr_hcount_l][ind_y_trans] <= '1;
                     defuse_arr_hard[ind_x_trans - arr_hcount_l][ind_y_trans] <= '1;
-                    arr_hcount_l <= ind_x_trans == arr_hcount_l ? 0 : arr_hcount_l + 1;
+                    arr_hcount_l <= arr_hcount_l + 1;
+                    done_l <= '0;
+                end
+                else begin
+                    done_l <= '1;
+                    arr_hcount_l <= reset_ctr ? 0 : arr_hcount_l;
                 end
                     
 
@@ -60,12 +70,20 @@ module defuse_row
                     defuse_arr_easy[ind_x_trans + arr_hcount_r][ind_y_trans] <= '1;
                     defuse_arr_medium[ind_x_trans + arr_hcount_r][ind_y_trans] <= '1;
                     defuse_arr_hard[ind_x_trans + arr_hcount_r][ind_y_trans] <= '1;
-                    arr_hcount_r <= ind_x_trans + arr_hcount_r == button_num - 1 ? 0 : arr_hcount_r + 1;
+                    arr_hcount_r <= arr_hcount_r + 1;
+                    done_r <= '0;
+                end
+                else begin
+                    done_r <= '1;
+                    arr_hcount_r <= reset_ctr ? 0 : arr_hcount_r;
                 end
                 
             end
             else begin
+                done_l <= '0;
+                done_r <= '0;
                 arr_hcount_r <= '0;
+                arr_hcount_l <= '0;
                 defuse_arr_hard [arr_x_refresh] [arr_y_refresh] <= defuse_arr_hard [arr_x_refresh] [arr_y_refresh];
                 defuse_arr_medium [arr_x_refresh] [arr_y_refresh] <= defuse_arr_medium [arr_x_refresh] [arr_y_refresh];
                 defuse_arr_easy [arr_x_refresh] [arr_y_refresh] <= defuse_arr_easy [arr_x_refresh] [arr_y_refresh];
