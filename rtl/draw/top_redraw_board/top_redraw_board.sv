@@ -26,10 +26,15 @@
 
  vga_if flag_out();
  vga_if defuse_out();
+ vga_if num_out();
 
  wire  [7:0] [7:0] flag_arr_easy, defuse_arr_easy;
  wire  [9:0] [9:0] flag_arr_medium, defuse_arr_medium;
  wire  [15:0] [15:0] flag_arr_hard, defuse_arr_hard;
+
+ wire [7:0] [7:0] [2:0] num_arr_easy;
+ wire [9:0] [9:0] [2:0] num_arr_medium;
+ wire [15:0] [15:0] [2:0] num_arr_hard;
 
  wire mark_flag_pulse;
  wire defuse_latched, mark_flag_latched, explode_latched;
@@ -122,10 +127,24 @@ latch #(
     .mine_ind_x,
     .mine_ind_y,
     .explode(explode_latched),
-    .gin(gin),
-    .in(defuse_out),
+    .button_size(gin.button_size),
+    .board_xpos(gin.board_xpos),
+    .board_ypos(gin.board_ypos),
+    .in(num_out),
     .out(out)
  );
+
+ top_draw_num u_top_draw_num(
+    .clk, 
+    .rst,
+    .level,
+    .num_arr_easy,
+    .num_arr_medium,
+    .num_arr_hard,
+    .in(defuse_out),
+    .out(num_out),
+    .gin
+);
 
  generate_flag_array u_generate_flag_array(
     .clk,
@@ -155,8 +174,23 @@ latch #(
     .button_num(gin.button_num)
  );
 
+ generate_num_array u_generate_num_array(
+    .clk,
+    .rst,
+    .explode,
+    .level,
+    .button_num(gin.button_num),
+    .mine_arr_easy,
+    .mine_arr_medium,
+    .mine_arr_hard,
+    .defuse_arr_easy,
+    .defuse_arr_medium,
+    .defuse_arr_hard,
+    .num_arr_easy,
+    .num_arr_medium,
+    .num_arr_hard
+   );
 
- 
 
 
  endmodule

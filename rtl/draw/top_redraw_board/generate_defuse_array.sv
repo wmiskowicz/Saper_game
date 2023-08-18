@@ -26,33 +26,46 @@ module generate_defuse_array
    
 
     //Local variables
-    logic [4:0] arr_hcount_r, arr_vcount_up;
-    logic [4:0] arr_hcount_l;
-    wire [4:0] arr_x_refresh, arr_y_refresh;
-    logic [7:0] [7:0] defuse_arr_easy_mid;
-    logic [9:0] [9:0] defuse_arr_medium_mid;
-    logic [15:0] [15:0] defuse_arr_hard_mid;
+
+    logic [7:0] [7:0] defuse_arr_easy_mid, defuse_arr_easy_in;
+    logic [9:0] [9:0] defuse_arr_medium_mid, defuse_arr_medium_in;
+    logic [15:0] [15:0] defuse_arr_hard_mid, defuse_arr_hard_in;
 
     wire [4:0] ind_x_trans, ind_y_trans;
+    wire [4:0] arr_x_refresh, arr_y_refresh;
 
     assign ind_x_trans = defuse_ind_x - 1;
     assign ind_y_trans = defuse_ind_y - 1;
 
-    assign defuse_arr_easy_mid = defuse_arr_easy;
-    assign defuse_arr_medium_mid = defuse_arr_medium;
-    assign defuse_arr_hard_mid = defuse_arr_hard;    
+    assign defuse_arr_easy_in = defuse_arr_easy;
+    assign defuse_arr_medium_in = defuse_arr_medium;
+    assign defuse_arr_hard_in = defuse_arr_hard;    
    
 
     //Module logic
+
+    defuse_field u_defuse_field(
+      .clk,
+      .rst,
+      .defuse,
+      .level,
+      .ind_x_trans,
+      .ind_y_trans,
+      .arr_x_refresh,    
+      .arr_y_refresh,
+      .defuse_arr_easy_in,
+      .defuse_arr_medium_in,
+      .defuse_arr_hard_in,
+      .defuse_arr_easy(defuse_arr_easy_mid),
+      .defuse_arr_medium(defuse_arr_medium_mid),
+      .defuse_arr_hard(defuse_arr_hard_mid) 
+    );
 
    defuse_missing u_defuse_missing(
     .clk,
     .rst,
     .level,
-    .defuse,
     .button_num,
-    .ind_x_trans,
-    .ind_y_trans,
     .mine_arr_easy,
     .mine_arr_medium,
     .mine_arr_hard,
@@ -63,6 +76,18 @@ module generate_defuse_array
     .defuse_arr_medium_out(defuse_arr_medium),
     .defuse_arr_hard_out(defuse_arr_hard)
    );
+
+   array_timing u_arr_timing (
+        .clk,
+        .rst,
+        .level,
+        .counting('1),
+        .button_num,
+        .arr_x_refresh_prev(),
+        .arr_y_refresh_prev(),        
+        .arr_x_refresh,
+        .arr_y_refresh
+    );
 
 
  

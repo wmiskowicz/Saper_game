@@ -35,15 +35,22 @@ module generate_flag_array
             flag_arr_medium <= '0;
             flag_arr_hard <= '0;
         end
-        else if(mark_flag && level > 0)begin
-            flag_arr_hard [ind_x_trans] [ind_y_trans] <= ~flag_arr_hard [ind_x_trans] [ind_y_trans];
-            flag_arr_medium [ind_x_trans] [ind_y_trans] <= ~flag_arr_medium [ind_x_trans] [ind_y_trans];
-            flag_arr_easy [ind_x_trans] [ind_y_trans] <= ~flag_arr_easy [ind_x_trans] [ind_y_trans];
-        end
-        else begin
-            flag_arr_hard [ind_x_trans] [ind_y_trans] <= flag_arr_hard [ind_x_trans] [ind_y_trans];
-            flag_arr_medium [ind_x_trans] [ind_y_trans] <= flag_arr_medium [ind_x_trans] [ind_y_trans];
-            flag_arr_easy [ind_x_trans] [ind_y_trans] <= flag_arr_easy [ind_x_trans] [ind_y_trans];
+        else if(mark_flag)begin
+            if(level == 3)begin
+                flag_arr_hard [ind_x_trans] [ind_y_trans] <= ~flag_arr_hard [ind_x_trans] [ind_y_trans];
+                flag_arr_medium [ind_x_trans] [ind_y_trans] <= '0;
+                flag_arr_easy [ind_x_trans] [ind_y_trans] <= '0;
+            end
+            else if(level == 2)begin
+                flag_arr_hard [ind_x_trans] [ind_y_trans] <= '0;
+                flag_arr_medium [ind_x_trans] [ind_y_trans] <= ~flag_arr_medium [ind_x_trans] [ind_y_trans];
+                flag_arr_easy [ind_x_trans] [ind_y_trans] <= '0;
+            end 
+            else begin
+                flag_arr_hard [ind_x_trans] [ind_y_trans] <= '0;
+                flag_arr_medium [ind_x_trans] [ind_y_trans] <= '0;
+                flag_arr_easy [ind_x_trans] [ind_y_trans] <= ~flag_arr_easy [ind_x_trans] [ind_y_trans];
+            end
         end
     end
  

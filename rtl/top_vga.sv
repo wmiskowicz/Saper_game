@@ -63,7 +63,7 @@
  vga_if board_button_if();
  vga_if draw_mouse_if();
  vga_if redraw_board_if();
-
+ vga_if draw_char_if();
  
  game_set_if game_enable_if();
  
@@ -86,6 +86,13 @@
  /**
   * Submodules instances
   */
+ top_char u_top_char(
+   .clk,
+   .rst,
+   .in(redraw_board_if.in),
+   .out(draw_char_if.out)
+ );
+
 
  top_draw_board u_top_draw_board (
      .clk,
@@ -125,14 +132,14 @@
     .clk,
     .clk100MHz,
     .rst,
-    .in(redraw_board_if.in),
+    .in(draw_char_if.in),
     .out(draw_mouse_if.out),
-    .mouse_xpos(mouse_xpos),
-    .mouse_ypos(mouse_ypos),
-    .ps2_clk(ps2_clk),
-    .ps2_data(ps2_data),
-    .right(right),
-    .left(left)
+    .mouse_xpos,
+    .mouse_ypos,
+    .ps2_clk,
+    .ps2_data,
+    .right,
+    .left
  );
 
 top_mine u_top_mine(

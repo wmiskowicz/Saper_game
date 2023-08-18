@@ -46,12 +46,19 @@ set sv_files {
     ../rtl/draw/top_redraw_board/draw_mine.sv
     ../rtl/draw/top_redraw_board/generate_flag_array.sv
     ../rtl/draw/top_redraw_board/generate_defuse_array.sv
-    ../rtl/draw/top_redraw_board/defuse_row.sv \
-    ../rtl/draw/top_redraw_board/defuse_missing.sv \
-    ../rtl/draw/top_redraw_board/array_timing.sv \
+    ../rtl/draw/top_redraw_board/defuse_field.sv
+    ../rtl/draw/top_redraw_board/defuse_missing.sv
+    ../rtl/draw/top_redraw_board/array_timing.sv
+    ../rtl/draw/top_redraw_board/top_draw_num/top_draw_num.sv \
+    ../rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv \
+    ../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv \
+    ../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv \
     ../rtl/draw/edge_ctr/edge_detector.sv
     ../rtl/draw/edge_ctr/edge_ctr.sv
     ../rtl/draw/edge_ctr/ts_counter.sv
+    ../rtl/draw/top_char/char_rom16x16.sv
+    ../rtl/draw/top_char/draw_rect_char.sv
+    ../rtl/draw/top_char/top_char.sv
     ../rtl/top_vga.sv
     ../rtl/game/top_game_setup/top_game_setup.sv
     ../rtl/game/top_game_setup/select_level.sv
@@ -59,11 +66,11 @@ set sv_files {
     ../rtl/game/top_game_setup/settings_latch.sv
     ../rtl/game/top_mine/top_mine.sv
     ../rtl/game/game_set_if.sv
-    ../rtl/game/detect_index.sv
-    ../rtl/game/mine_board.sv
-    ../rtl/game/mine_check.sv
-    ../rtl/game/dim_counter.sv
-    ../rtl/game/random_gen.sv
+    ../rtl/game/top_mine/detect_index.sv
+    ../rtl/game/top_mine/mine_board.sv
+    ../rtl/game/top_mine/mine_check.sv
+    ../rtl/game/top_mine/dim_counter.sv
+    ../rtl/game/top_mine/random_gen.sv
     ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
     ../rtl/mouse/synchr.sv
@@ -76,6 +83,7 @@ set sv_files {
     rtl/clk_wiz_0.v
     ../rtl/import/list_ch04_15_disp_hex_mux.v
     ../rtl/import/delay.v
+    ../rtl/draw/top_char/font_rom.v
  }
 
 # Specify VHDL design files location            -- EDIT

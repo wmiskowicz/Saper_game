@@ -16,7 +16,9 @@
      input  wire [4:0] button_num, 
      input wire counting,    
      output logic [4:0] arr_x_refresh, 
-     output logic [4:0] arr_y_refresh
+     output logic [4:0] arr_y_refresh,
+     output logic [4:0] arr_x_refresh_prev, 
+     output logic [4:0] arr_y_refresh_prev
  );
 
 
@@ -27,10 +29,14 @@
     if(rst)begin
         arr_x_refresh <= '0;
         arr_y_refresh <= '0;
+        arr_x_refresh_prev <= '0;
+        arr_y_refresh_prev <= '0;
     end
     else begin
-        arr_x_refresh <= arr_x_refresh_nxt;
-        arr_y_refresh <= arr_y_refresh_nxt;
+        arr_x_refresh <= arr_x_refresh_prev;
+        arr_y_refresh <= arr_y_refresh_prev;
+        arr_x_refresh_prev <= arr_x_refresh_nxt;
+        arr_y_refresh_prev <= arr_y_refresh_nxt;
     end
  end
 
@@ -59,8 +65,9 @@
 
     end
     else begin
-        arr_x_refresh_nxt = arr_x_refresh;
-        arr_y_refresh_nxt = arr_y_refresh;
+        arr_x_refresh_nxt = arr_x_refresh_prev;
+        arr_y_refresh_nxt = arr_y_refresh_prev;
+        
     end
 end
  
