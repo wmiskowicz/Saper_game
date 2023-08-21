@@ -58,6 +58,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
 verilog work ../common/glbl.v \
         ../../rtl/import/list_ch04_15_disp_hex_mux.v \
         ../../rtl/import/delay.v \
+        ../../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v \
         ../../rtl/draw/top_char/font_rom.v
 
 vhdl work ../../rtl/mouse/MouseCtl.vhd \

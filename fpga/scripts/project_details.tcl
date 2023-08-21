@@ -84,6 +84,7 @@ set sv_files {
     ../rtl/import/list_ch04_15_disp_hex_mux.v
     ../rtl/import/delay.v
     ../rtl/draw/top_char/font_rom.v
+    ../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v 
  }
 
 # Specify VHDL design files location            -- EDIT

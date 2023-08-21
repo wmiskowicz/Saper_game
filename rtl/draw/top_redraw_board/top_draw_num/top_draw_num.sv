@@ -13,11 +13,11 @@ module top_draw_num(
 
 //Local variables
 
- wire [10:0] addr;
+ wire [12:0] addr;
  wire [7:0] char_line_pixels;
  wire [9:0] char_xy;
  wire [6:0] char_code;
- wire [3:0] char_line;
+ wire [5:0] char_line;
 
  assign addr = {char_code, char_line};
 
@@ -32,7 +32,7 @@ module top_draw_num(
     .char_code
 ); 
 
-font_rom u_font_rom(
+num_font_rom u_num_font_rom(
     .clk,
     .addr,
     .char_line_pixels

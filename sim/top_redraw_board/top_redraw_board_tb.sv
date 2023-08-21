@@ -39,7 +39,25 @@ localparam CLK_PERIOD = 11;     // 40 MHz
 logic clk, rst;
 wire vs, hs;
 wire [3:0] r, g, b;
-//logic [2:0] btnS;
+int i;
+
+logic [7:0] [7:0] mine_arr_easy;
+logic [9:0] [9:0] mine_arr_medium;
+logic [15:0] [15:0] mine_arr_hard;
+
+
+initial begin
+    for(i=0;i<=10;i++)begin
+        mine_arr_medium[i] = 10'b1010101010;
+    end
+end
+
+logic [1:0] level = 2'b10;
+
+vga_if out_if();
+vga_if in_if();
+game_set_if tb_game_set_if();
+
 
 
 /**
@@ -51,7 +69,7 @@ initial begin
     forever #(CLK_PERIOD/2) clk = ~clk;
 end
 
-assign {r,g,b} = out.rgb;
+assign {r,g,b} = out_if.rgb;
 
 /**
  * Submodules instances
@@ -60,7 +78,7 @@ assign {r,g,b} = out.rgb;
 top_redraw_board dut (
      .clk,
      .rst,
-     .level(2'b10),
+     .level,
      .symbol_ind_x(5'd4),
      .symbol_ind_y(5'd4),
      .mine_arr_easy,
@@ -69,9 +87,25 @@ top_redraw_board dut (
      .explode('0), 
      .mark_flag('0), 
      .defuse('1),
-     .gin,
-     .in,
-     .out
+     .gin(tb_game_set_if),
+     .in(in_if),
+     .out(out_if)
+);
+
+top_draw_board u_top_draw_board (
+    .clk,
+    .rst,
+    .enable_game('1),
+    .gin(tb_game_set_if),
+    .out(in_if)
+);
+
+
+top_game_setup u_top_game_setup(
+    .clk,
+    .rst,
+    .level,
+    .out(tb_game_set_if)
 );
 
 tiff_writer #(

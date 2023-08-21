@@ -8,7 +8,7 @@ module draw_char_board (
     input wire [9:0] board_size,
     input logic [7:0] char_pixels,
     output  logic [9:0] char_xy,
-    output  logic [3:0] char_line,
+    output  logic [5:0] char_line,
     vga_if.in in,
     vga_if.out out
 );
@@ -37,7 +37,7 @@ assign char_ypos_delay = vcount_nxt - board_ypos;
 assign char_xpos_delay = hcount_nxt - board_xpos;
 assign char_mask = hcount_nxt1 - board_xpos;
 
-assign char_line = char_ypos[3:0];
+assign char_line = char_ypos[5:0];
 assign char_xy = {char_xpos[7:3], char_ypos[8:4]};
 
 
