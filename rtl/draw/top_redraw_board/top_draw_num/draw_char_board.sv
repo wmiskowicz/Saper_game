@@ -1,14 +1,17 @@
 `timescale 1 ns / 1 ps
 
 module draw_char_board (
-    input  logic clk,
-    input  logic rst,
+    input wire clk,
+    input wire rst,
     input wire [10:0] board_xpos,
     input wire [10:0] board_ypos,    
     input wire [9:0] board_size,
-    input logic [7:0] char_pixels,
-    output  logic [9:0] char_xy,
-    output  logic [5:0] char_line,
+    input wire [6:0] button_size,
+    input wire [4:0] button_num,
+    input logic [15:0] char_pixels,
+    output logic [4:0] char_y,
+    output logic [4:0] char_x,
+    output logic [4:0] char_line,
     vga_if.in in,
     vga_if.out out
 );
@@ -26,19 +29,39 @@ logic         hblnk_nxt;
 logic [11:0]  rgb_nxt, rgb_local;
 
 
-wire [10:0] char_ypos, char_xpos, char_ypos_delay, char_xpos_delay, char_mask;
+wire [10:0] cur_ypos, cur_xpos, cur_ypos_delay, cur_xpos_delay, char_mask;
 
 
 //************ASSIGNMENTS*****************
-assign char_ypos = in.vcount - board_ypos;
-assign char_xpos = in.hcount - board_xpos;
+assign cur_ypos = in.vcount - board_ypos;
+assign cur_xpos = in.hcount - board_xpos;
 
-assign char_ypos_delay = vcount_nxt - board_ypos;
-assign char_xpos_delay = hcount_nxt - board_xpos;
+assign cur_ypos_delay = vcount_nxt - board_ypos;
+assign cur_xpos_delay = hcount_nxt - board_xpos;
 assign char_mask = hcount_nxt1 - board_xpos;
 
-assign char_line = char_ypos[5:0];
-assign char_xy = {char_xpos[7:3], char_ypos[8:4]};
+assign char_line = cur_ypos[4:0];
+
+
+char_pos_conv char_xpos_conv(
+    .clk,
+    .rst,
+    .cur_pos(cur_xpos),
+    .button_size,
+    .board_size,
+    .button_num,
+    .char_pos(char_x)
+);
+
+char_pos_conv char_ypos_conv(
+    .clk,
+    .rst,
+    .cur_pos(cur_ypos),
+    .button_size,
+    .board_size,
+    .button_num,
+    .char_pos(char_y)
+);
 
 
 delay_upel #(
@@ -86,13 +109,13 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (8'b10000000 >> char_mask[2:0])) && (hcount_nxt >= board_xpos) && (char_xpos_delay < board_size)
-    && (vcount_nxt >= board_ypos) && (char_ypos_delay < board_size)) begin
+    if ((char_pixels & (16'h8000 >> char_mask[3:0])) && (hcount_nxt >= board_xpos) && (cur_xpos_delay < board_size)
+    && (vcount_nxt >= board_ypos) && (cur_ypos_delay < board_size)) begin
         rgb_nxt = 12'h2_0_a;
     end
     else begin                             
        rgb_nxt = rgb_local;   
-    end           
+    end 
 end
 
 

@@ -13,11 +13,11 @@ module top_draw_num(
 
 //Local variables
 
- wire [12:0] addr;
- wire [7:0] char_line_pixels;
- wire [9:0] char_xy;
+ wire [11:0] addr;
+ wire [15:0] char_line_pixels;
+ wire [4:0] char_x, char_y;
  wire [6:0] char_code;
- wire [5:0] char_line;
+ wire [4:0] char_line;
 
  assign addr = {char_code, char_line};
 
@@ -28,7 +28,8 @@ module top_draw_num(
     .num_arr_easy,
     .num_arr_medium,
     .num_arr_hard,
-    .char_xy,
+    .char_x,
+    .char_y,
     .char_code
 ); 
 
@@ -46,7 +47,10 @@ draw_char_board u_draw_char_board(
     .board_ypos(gin.board_ypos),
     .board_size(gin.board_size),
     .char_pixels(char_line_pixels),
-    .char_xy,
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
+    .char_x,
+    .char_y,
     .char_line,
     .in,
     .out

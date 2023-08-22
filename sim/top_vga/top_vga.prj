@@ -33,6 +33,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv \
+        ../../rtl/draw/top_redraw_board/top_draw_num/char_pos_conv.sv \
         ../../rtl/draw/top_char/char_rom16x16.sv \
         ../../rtl/draw/top_char/draw_rect_char.sv \
         ../../rtl/draw/top_char/top_char.sv \
