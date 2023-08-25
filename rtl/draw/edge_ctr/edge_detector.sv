@@ -1,4 +1,13 @@
 `timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   edge detector
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-07-10
+ Description:  detects rising edge and returns '1 on one clock cycle
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 
 module edge_detector(
     input wire clk, rst,

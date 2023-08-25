@@ -1,11 +1,13 @@
-/**
- * Copyright (C) 2023  AGH University of Science and Technology
- * MTM UEC2 Projekt
- * Author: Piotr Kaczmarczyk
- * Modified: Wojciech Mskowicz
- * Description:
- * Vga timing controller.
+`timescale 1 ns / 1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   array_timing
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-06-01
+ Coding style: safe with FPGA sync reset
+ Description:  Counts array dimensions
  */
+//////////////////////////////////////////////////////////////////////////////
 
  `timescale 1 ns / 1 ps
 

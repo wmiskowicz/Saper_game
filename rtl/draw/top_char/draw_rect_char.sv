@@ -1,4 +1,13 @@
 `timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   draw_rect_char
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-08-05
+ Coding style: safe with FPGA sync reset
+ Description:  displays char line
+ */
+//////////////////////////////////////////////////////////////////////////////
 
 module draw_rect_char #( parameter
     WIDTH = 16,

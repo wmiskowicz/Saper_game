@@ -1,10 +1,10 @@
 `timescale 1 ns / 1ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   generate_defuse_array
+ Module name:   defuse_missing
  Author:        Wojciech Miskowicz
- Last modified: 2023-06-27
- Description:  Fills 2D array with '0 and '1, where '1 means there is a defused field
+ Last modified: 2023-07-29
+ Description:  Defuses field if it's neighbour has been defused
  */
 //////////////////////////////////////////////////////////////////////////////
 module defuse_missing

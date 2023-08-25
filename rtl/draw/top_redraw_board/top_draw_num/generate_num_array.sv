@@ -1,10 +1,10 @@
 `timescale 1 ns / 1ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   generate_defuse_array
+ Module name:   generate_num_array
  Author:        Wojciech Miskowicz
- Last modified: 2023-06-27
- Description:  Fills 2D array with '0 and '1, where '1 means there is a defused field
+ Last modified: 2023-08-17
+ Description:  Counts mines around given field
  */
 //////////////////////////////////////////////////////////////////////////////
 module generate_num_array

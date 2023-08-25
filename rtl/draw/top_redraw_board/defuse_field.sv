@@ -1,10 +1,10 @@
 `timescale 1 ns / 1ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   generate_defuse_array
+ Module name:   defuse_field
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-27
- Description:  Fills 2D array with '0 and '1, where '1 means there is a defused field
+ Description:  Defuses field of given xy index
  */
 //////////////////////////////////////////////////////////////////////////////
 module defuse_field 

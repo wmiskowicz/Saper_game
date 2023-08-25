@@ -4,7 +4,7 @@
  * Author: Wojciech Miskowicz
  * 
  * Description:
- * Package with vga related constants.
+ * Package with color constants.
  */
 
  package colour_pkg;

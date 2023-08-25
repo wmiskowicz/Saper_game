@@ -38,7 +38,8 @@ always_ff @(posedge clk) begin : mouse_ff_blk
         out.rgb <= rgb_nxt;
     end
 end
-//************LOCAL PARAMETERS*****************
+
+
 MouseDisplay u_MouseDisplay(
     .pixel_clk(clk),
     .xpos(mouse_x_pos),

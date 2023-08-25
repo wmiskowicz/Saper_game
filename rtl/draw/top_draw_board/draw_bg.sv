@@ -4,7 +4,7 @@
  * Author: Piotr Kaczmarczyk
  * Modified: Wojciech Miskowicz
  * Description:
- * Draw background.
+ * Draws background.
  */
 
 

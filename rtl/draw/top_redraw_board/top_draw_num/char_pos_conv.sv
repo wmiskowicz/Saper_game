@@ -1,10 +1,10 @@
 `timescale 1 ns / 1ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   Counter
+ Module name:   char_pos_conv
  Author:        Wojciech Miskowicz
- Last modified: 2023-06-25
- Description:  Counts to wanted value when posedge on 'counting' detected
+ Last modified: 2023-08-20
+ Description:  Returns char index based on cur_xpos and board parameters
  */
 //////////////////////////////////////////////////////////////////////////////
 module char_pos_conv

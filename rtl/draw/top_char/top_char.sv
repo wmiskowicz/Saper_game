@@ -1,4 +1,12 @@
-
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   top_char
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-08-05
+ Coding style: safe with FPGA sync reset
+ Description:  top module for displaying constant text
+ */
+//////////////////////////////////////////////////////////////////////////////
 
 module top_char(
     input wire clk, rst,

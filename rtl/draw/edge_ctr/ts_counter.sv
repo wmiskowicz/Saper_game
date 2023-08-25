@@ -4,7 +4,8 @@
  Module name:   Counter
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
- Description:  Counts to wanted value when posedge on 'counting' detected
+ Description:  Counts to wanted value when 'counting' = '1
+ When ctr == max, ctr = 0
  */
 //////////////////////////////////////////////////////////////////////////////
 module ts_counter#(

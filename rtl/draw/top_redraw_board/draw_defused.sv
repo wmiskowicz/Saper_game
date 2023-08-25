@@ -1,4 +1,13 @@
 `timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   draw_defused
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-07-31
+ Description:  Draws a defused field
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 
 module draw_defused (
     input wire clk,

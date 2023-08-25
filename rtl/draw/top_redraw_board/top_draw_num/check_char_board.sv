@@ -1,4 +1,12 @@
 `timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   check_char_board
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-08-20
+ Description:  Converts given number to char
+ */
+//////////////////////////////////////////////////////////////////////////////
 
 module check_char_board(
     input wire clk,

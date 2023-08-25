@@ -1,4 +1,12 @@
 `timescale 1 ns / 1 ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   draw_char_board
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-08-20
+ Description:  Draws mine index of every field of board
+ */
+//////////////////////////////////////////////////////////////////////////////
 
 module draw_char_board (
     input wire clk,

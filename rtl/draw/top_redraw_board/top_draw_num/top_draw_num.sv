@@ -1,4 +1,12 @@
-
+`timescale 1 ns / 1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   top_draw_num
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-08-17
+ Description:  Top module for drawing mine index of a field
+ */
+//////////////////////////////////////////////////////////////////////////////
 
 module top_draw_num(
     input wire clk, rst,

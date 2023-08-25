@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   top_draw_board
+ Module name:   top_game_setup
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
- Description:  Top module for drawing symbols and numbers during minesweeping
+ Description:  Top module for setting up a game
  */
 //////////////////////////////////////////////////////////////////////////////
 
