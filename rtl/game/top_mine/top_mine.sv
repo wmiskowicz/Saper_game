@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   top_redraw_board
+ Module name:   top_mine
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
- Description:  Top module for drawing symbols and numbers during minesweeping
+ Description:  Top module for mine
  */
 //////////////////////////////////////////////////////////////////////////////
 
