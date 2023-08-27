@@ -21,13 +21,15 @@ module top_draw_num(
 
 //Local variables
 
- wire [11:0] addr;
- wire [15:0] char_line_pixels;
+ wire [12:0] addr;
+ logic [49:0] char_line_pixels;
  wire [4:0] char_x, char_y;
  wire [6:0] char_code;
- wire [4:0] char_line;
+ wire [5:0] char_line;
+
 
  assign addr = {char_code, char_line};
+
 
  check_char_board u_check_char_board(
     .clk,

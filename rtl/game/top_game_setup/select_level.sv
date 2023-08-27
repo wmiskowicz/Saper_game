@@ -115,7 +115,7 @@
                     board_size_nxt = 10'd640;
                     board_xpos_nxt = 11'd400;
                     board_ypos_nxt = 11'd130;
-                    button_size_nxt = 7'd40;
+                    button_size_nxt = 7'd50;
                 end
                 else if(level == 2)begin
                     mines_nxt    = 6'd20;

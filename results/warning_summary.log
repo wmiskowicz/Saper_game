@@ -1,8 +1,33 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-08-18 14:12:20
+Created: 2023-08-27 23:05:25
 
 ----SYNTHESIS----
+WARNING: [Synth 8-2292] literal value truncated to fit in 3 bits [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:46]
+WARNING: [Synth 8-2292] literal value truncated to fit in 3 bits [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:60]
+WARNING: [Synth 8-2292] literal value truncated to fit in 3 bits [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:74]
+WARNING: [Synth 8-151] case item 3'b000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:37]
+WARNING: [Synth 8-151] case item 3'b000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:51]
+WARNING: [Synth 8-151] case item 3'b000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv:65]
+WARNING: [Synth 8-151] case item 12'b011100010000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010001 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010010 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010011 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010100 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010101 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010110 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100010111 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011001 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011010 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011011 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011100 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011101 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011110 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-151] case item 12'b011100011111 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:24]
+WARNING: [Synth 8-5856] 3D RAM num_arr_easy_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM num_arr_medium_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5856] 3D RAM num_arr_hard_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
 WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/mouse/MouseCtl.vhd:456]
 WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:514]
@@ -15,9 +40,24 @@ WARNING: [Synth 8-7129] Port dp_in[1] in module disp_hex_mux is either unconnect
 WARNING: [Synth 8-7129] Port dp_in[0] in module disp_hex_mux is either unconnected or has no load
 WARNING: [Synth 8-7129] Port button_ind_x_in[4] in module mine_check is either unconnected or has no load
 WARNING: [Synth 8-7129] Port button_ind_y_in[4] in module mine_check is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[9] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[8] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[7] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[6] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[5] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[4] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[3] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[2] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[1] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port board_size[0] in module char_pos_conv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_x[4] in module check_char_board is either unconnected or has no load
+WARNING: [Synth 8-7129] Port char_y[4] in module check_char_board is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rst in module char_rom16x16 is either unconnected or has no load
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg' [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v:26]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (u_num_font_rom/data_reg[47]) is unused and will be removed from module top_draw_num.
 
 ----IMPLEMENTATION----
 WARNING: [Route 35-328] Router estimated timing not met.
 CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [DRC PDRC-153] Gated clock check: Net u_top_vga/u_redraw_board/u_top_draw_num/u_check_char_board/E[0] is a gated clock net sourced by a combinational pin u_top_vga/u_redraw_board/u_top_draw_num/u_check_char_board/data_reg[49]_i_2/O, cell u_top_vga/u_redraw_board/u_top_draw_num/u_check_char_board/data_reg[49]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.

@@ -16,10 +16,10 @@ module draw_char_board (
     input wire [9:0] board_size,
     input wire [6:0] button_size,
     input wire [4:0] button_num,
-    input logic [15:0] char_pixels,
+    input logic [49:0] char_pixels,
     output logic [4:0] char_y,
     output logic [4:0] char_x,
-    output logic [4:0] char_line,
+    output logic [5:0] char_line,
     vga_if.in in,
     vga_if.out out
 );
@@ -35,20 +35,24 @@ logic [10:0] hcount_nxt, hcount_nxt1;
 logic         hsync_nxt;
 logic         hblnk_nxt;
 logic [11:0]  rgb_nxt, rgb_local;
+logic [49:0]  mask_one;
 
 
-wire [10:0] cur_ypos, cur_xpos, cur_ypos_delay, cur_xpos_delay, char_mask;
+wire [10:0] cur_ypos, cur_xpos, cur_ypos_delay, cur_xpos_delay, char_line_ctr;
+wire [5:0] char_mask_check, char_mask;
 
 
 //************ASSIGNMENTS*****************
-assign cur_ypos = in.vcount - board_ypos;
-assign cur_xpos = in.hcount - board_xpos;
+assign cur_ypos = in.vcount >= board_ypos && in.vcount <= board_ypos + board_size ? in.vcount - board_ypos : 11'h7_f_f;
+assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= board_xpos && in.hcount <= board_xpos + board_size ? in.hcount - board_xpos :  11'h7_f_f;
 
 assign cur_ypos_delay = vcount_nxt - board_ypos;
 assign cur_xpos_delay = hcount_nxt - board_xpos;
-assign char_mask = hcount_nxt1 - board_xpos;
+assign char_mask_check = hcount_nxt1 - board_xpos;
+assign char_mask = char_mask_check <= 6'd49 ? char_mask_check : 6'd49;
 
-assign char_line = cur_ypos[4:0];
+assign char_line = char_line_ctr[5:0];
+assign mask_one = {1'b1, 49'b0};
 
 
 char_pos_conv char_xpos_conv(
@@ -68,6 +72,7 @@ char_pos_conv char_ypos_conv(
     .button_size,
     .board_size,
     .button_num,
+    .cur_pos_ctr(char_line_ctr),
     .char_pos(char_y)
 );
 
@@ -117,7 +122,7 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (16'h8000 >> char_mask[3:0])) && (hcount_nxt >= board_xpos) && (cur_xpos_delay < board_size)
+    if ((char_pixels & (mask_one >> char_mask)) && (hcount_nxt >= board_xpos) && (cur_xpos_delay < board_size)
     && (vcount_nxt >= board_ypos) && (cur_ypos_delay < board_size)) begin
         rgb_nxt = 12'h2_0_a;
     end

@@ -49,10 +49,11 @@ set sv_files {
     ../rtl/draw/top_redraw_board/defuse/defuse_field.sv
     ../rtl/draw/top_redraw_board/defuse/defuse_missing.sv
     ../rtl/draw/top_redraw_board/array_timing.sv
-    ../rtl/draw/top_redraw_board/top_draw_num/top_draw_num.sv \
-    ../rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv \
-    ../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv \
-    ../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv \
+    ../rtl/draw/top_redraw_board/top_draw_num/top_draw_num.sv 
+    ../rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv 
+    ../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv 
+    ../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv 
+    ../rtl/draw/top_redraw_board/top_draw_num/char_pos_conv.sv 
     ../rtl/draw/edge_ctr/edge_detector.sv
     ../rtl/draw/edge_ctr/edge_ctr.sv
     ../rtl/draw/edge_ctr/ts_counter.sv
