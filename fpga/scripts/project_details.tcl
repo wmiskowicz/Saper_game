@@ -41,13 +41,13 @@ set sv_files {
     ../rtl/draw/top_draw_board/draw_board.sv
     ../rtl/draw/top_draw_board/draw_button.sv
     ../rtl/draw/top_redraw_board/top_redraw_board.sv
-    ../rtl/draw/top_redraw_board/draw_flag.sv
-    ../rtl/draw/top_redraw_board/draw_defused.sv
-    ../rtl/draw/top_redraw_board/draw_mine.sv
-    ../rtl/draw/top_redraw_board/generate_flag_array.sv
-    ../rtl/draw/top_redraw_board/generate_defuse_array.sv
-    ../rtl/draw/top_redraw_board/defuse_field.sv
-    ../rtl/draw/top_redraw_board/defuse_missing.sv
+    ../rtl/draw/top_redraw_board/mine/draw_mine.sv
+    ../rtl/draw/top_redraw_board/flag/draw_flag.sv
+    ../rtl/draw/top_redraw_board/flag/generate_flag_array.sv
+    ../rtl/draw/top_redraw_board/defuse/draw_defused.sv
+    ../rtl/draw/top_redraw_board/defuse/generate_defuse_array.sv
+    ../rtl/draw/top_redraw_board/defuse/defuse_field.sv
+    ../rtl/draw/top_redraw_board/defuse/defuse_missing.sv
     ../rtl/draw/top_redraw_board/array_timing.sv
     ../rtl/draw/top_redraw_board/top_draw_num/top_draw_num.sv \
     ../rtl/draw/top_redraw_board/top_draw_num/check_char_board.sv \
@@ -73,7 +73,6 @@ set sv_files {
     ../rtl/game/top_mine/random_gen.sv
     ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
-    ../rtl/mouse/synchr.sv
     rtl/top_vga_basys3.sv
 }
 
