@@ -16,14 +16,15 @@ module char_pos_conv
     input wire [6:0] button_size,
     input wire [4:0] button_num,
     output reg [4:0] char_pos,
-    output reg [10:0] cur_pos_ctr
+    output reg [5:0] char_line 
     );
     
     logic [4:0] char_pos_nxt;
-    logic [10:0] cur_pos_ctr_nxt, cur_pos_prev;
+    logic [10:0] cur_pos_ctr, cur_pos_ctr_nxt, cur_pos_prev;
     logic [5:0] loc_button_size;
 
     assign loc_button_size = button_size[5:0];
+    assign char_line = cur_pos_ctr[5:0];
     
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -42,10 +43,12 @@ module char_pos_conv
         if(cur_pos == 11'h7_f_f) begin
             char_pos_nxt = 'x;
             cur_pos_ctr_nxt = 'x;
+            
         end
         else if(cur_pos < button_size)begin
             char_pos_nxt = '0;
             cur_pos_ctr_nxt = cur_pos;
+
         end
         else if(cur_pos_ctr[5:0] == loc_button_size-1) begin
             cur_pos_ctr_nxt = '0;

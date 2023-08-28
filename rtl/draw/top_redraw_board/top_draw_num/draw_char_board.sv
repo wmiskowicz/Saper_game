@@ -31,28 +31,26 @@ module draw_char_board (
 logic [10:0] vcount_nxt;
 logic         vsync_nxt;
 logic         vblnk_nxt;
-logic [10:0] hcount_nxt, hcount_nxt1;
+logic [10:0] hcount_nxt;
 logic         hsync_nxt;
 logic         hblnk_nxt;
 logic [11:0]  rgb_nxt, rgb_local;
 logic [49:0]  mask_one;
 
 
-wire [10:0] cur_ypos, cur_xpos, cur_ypos_delay, cur_xpos_delay, char_line_ctr;
-wire [5:0] char_mask_check, char_mask;
+wire [10:0] cur_ypos, cur_xpos;
+wire [5:0] char_line_ctr;
+wire [5:0] char_mask;
 
 
 //************ASSIGNMENTS*****************
 assign cur_ypos = in.vcount >= board_ypos && in.vcount <= board_ypos + board_size ? in.vcount - board_ypos : 11'h7_f_f;
 assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= board_xpos && in.hcount <= board_xpos + board_size ? in.hcount - board_xpos :  11'h7_f_f;
 
-assign cur_ypos_delay = vcount_nxt - board_ypos;
-assign cur_xpos_delay = hcount_nxt - board_xpos;
-assign char_mask_check = hcount_nxt1 - board_xpos;
-assign char_mask = char_mask_check <= 6'd49 ? char_mask_check : 6'd49;
+//assign char_mask = cur_xpos[5:0] <= 6'd49 ? cur_xpos[5:0] : '0;
 
-assign char_line = char_line_ctr[5:0];
 assign mask_one = {1'b1, 49'b0};
+assign char_line = cur_xpos != 11'h7_f_f ? char_line_ctr : 'x;
 
 
 char_pos_conv char_xpos_conv(
@@ -62,6 +60,7 @@ char_pos_conv char_xpos_conv(
     .button_size,
     .board_size,
     .button_num,
+    .char_line(char_mask),
     .char_pos(char_x)
 );
 
@@ -72,7 +71,7 @@ char_pos_conv char_ypos_conv(
     .button_size,
     .board_size,
     .button_num,
-    .cur_pos_ctr(char_line_ctr),
+    .char_line(char_line_ctr),
     .char_pos(char_y)
 );
 
@@ -86,17 +85,6 @@ u_delay_upel (
     .rst,
     .din({in.vcount, in.vsync, in.vblnk, in.hcount, in.hsync, in.hblnk, in.rgb}),
     .dout({vcount_nxt, vsync_nxt, vblnk_nxt, hcount_nxt, hsync_nxt, hblnk_nxt, rgb_local})
-);
-
-delay_upel #(
-    .WIDTH(11),
-    .CLK_DEL(2)  
-)
-u_delay_upel2 (
-    .clk,
-    .rst,
-    .din({in.hcount}),
-    .dout({hcount_nxt1})
 );
 
 
@@ -122,8 +110,8 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (mask_one >> char_mask)) && (hcount_nxt >= board_xpos) && (cur_xpos_delay < board_size)
-    && (vcount_nxt >= board_ypos) && (cur_ypos_delay < board_size)) begin
+    if ((char_pixels & (mask_one >> char_mask[5:0])) && (hcount_nxt >= board_xpos) && (cur_xpos < board_size)
+    && (vcount_nxt >= board_ypos) && (cur_ypos < board_size)) begin
         rgb_nxt = 12'h2_0_a;
     end
     else begin                             
