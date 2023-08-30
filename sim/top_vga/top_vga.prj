@@ -23,6 +23,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_redraw_board/top_redraw_board.sv \
         ../../rtl/draw/top_redraw_board/mine/draw_mine.sv \
         ../../rtl/draw/top_redraw_board/flag/draw_flag.sv \
+        ../../rtl/draw/top_redraw_board/flag/flag_ctr.sv \
         ../../rtl/draw/top_redraw_board/flag/generate_flag_array.sv \
         ../../rtl/draw/top_redraw_board/defuse/generate_defuse_array.sv \
         ../../rtl/draw/top_redraw_board/defuse/defuse_field.sv \
@@ -34,6 +35,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/char_pos_conv.sv \
+        ../../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv \
         ../../rtl/draw/top_char/char_rom16x16.sv \
         ../../rtl/draw/top_char/draw_rect_char.sv \
         ../../rtl/draw/top_char/top_char.sv \
@@ -50,6 +52,9 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/game/top_mine/random_gen.sv \
         ../../rtl/mouse/top_mouse.sv \
         ../../rtl/mouse/draw_mouse.sv \
+        ../../rtl/timer/top_timer.sv \
+        ../../rtl/timer/bin2bcd.sv \
+        ../../rtl/timer/time_controller.sv \
         ../../rtl/top_vga.sv \
         ../../fpga/rtl/top_vga_basys3.sv \
         ../common/tiff_writer.sv \
@@ -58,7 +63,6 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
 verilog work ../common/glbl.v \
         ../../rtl/import/list_ch04_15_disp_hex_mux.v \
         ../../rtl/import/delay.v \
-        ../../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v \
         ../../rtl/draw/top_char/font_rom.v
 
 vhdl work ../../rtl/mouse/MouseCtl.vhd \

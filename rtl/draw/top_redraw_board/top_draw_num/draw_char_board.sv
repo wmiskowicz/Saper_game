@@ -11,17 +11,13 @@
 module draw_char_board (
     input wire clk,
     input wire rst,
-    input wire [10:0] board_xpos,
-    input wire [10:0] board_ypos,    
-    input wire [9:0] board_size,
-    input wire [6:0] button_size,
-    input wire [4:0] button_num,
     input logic [49:0] char_pixels,
-    output logic [4:0] char_y,
-    output logic [4:0] char_x,
+    output logic [3:0] char_y,
+    output logic [3:0] char_x,
     output logic [5:0] char_line,
     vga_if.in in,
-    vga_if.out out
+    vga_if.out out,
+    game_set_if.in gin
 );
 
 
@@ -44,8 +40,8 @@ wire [5:0] char_mask;
 
 
 //************ASSIGNMENTS*****************
-assign cur_ypos = in.vcount >= board_ypos && in.vcount <= board_ypos + board_size ? in.vcount - board_ypos : 11'h7_f_f;
-assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= board_xpos && in.hcount <= board_xpos + board_size ? in.hcount - board_xpos :  11'h7_f_f;
+assign cur_ypos = in.vcount >= gin.board_ypos && in.vcount <= gin.board_ypos + gin.board_size ? in.vcount - gin.board_ypos : 11'h7_f_f;
+assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= gin.board_xpos && in.hcount <= gin.board_xpos + gin.board_size ? in.hcount - gin.board_xpos :  11'h7_f_f;
 
 //assign char_mask = cur_xpos[5:0] <= 6'd49 ? cur_xpos[5:0] : '0;
 
@@ -57,9 +53,8 @@ char_pos_conv char_xpos_conv(
     .clk,
     .rst,
     .cur_pos(cur_xpos),
-    .button_size,
-    .board_size,
-    .button_num,
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
     .char_line(char_mask),
     .char_pos(char_x)
 );
@@ -68,9 +63,8 @@ char_pos_conv char_ypos_conv(
     .clk,
     .rst,
     .cur_pos(cur_ypos),
-    .button_size,
-    .board_size,
-    .button_num,
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
     .char_line(char_line_ctr),
     .char_pos(char_y)
 );
@@ -110,8 +104,8 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (mask_one >> char_mask[5:0])) && (hcount_nxt >= board_xpos) && (cur_xpos < board_size)
-    && (vcount_nxt >= board_ypos) && (cur_ypos < board_size)) begin
+    if ((char_pixels & (mask_one >> char_mask[5:0])) && (hcount_nxt >= gin.board_xpos) && (cur_xpos < gin.board_size)
+    && (vcount_nxt >= gin.board_ypos) && (cur_ypos < gin.board_size)) begin
         rgb_nxt = 12'h2_0_a;
     end
     else begin                             

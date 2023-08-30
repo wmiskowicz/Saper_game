@@ -32,7 +32,10 @@
  wire [15:0] [15:0] array_hard;
 
  wire [4:0] button_index_x, button_index_y;
+ 
+ 
  wire bomb, flag, random_data;
+
 
  assign button_ind_x_out = button_index_x;
  assign button_ind_y_out = button_index_y;

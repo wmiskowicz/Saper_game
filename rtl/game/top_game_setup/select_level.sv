@@ -14,6 +14,7 @@
         input  wire  rst,  
         input  logic [1:0] level,
         output reg [5:0] mines_out,
+        output reg [7:0] timer_val,
         output reg level_enable,
         game_set_if.out out
     );
@@ -31,6 +32,7 @@
     logic [9:0] board_size_nxt;
     logic [10:0] board_xpos_nxt, board_ypos_nxt;
     logic [6:0] button_size_nxt;
+    logic [7:0] timer_val_nxt;
     logic level_enable_nxt;
 
 
@@ -77,6 +79,7 @@
             out.board_ypos <= 11'b0;
             out.button_size <= 7'b0;
             level_enable <= '0;
+            timer_val <= '0;
         end
         else begin : out_reg_run_blk
             mines_out <= mines_nxt;
@@ -86,6 +89,7 @@
             out.board_ypos <= board_ypos_nxt;
             out.button_size <= button_size_nxt;
             level_enable <= level_enable_nxt;
+            timer_val <= timer_val_nxt;
         end
     end
     //------------------------------------------------------------------------------
@@ -100,6 +104,7 @@
                 board_xpos_nxt = 11'b0;
                 board_ypos_nxt = 11'b0;
                 button_size_nxt = 7'b0;
+                timer_val_nxt = '0;
                 if(level > 0) begin
                     level_enable_nxt = '1;
                 end
@@ -115,7 +120,8 @@
                     board_size_nxt = 10'd640;
                     board_xpos_nxt = 11'd400;
                     board_ypos_nxt = 11'd130;
-                    button_size_nxt = 7'd50;
+                    button_size_nxt = 7'd40;
+                    timer_val_nxt = 8'd90;
                 end
                 else if(level == 2)begin
                     mines_nxt    = 6'd20;
@@ -124,6 +130,7 @@
                     board_xpos_nxt = 11'd470;
                     board_ypos_nxt = 11'd200;
                     button_size_nxt = 7'd50;
+                    timer_val_nxt = 8'd70;
                 end
                 else if(level == 1) begin
                     mines_nxt    = 6'd8;
@@ -132,6 +139,7 @@
                     board_xpos_nxt = 11'd520;
                     board_ypos_nxt = 11'd250;
                     button_size_nxt = 7'd50;
+                    timer_val_nxt = 8'd40;
                 end
                 else begin
                     mines_nxt = '0;
@@ -140,6 +148,7 @@
                     board_xpos_nxt = 11'b0;
                     board_ypos_nxt = 11'b0;
                     button_size_nxt = 7'b0;
+                    timer_val_nxt = '0;
                 end
                 level_enable_nxt = '1;
             end
@@ -151,6 +160,7 @@
                 board_xpos_nxt = 11'b0;
                 board_ypos_nxt = 11'b0;
                 button_size_nxt = 7'b0;
+                timer_val_nxt = '0;
             end
             default: begin 
                 level_enable_nxt = '0;
@@ -160,6 +170,7 @@
                 board_xpos_nxt = 11'b0;
                 board_ypos_nxt = 11'b0;
                 button_size_nxt = 7'b0;
+                timer_val_nxt = '0;
             end
         endcase        
     end

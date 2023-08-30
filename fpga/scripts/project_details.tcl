@@ -44,6 +44,7 @@ set sv_files {
     ../rtl/draw/top_redraw_board/mine/draw_mine.sv
     ../rtl/draw/top_redraw_board/flag/draw_flag.sv
     ../rtl/draw/top_redraw_board/flag/generate_flag_array.sv
+    ../rtl/draw/top_redraw_board/flag/flag_ctr.sv 
     ../rtl/draw/top_redraw_board/defuse/draw_defused.sv
     ../rtl/draw/top_redraw_board/defuse/generate_defuse_array.sv
     ../rtl/draw/top_redraw_board/defuse/defuse_field.sv
@@ -54,6 +55,7 @@ set sv_files {
     ../rtl/draw/top_redraw_board/top_draw_num/draw_char_board.sv 
     ../rtl/draw/top_redraw_board/top_draw_num/generate_num_array.sv 
     ../rtl/draw/top_redraw_board/top_draw_num/char_pos_conv.sv 
+    ../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv
     ../rtl/draw/edge_ctr/edge_detector.sv
     ../rtl/draw/edge_ctr/edge_ctr.sv
     ../rtl/draw/edge_ctr/ts_counter.sv
@@ -74,6 +76,9 @@ set sv_files {
     ../rtl/game/top_mine/random_gen.sv
     ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
+    ../rtl/timer/top_timer.sv \
+    ../rtl/timer/bin2bcd.sv \
+    ../rtl/timer/time_controller.sv \
     rtl/top_vga_basys3.sv
 }
 
@@ -84,7 +89,7 @@ set sv_files {
     ../rtl/import/list_ch04_15_disp_hex_mux.v
     ../rtl/import/delay.v
     ../rtl/draw/top_char/font_rom.v
-    ../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.v 
+     
  }
 
 # Specify VHDL design files location            -- EDIT

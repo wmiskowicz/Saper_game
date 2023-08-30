@@ -1,3 +1,4 @@
+`timescale 1 ns / 1 ps
 //////////////////////////////////////////////////////////////////////////////
 /*
  Module name:   top_redraw_board
@@ -7,7 +8,7 @@
  */
 //////////////////////////////////////////////////////////////////////////////
 
- `timescale 1 ns / 1 ps
+ 
 
  module top_redraw_board (
      input  wire clk,
@@ -19,6 +20,7 @@
      input wire [9:0] [9:0] mine_arr_medium,
      input wire [15:0] [15:0] mine_arr_hard,
      input wire  explode, mark_flag, defuse,
+     output logic [5:0] mines, mines_left,
      game_set_if.in gin,
      vga_if.in in,
      vga_if.out out
@@ -37,9 +39,12 @@
  wire [15:0] [15:0] [2:0] num_arr_hard;
 
  wire mark_flag_pulse;
+ wire [5:0] flag_num;
  wire defuse_latched, mark_flag_latched, explode_latched;
 
  wire [4:0] mine_ind_x, mine_ind_y;
+
+ assign mines_left = mines - flag_num > 0 ? mines - flag_num : '0;
 
  edge_detector u_mark_flag_detector(
     .clk,
@@ -126,6 +131,7 @@ latch #(
     .rst,
     .mine_ind_x,
     .mine_ind_y,
+    .level,
     .explode(explode_latched),
     .button_size(gin.button_size),
     .board_xpos(gin.board_xpos),
@@ -161,10 +167,10 @@ latch #(
  generate_defuse_array u_generate_defuse_array(
     .clk,
     .rst,
-    .defuse('1),//(defuse_latched),
+    .defuse(defuse_latched),
     .level,
-    .defuse_ind_x(5'd4),//(symbol_ind_x),
-    .defuse_ind_y(5'd4),//(symbol_ind_y),
+    .defuse_ind_x(symbol_ind_x),
+    .defuse_ind_y(symbol_ind_y),
     .explode,
     .mine_arr_easy,
     .mine_arr_medium,
@@ -191,6 +197,17 @@ latch #(
     .num_arr_medium,
     .num_arr_hard
    );
+
+   flag_ctr u_flag_ctr (
+      .clk,
+      .rst,
+      .level,
+      .button_num(gin.button_num),
+      .flag_arr_easy,
+      .flag_arr_medium,
+      .flag_arr_hard,
+      .flag_num(flag_num)
+  );
 
 
 

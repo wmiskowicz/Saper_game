@@ -18,6 +18,7 @@
      input  logic clk,
      input  wire clk100MHz,
      input  wire [2:0] btnS,
+     input  wire tim_stop, 
      input  logic rst,
      output logic vs,
      output logic hs,
@@ -49,9 +50,11 @@
 
  wire enable_game;
  wire explode, mark_flag, defuse;
- wire left, right;
- wire detected;
- wire [3:0] ctr_test;
+ wire left, right, left_st, right_st;
+ wire start_count;
+ 
+ wire [7:0] seconds_left, timer_val;
+ wire [5:0] mines_left;
 
  
 
@@ -77,6 +80,8 @@
  assign {r,g,b} = draw_mouse_if.rgb;
 
  assign enable_game = btnS[2] || btnS[1] || btnS[0];
+ 
+ 
 
  assign b0 = btnS [2] || btnS [0];
  assign b1 = btnS [1] || btnS [0];
@@ -102,7 +107,7 @@
      .out(board_out_if.out)
  );
  
- top_redraw_board u_redraw_board(
+ top_redraw_board u_top_redraw_board(
   .clk,
   .rst,
   .level(game_level_latch),
@@ -114,6 +119,8 @@
   .mine_arr_easy,
   .mine_arr_medium,
   .mine_arr_hard,
+  .mines(mines_latch),
+  .mines_left,
   .gin(game_enable_if.in),
   .in(board_out_if.in),
   .out(redraw_board_if.out)
@@ -123,6 +130,7 @@
     .clk,
     .rst,
     .level(level),
+    .timer_val,
     .mines_out(mines_latch),
     .level_out(game_level_latch),
     .out(game_enable_if.out)
@@ -148,8 +156,8 @@ top_mine u_top_mine(
    .mouse_xpos,
    .mouse_ypos,
    .level(game_level_latch),
-   .left,
-   .right,
+   .left(left_st),
+   .right(right_st),
    .mines(mines_latch),
    .button_num(game_enable_if.button_num),
    .explode,
@@ -164,29 +172,27 @@ top_mine u_top_mine(
 
 );
 
-edge_detector u_edge_detector(
+
+top_timer u_top_timer(
     .clk,
     .rst,
-    .signal(mark_flag),
-    .detected(detected)
- );
-
- ts_counter u_ts_counter(
-   .clk,
-   .rst,
-   .counting(detected),
-   .max(4'd6),
-   .ctr_out(ctr_test)
+    .start(left),
+    .stop(tim_stop),
+    .left,
+    .right,
+    .left_st,
+    .right_st,
+    .sec_to_count(timer_val),
+    .seconds_left
  );
  
  disp_hex_mux u_disp(
     .clk(clk), 
     .reset(rst),
-    .hex3(button_ind_x_out[3:0]), 
-    .hex2(button_ind_y_out[3:0]), 
-    .hex1(ctr_test), 
-    .hex0(defuse),
-    .dp_in(4'b1011), 
+    .hex3({3'b0, mines_left[4]}), 
+    .hex2(mines_left[3:0]), 
+    .hex1(seconds_left[7:4]), 
+    .hex0(seconds_left[3:0]),
     .an(an), 
     .sseg(sseg)
 );

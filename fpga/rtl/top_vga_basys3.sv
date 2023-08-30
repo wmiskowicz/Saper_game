@@ -20,6 +20,7 @@ module top_vga_basys3 (
     input  wire btnC,
     input  wire btnR,
     input  wire btnD,
+    input  wire tim_stop,
     inout  wire PS2Clk,
     inout  wire PS2Data,
 
@@ -93,6 +94,7 @@ top_vga u_top_vga (
     .ps2_clk(PS2Clk),
     .ps2_data(PS2Data),
     .btnS(btnS),
+    .tim_stop,
     .sseg(seg),
     .an(an),
     .rst(btnD),

@@ -11,9 +11,9 @@
 
 
 module char_rom16x16(
-    input logic  clk,
-    input logic rst,
-    input logic [7:0] char_xy,
+    input wire clk,
+    input wire rst,
+    input wire [7:0] char_xy,
     output logic [6:0] char_code
 );
 
@@ -22,7 +22,7 @@ logic [6:0] char_code_nxt;
 
 always_ff @(posedge clk) begin: char_16x16_blk 
     if(rst)begin
-        char_code <= 7'bx;
+        char_code <= '0;
     end
     else begin
         char_code <= char_code_nxt;

@@ -12,14 +12,13 @@ module char_pos_conv
     input wire clk,
     input wire rst,
     input wire [10:0] cur_pos,
-    input wire [9:0] board_size,
     input wire [6:0] button_size,
     input wire [4:0] button_num,
-    output reg [4:0] char_pos,
+    output reg [3:0] char_pos,
     output reg [5:0] char_line 
     );
     
-    logic [4:0] char_pos_nxt;
+    logic [3:0] char_pos_nxt;
     logic [10:0] cur_pos_ctr, cur_pos_ctr_nxt, cur_pos_prev;
     logic [5:0] loc_button_size;
 

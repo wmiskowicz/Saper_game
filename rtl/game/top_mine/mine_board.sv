@@ -22,13 +22,15 @@ module mine_board
    
 
     //Local variables
-    logic [4:0] x_out, y_out;
+    logic [3:0] x_out, y_out;
+    logic [4:0] dimension_size_trans;
     wire done_counting;
     reg data_nxt, data_prev;
     reg [5:0] mines_ctr, mines_ctr_nxt, mines_left;
 
     //Signal assignments
     assign mines_left = mines - mines_ctr;
+    assign dimension_size_trans = dimension_size-1;
 
     //Module logic
     
@@ -74,7 +76,7 @@ module mine_board
     dim_counter array_dim_ctr(
         .clk,
         .rst,
-        .dimension_size,
+        .dimension_size(dimension_size_trans),
         .x_out,
         .y_out,
         .done_counting  

@@ -75,7 +75,7 @@ always_comb begin : state_comb_blk
             if(defuse_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev] && level == 1) begin
                 state_nxt    = explode ? IDLE : WAIT_ES;
             end
-            else if(defuse_arr_medium[arr_x_refresh_prev][arr_y_refresh_prev] && level == 2) begin
+            else if(defuse_arr_medium[arr_x_refresh][arr_y_refresh] && level == 2) begin
                 state_nxt    = explode ? IDLE : WAIT_MID;
             end
             else if(defuse_arr_hard[arr_x_refresh_prev][arr_y_refresh_prev] && level == 3) begin
@@ -145,10 +145,9 @@ always_ff @(posedge clk) begin : out_reg_blk
             WAIT_ES: begin
                     counting <= '0;
                     if(arr_hcount <= 2)begin
-                        done_check <= '0;
     
                         if(arr_vcount <= 2)begin  
-                            if(~mine_arr_easy[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
+                            if(mine_arr_easy[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
                                 mine_ctr <= mine_ctr + 1;
                             end 
                             else begin
@@ -161,7 +160,7 @@ always_ff @(posedge clk) begin : out_reg_blk
                             arr_vcount <= '0;
                             arr_hcount <= arr_hcount + 1; 
                         end
-    
+                        done_check <= '0;
                     end
                     else begin
                         arr_hcount <= '0;
@@ -170,17 +169,15 @@ always_ff @(posedge clk) begin : out_reg_blk
                         num_arr_easy [arr_x_refresh] [arr_y_refresh] <= mine_ctr;
                         mine_ctr <= '0;
                     end
-    
+                    
     
             end
             WAIT_MID: begin
                     
                 counting <= '0;
                 if(arr_hcount <= 2)begin
-                    done_check <= '0;
-    
                     if(arr_vcount <= 2)begin  
-                        if(~mine_arr_medium[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
+                        if(mine_arr_medium[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
                             mine_ctr <= mine_ctr + 1;
                         end 
                         else begin
@@ -193,16 +190,17 @@ always_ff @(posedge clk) begin : out_reg_blk
                         arr_vcount <= '0;
                         arr_hcount <= arr_hcount + 1; 
                     end
-    
+                    done_check <= '0;
+                    
                 end
                 else begin
                     arr_hcount <= '0;
                     arr_vcount <= '0;
                     done_check <= '1;
-                    num_arr_medium [arr_x_refresh] [arr_y_refresh] <= mine_ctr;
+                    num_arr_medium [arr_x_refresh] [arr_y_refresh] <= defuse_arr_medium [arr_x_refresh] [arr_y_refresh] ? mine_ctr : '0;
                     mine_ctr <= '0;
                 end
-    
+                
     
             end
             WAIT_HD: begin
@@ -212,7 +210,7 @@ always_ff @(posedge clk) begin : out_reg_blk
                     done_check <= '0;
     
                     if(arr_vcount <= 2)begin  
-                        if(~mine_arr_hard[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
+                        if(mine_arr_hard[arr_x_refresh-1+arr_hcount][arr_y_refresh-1+arr_vcount]) begin   
                             mine_ctr <= mine_ctr + 1;
                         end 
                         else begin
@@ -225,17 +223,17 @@ always_ff @(posedge clk) begin : out_reg_blk
                         arr_vcount <= '0;
                         arr_hcount <= arr_hcount + 1; 
                     end
+                    done_check <= arr_hcount == 2 ? '1 : '0;
     
                 end
                 else begin
                     arr_hcount <= '0;
                     arr_vcount <= '0;
-                    done_check <= '1;
-                    num_arr_hard [arr_x_refresh] [arr_y_refresh] <= mine_ctr;
+                    done_check <= '1;  
                     mine_ctr <= '0;
                 end
-    
-    
+                num_arr_hard [arr_x_refresh] [arr_y_refresh] <= mine_ctr;
+
             end
             default: begin 
                 num_arr_easy <= '0;

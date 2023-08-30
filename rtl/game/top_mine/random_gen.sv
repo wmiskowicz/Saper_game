@@ -1,4 +1,4 @@
-`timescale 100 ps / 1ps
+`timescale 1 ns / 1ps
 
 module random_gen(
     input wire clk,

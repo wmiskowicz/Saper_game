@@ -21,10 +21,10 @@ module top_draw_num(
 
 //Local variables
 
- wire [12:0] addr;
+ wire [11:0] addr;
  logic [49:0] char_line_pixels;
- wire [4:0] char_x, char_y;
- wire [6:0] char_code;
+ wire [3:0] char_x, char_y;
+ wire [5:0] char_code;
  wire [5:0] char_line;
 
 
@@ -53,17 +53,13 @@ num_font_rom u_num_font_rom(
 draw_char_board u_draw_char_board(
     .clk,
     .rst,
-    .board_xpos(gin.board_xpos),
-    .board_ypos(gin.board_ypos),
-    .board_size(gin.board_size),
     .char_pixels(char_line_pixels),
-    .button_size(gin.button_size),
-    .button_num(gin.button_num),
     .char_x,
     .char_y,
     .char_line,
     .in,
-    .out
+    .out,
+    .gin
  );
 
 endmodule

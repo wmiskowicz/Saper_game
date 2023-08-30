@@ -13,11 +13,11 @@ module dim_counter
     input wire rst,
     input wire [4:0] dimension_size,
     
-    output reg [4:0] x_out, y_out,
+    output reg [3:0] x_out, y_out,
     output reg done_counting
     );
 
-    logic [4:0] y_nxt, x_nxt;
+    logic [3:0] y_nxt, x_nxt;
   
     
     always_ff @(posedge clk) begin

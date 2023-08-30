@@ -10,7 +10,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 module top_char(
-    input wire clk, rst,
+    input wire clk, 
+    input wire rst,
     vga_if.in in,
     vga_if.out out
 );

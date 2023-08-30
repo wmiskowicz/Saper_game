@@ -11,6 +11,7 @@
 module draw_mine (
     input wire clk,
     input wire rst,
+    input wire [1:0] level,
     input logic [4:0] mine_ind_x,
     input logic [4:0] mine_ind_y,
     input wire [6:0] button_size,
@@ -24,7 +25,6 @@ module draw_mine (
 import colour_pkg::*;
 
 logic [11:0] rgb_nxt;
-logic [10:0] rect_mid;
 logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 logic [4:0] ind_x_trans, ind_y_trans;
@@ -38,9 +38,8 @@ assign rect_xpos = board_xpos + ind_x_trans * button_size;
 assign rect_ypos = board_ypos + ind_y_trans * button_size;
 
 
-assign rect_mid = button_size/2;
-assign cur_xpos = in.hcount >= rect_xpos ? in.hcount - rect_xpos : -1;
-assign cur_ypos = in.vcount >= rect_ypos ? in.vcount - rect_ypos : -1;
+assign cur_xpos = in.hcount >= rect_xpos ? in.hcount - rect_xpos : 'x;
+assign cur_ypos = in.vcount >= rect_ypos ? in.vcount - rect_ypos : 'x;
 
 
 
@@ -67,7 +66,8 @@ assign cur_ypos = in.vcount >= rect_ypos ? in.vcount - rect_ypos : -1;
 
  always_comb begin : mine_comb_blk
     if(explode) begin
-        if((cur_xpos < button_size) && (cur_ypos < button_size) && (cur_xpos < button_size) && (cur_ypos < button_size))begin
+        if(((cur_ypos < cur_xpos + 6 && cur_ypos > cur_xpos + -6) || (cur_ypos < -cur_xpos + 6 + button_size && cur_ypos > -cur_xpos + -6 + button_size))
+        && cur_ypos <= button_size-8 && cur_xpos <= button_size-8 && cur_ypos >= 8 && cur_xpos >= 8 && level > 0)begin
             rgb_nxt = BLACK;
         end
         else begin
