@@ -18,9 +18,6 @@
      vga_if.out out
  );
 
- wire draw_button, done_x, done_y;
- wire [10:0] button_xpos, button_ypos;
- wire [6:0] button_size;
 
 
  vga_if tim_bg_if();
@@ -45,27 +42,12 @@ draw_bg u_draw_bg (
 draw_board u_draw_board(
    .clk,
    .rst,
-   .in(gin),
-   .done_x(done_x),
-   .done_y(done_y),
    .draw_board(enable_game),
-   .draw_button(draw_button),
-   .button_size(button_size),
-   .button_xpos(button_xpos),
-   .button_ypos(button_ypos)
+   .gin,
+   .in(bg_rect_if.in),
+   .out(out)
 );
 
-draw_button u_draw_button (
-    .clk,
-    .rst,
-    .done_x(done_x),
-    .done_y(done_y),
-    .draw_button(draw_button),
-    .button_size(button_size),
-    .rect_xpos(button_xpos),
-    .rect_ypos(button_ypos),
-    .in(bg_rect_if.in),
-    .out(out)
-);
+
 
  endmodule

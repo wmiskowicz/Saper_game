@@ -3,7 +3,7 @@
 /*
  Module name:   draw_defused
  Author:        Wojciech Miskowicz
- Last modified: 2023-07-31
+ Last modified: 2023-030-08
  Description:  Draws a defused field
  */
 //////////////////////////////////////////////////////////////////////////////
@@ -17,7 +17,6 @@ module draw_defused (
     input wire [9:0] [9:0] defuse_arr_medium,
     input wire [15:0] [15:0] defuse_arr_hard,
     game_set_if.in gin,
-    output reg [9:0] board_size,
     vga_if.in in,
     vga_if.out out
 );
@@ -26,19 +25,35 @@ import colour_pkg::*;
 
 logic [11:0] rgb_nxt;
 logic [10:0] cur_xpos, cur_ypos;
-logic [10:0] rect_xpos, rect_ypos;
+logic [3:0] ind_x, ind_y;
 
-logic done_x, done_y, done_x_nxt, done_y_nxt;
-logic [4:0] array_vcount, array_hcount;
-logic [4:0] array_vcount_nxt, array_hcount_nxt;
+logic [5:0] but_xpos, but_ypos;
+
 
 //************LOCAL PARAMETERS*****************
-assign rect_xpos = gin.board_xpos + (array_hcount) * gin.button_size;
-assign rect_ypos = gin.board_ypos + (array_vcount) * gin.button_size;
 
+assign cur_ypos = in.vcount >= gin.board_ypos && in.vcount <= gin.board_ypos + gin.board_size ? in.vcount - gin.board_ypos : 11'h7_f_f;
+assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= gin.board_xpos && in.hcount <= gin.board_xpos + gin.board_size  + gin.button_num ? in.hcount - gin.board_xpos :  11'h7_f_f;
 
-assign cur_xpos = in.hcount - rect_xpos;
-assign cur_ypos = in.vcount - rect_ypos;
+char_pos_conv ind_xpos(
+    .clk,
+    .rst,
+    .cur_pos(cur_xpos),
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
+    .char_line(but_xpos),
+    .char_pos(ind_x)
+);
+
+char_pos_conv ind_ypos(
+    .clk,
+    .rst,
+    .cur_pos(cur_ypos),
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
+    .char_line(but_ypos),
+    .char_pos(ind_y)
+);
 
 
  always_ff @(posedge clk) begin : flag_ff_blk
@@ -50,11 +65,6 @@ assign cur_ypos = in.vcount - rect_ypos;
         out.hsync <= '0;
         out.hblnk <= '0;
         out.rgb <= '0;
-        done_x <= '0;
-        done_y <= '0;
-        array_vcount <= '0;
-        array_hcount <= '0;
-        board_size <= '0;
     end else begin
         out.vcount <= in.vcount;
         out.vsync <= in.vsync;
@@ -63,21 +73,19 @@ assign cur_ypos = in.vcount - rect_ypos;
         out.hsync <= in.hsync;
         out.hblnk <= in.hblnk;
         out.rgb <= rgb_nxt;
-        done_x <= done_x_nxt;
-        done_y <= done_y_nxt;
-        array_vcount <= array_vcount_nxt;
-        array_hcount <= array_hcount_nxt;
-        board_size <= gin.board_size;
     end
  end
 
  always_comb begin : flag_comb_blk
-    if((level > 0) && 
-    (defuse_arr_easy[array_hcount][array_vcount] || defuse_arr_medium[array_hcount][array_vcount] ||defuse_arr_hard[array_hcount][array_vcount])) begin
-        if((cur_xpos < gin.button_size) && (cur_ypos < gin.button_size) && (cur_xpos > 0) && (cur_ypos > 0))begin
+    if((level == 1 && defuse_arr_easy[ind_x][ind_y]) ||
+    (level == 2 && defuse_arr_medium[ind_x][ind_y]) ||
+    (level == 3 && defuse_arr_hard[ind_x][ind_y])) begin
+        if(but_xpos < gin.button_size && but_ypos < gin.button_size && 
+        but_xpos > 0 && but_ypos > 0 &&
+        (cur_xpos != 11'h7_f_f) && (cur_ypos != 11'h7_f_f))begin
             rgb_nxt = BUTTON_BACK;
         end
-        else if((cur_xpos <= gin.button_size) && (cur_ypos <= gin.button_size) && (cur_xpos >= 0) && (cur_ypos >= 0)) begin
+        else if((cur_xpos != 11'h7_f_f) && (cur_ypos != 11'h7_f_f)) begin
             rgb_nxt = BUTTON_GRAY;
         end
         else begin
@@ -87,35 +95,7 @@ assign cur_ypos = in.vcount - rect_ypos;
     else begin
         rgb_nxt = in.rgb;
     end
-
-    if(cur_xpos == gin.button_size) begin
-        done_x_nxt = '1;
-    end
-    else begin
-        done_x_nxt = '0;
-    end
-
-    if(cur_ypos == gin.button_size)begin
-        done_y_nxt = '1;
-    end
-    else begin
-        done_y_nxt = '0;
-    end
  end
 
- edge_ctr y_counter(
-    .clk,
-    .rst,
-    .max(gin.button_num),
-    .ctr_out(array_vcount_nxt),
-    .signal(done_y)
- );
- edge_ctr x_counter(
-    .clk,
-    .rst,
-    .max(gin.button_num),
-    .ctr_out(array_hcount_nxt),
-    .signal(done_x)
- );
 
 endmodule

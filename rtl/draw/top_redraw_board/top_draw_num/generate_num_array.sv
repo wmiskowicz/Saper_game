@@ -49,10 +49,7 @@ enum logic [STATE_BITS-1 :0] {
     COUNT = 3'b001,
     WAIT_ES = 3'b011,
     WAIT_MID = 3'b010,
-    WAIT_HD = 3'b110,
-    ST_5 = 3'b111,
-    ST_6 = 3'b101,
-    ST_7 = 3'b100
+    WAIT_HD = 3'b110
 } state, state_nxt;
 
     //Module logic
@@ -75,7 +72,7 @@ always_comb begin : state_comb_blk
             if(defuse_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev] && level == 1) begin
                 state_nxt    = explode ? IDLE : WAIT_ES;
             end
-            else if(defuse_arr_medium[arr_x_refresh][arr_y_refresh] && level == 2) begin
+            else if(defuse_arr_medium[arr_x_refresh_prev][arr_y_refresh_prev] && level == 2) begin
                 state_nxt    = explode ? IDLE : WAIT_MID;
             end
             else if(defuse_arr_hard[arr_x_refresh_prev][arr_y_refresh_prev] && level == 3) begin
@@ -197,7 +194,7 @@ always_ff @(posedge clk) begin : out_reg_blk
                     arr_hcount <= '0;
                     arr_vcount <= '0;
                     done_check <= '1;
-                    num_arr_medium [arr_x_refresh] [arr_y_refresh] <= defuse_arr_medium [arr_x_refresh] [arr_y_refresh] ? mine_ctr : '0;
+                    num_arr_medium [arr_x_refresh] [arr_y_refresh] <= mine_ctr;
                     mine_ctr <= '0;
                 end
                 
@@ -251,10 +248,6 @@ end
 //------------------------------------------------------------------------------
 // output logic
 //------------------------------------------------------------------------------
-always_comb begin : out_comb_blk
-    
-end
-
 
 
 

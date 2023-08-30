@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   top_redraw_board
+ Module name:   top_mouse
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
- Description:  Top module for drawing symbols and numbers during minesweeping
+ Description:  Top module for mouse signals
  */
 //////////////////////////////////////////////////////////////////////////////
 
@@ -46,10 +46,10 @@
     .right(right),
     .new_event(),
     .value(),
-    .setx(),
-    .sety(),
-    .setmax_x(),
-    .setmax_y()
+    .setx('0),
+    .sety('0),
+    .setmax_x('0),
+    .setmax_y('0)
  );
 
  endmodule

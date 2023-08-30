@@ -33,6 +33,8 @@ module generate_defuse_array
 
     wire [4:0] ind_x_trans, ind_y_trans;
     wire [4:0] arr_x_refresh, arr_y_refresh;
+    wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
+    wire counting;
 
     assign ind_x_trans = defuse_ind_x - 1;
     assign ind_y_trans = defuse_ind_y - 1;
@@ -51,8 +53,8 @@ module generate_defuse_array
       .level,
       .ind_x_trans,
       .ind_y_trans,
-      .arr_x_refresh,    
-      .arr_y_refresh,
+      .arr_x_refresh(arr_x_refresh_prev),    
+      .arr_y_refresh(arr_y_refresh_prev),
       .defuse_arr_easy_in,
       .defuse_arr_medium_in,
       .defuse_arr_hard_in,
@@ -66,7 +68,12 @@ module generate_defuse_array
     .rst,
     .level,
     .explode,
-    .button_num,
+    //.button_num,
+    .arr_x_refresh,
+    .arr_y_refresh,
+    .arr_x_refresh_prev,
+    .arr_y_refresh_prev,
+    .counting,
     .mine_arr_easy,
     .mine_arr_medium,
     .mine_arr_hard,
@@ -82,10 +89,10 @@ module generate_defuse_array
         .clk,
         .rst,
         .level,
-        .counting('1),
+        .counting,
         .button_num,
-        .arr_x_refresh_prev(),
-        .arr_y_refresh_prev(),        
+        .arr_x_refresh_prev,
+        .arr_y_refresh_prev,        
         .arr_x_refresh,
         .arr_y_refresh
     );

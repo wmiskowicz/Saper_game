@@ -58,10 +58,11 @@
  draw_flag u_draw_flag(
     .clk,
     .rst,
+    .level,
     .flag_arr_easy,
     .flag_arr_medium,
     .flag_arr_hard,
-    .gin(gin),
+    .gin,
     .in(in),
     .out(flag_out)
  );
@@ -73,7 +74,7 @@
     .defuse_arr_easy,
     .defuse_arr_medium,
     .defuse_arr_hard,
-    .gin(gin),
+    .gin,
     .in(flag_out),
     .out(defuse_out)
  );

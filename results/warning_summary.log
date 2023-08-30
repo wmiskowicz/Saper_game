@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-08-30 12:33:40
+Created: 2023-08-30 21:03:33
 
 ----SYNTHESIS----
 WARNING: [Synth 8-151] case item 12'b110101000000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv:22]
@@ -61,6 +61,8 @@ WARNING: [Synth 8-6014] Unused sequential element set_y.y_inter_reg was removed.
 WARNING: [Synth 8-3848] Net pclk in module/entity top_vga_basys3 does not have driver. [fpga/rtl/top_vga_basys3.sv:44]
 WARNING: [Synth 8-7129] Port button_ind_x_in[4] in module mine_check is either unconnected or has no load
 WARNING: [Synth 8-7129] Port button_ind_y_in[4] in module mine_check is either unconnected or has no load
+WARNING: [Synth 8-7129] Port arr_x_refresh_prev[4] in module defuse_missing is either unconnected or has no load
+WARNING: [Synth 8-7129] Port arr_y_refresh_prev[4] in module defuse_missing is either unconnected or has no load
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 
 ----IMPLEMENTATION----

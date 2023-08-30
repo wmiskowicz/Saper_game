@@ -44,12 +44,12 @@ module char_pos_conv
             cur_pos_ctr_nxt = 'x;
             
         end
-        else if(cur_pos < button_size)begin
+        else if(cur_pos <= button_size)begin
             char_pos_nxt = '0;
             cur_pos_ctr_nxt = cur_pos;
 
         end
-        else if(cur_pos_ctr[5:0] == loc_button_size-1) begin
+        else if(cur_pos_ctr[5:0] == loc_button_size) begin
             cur_pos_ctr_nxt = '0;
             char_pos_nxt = char_pos == button_num-1 ? '0 : char_pos + 1;
         end

@@ -12,14 +12,10 @@
     (
         input  wire  clk,  
         input  wire  rst,  
-        input  wire  done_x,
-        input  wire  done_y,
         input  wire draw_board,
-        output logic draw_button,
-        output logic [6:0] button_size,
-        output logic [10:0] button_xpos,
-        output logic [10:0] button_ypos,
-        game_set_if.in in
+        game_set_if.in gin,
+        vga_if.in in,
+        vga_if.out out
     );
     
     //------------------------------------------------------------------------------
@@ -27,18 +23,48 @@
     //------------------------------------------------------------------------------
     
     localparam STATE_BITS = 2;
+    localparam MARGIN = 5;
     //------------------------------------------------------------------------------
     // local variables
-    logic [10:0] button_xpos_nxt, button_ypos_nxt;
-    logic [6:0] button_size_nxt;
-    logic [4:0] button_hcount_nxt, button_vcount_nxt;
-    logic draw_button_nxt;
+    import colour_pkg::*;
+
+    logic [11:0] rgb_nxt;
+    logic [10:0] cur_xpos, cur_ypos;
+
+    logic [5:0] but_xpos, but_ypos;
+
+
+//************LOCAL PARAMETERS*****************
+
+
+assign cur_ypos = in.vcount >= gin.board_ypos && in.vcount <= gin.board_ypos + gin.board_size ? in.vcount - gin.board_ypos : 11'h7_f_f;
+assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= gin.board_xpos && in.hcount <= gin.board_xpos + gin.board_size + gin.button_num ? in.hcount - gin.board_xpos :  11'h7_f_f;
 
     enum logic [STATE_BITS-1 :0] {
         IDLE = 2'b00, // idle state
         DRAW = 2'b01,
         DONE = 2'b11
     } state, state_nxt;
+
+    char_pos_conv ind_xpos(
+    .clk,
+    .rst,
+    .cur_pos(cur_xpos),
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
+    .char_line(but_xpos),
+    .char_pos()
+);
+
+char_pos_conv ind_ypos(
+    .clk,
+    .rst,
+    .cur_pos(cur_ypos),
+    .button_size(gin.button_size),
+    .button_num(gin.button_num),
+    .char_line(but_ypos),
+    .char_pos()
+);
      
     //------------------------------------------------------------------------------
     // state sequential with synchronous reset
@@ -65,17 +91,22 @@
     // output register
     //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
-        if(rst)begin
-            button_size <= '0;
-            button_xpos <= '0;
-            button_ypos <= '0;
-            draw_button <= '0;
-        end
-        else begin
-            button_size <= button_size_nxt;
-            button_xpos <= button_xpos_nxt;
-            button_ypos <= button_ypos_nxt;
-            draw_button <= draw_button_nxt;
+        if (rst) begin
+            out.vcount <= '0;
+            out.vsync <= '0;
+            out.vblnk <= '0;
+            out.hcount <= '0;
+            out.hsync <= '0;
+            out.hblnk <= '0;
+            out.rgb <= '0;
+        end else begin
+            out.vcount <= in.vcount;
+            out.vsync <= in.vsync;
+            out.vblnk <= in.vblnk;
+            out.hcount <= in.hcount;
+            out.hsync <= in.hsync;
+            out.hblnk <= in.hblnk;
+            out.rgb <= rgb_nxt;
         end
     end
     //------------------------------------------------------------------------------
@@ -83,56 +114,27 @@
     //------------------------------------------------------------------------------
     always_comb begin : out_comb_blk
         case(state_nxt)
-            IDLE: begin
-                if(draw_board)begin
-                    draw_button_nxt = '1;
-                    button_size_nxt = in.button_size;
-                    button_xpos_nxt = in.board_xpos;
-                    button_ypos_nxt = in.board_ypos;
+            IDLE: rgb_nxt = in.rgb;
+            DRAW: begin
+                if (but_xpos >= MARGIN && but_xpos <= gin.button_size-MARGIN && but_ypos >= MARGIN && but_ypos <= gin.button_size-MARGIN &&
+                cur_xpos != 11'h7_f_f && cur_ypos != 11'h7_f_f) begin
+                    rgb_nxt = BUTTON_BACK;
                 end
-                else begin
-                    button_size_nxt = '0;
-                    button_xpos_nxt = '0;
-                    button_ypos_nxt = '0;
-                    draw_button_nxt = '0;   
-                    if(in.board_size) begin //warning removal
-                        button_xpos_nxt = '1;
+                else if (cur_xpos != 11'h7_f_f && cur_ypos != 11'h7_f_f)begin//(but_xpos >= 0 && but_xpos < gin.button_size && but_ypos >= 0 && but_ypos < gin.button_size) begin
+                    if(but_xpos >= but_ypos) begin
+                        rgb_nxt = BUTTON_WHITE;
+                    end
+                    else begin
+                        rgb_nxt = BUTTON_GRAY;
                     end
                 end
+                else begin                                 
+                    rgb_nxt = in.rgb;
+                end
             end
-            DRAW: begin
-                draw_button_nxt = '1;
-                button_size_nxt = in.button_size;
-                button_xpos_nxt = in.board_xpos + button_hcount_nxt * in.button_size;
-                button_ypos_nxt = in.board_ypos + button_vcount_nxt * in.button_size;
-            end
-            default: begin 
-                button_size_nxt = '0;
-                button_xpos_nxt = '0;
-                button_ypos_nxt = '0;
-                draw_button_nxt = '0;
-
-            end
+            default: rgb_nxt = in.rgb;
         endcase
 
     end
-
-    edge_ctr y_counter(
-    .clk,
-    .rst,
-    .max(in.button_num),
-    .ctr_out(button_vcount_nxt),
-    .signal(done_y)
- );
-    edge_ctr x_counter(
-    .clk,
-    .rst,
-    .max(in.button_num),
-    .ctr_out(button_hcount_nxt),
-    .signal(done_x)
- );
-
-
-
     
     endmodule

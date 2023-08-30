@@ -1,5 +1,6 @@
 fpga/.Xil
-fpga/vivado*
+fpga/vivado.jou
+fpga/vivado.log
 fpga/build
 fpga/xvlog.pb
 fpga/xsim.dir 

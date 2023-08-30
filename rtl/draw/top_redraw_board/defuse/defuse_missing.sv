@@ -13,7 +13,9 @@ module defuse_missing
     input wire rst,
     input wire explode,
     input wire [1:0] level,
-    input wire [4:0] button_num,
+    //input wire [4:0] button_num,
+    input wire [4:0] arr_x_refresh, arr_y_refresh,
+    input wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev,
     input wire [7:0] [7:0] mine_arr_easy,
     input wire [9:0] [9:0] mine_arr_medium,
     input wire [15:0] [15:0] mine_arr_hard,
@@ -22,14 +24,15 @@ module defuse_missing
     input wire [15:0] [15:0] defuse_arr_hard_in,
     output logic [7:0] [7:0] defuse_arr_easy_out,
     output logic [9:0] [9:0] defuse_arr_medium_out,
-    output logic [15:0] [15:0] defuse_arr_hard_out
+    output logic [15:0] [15:0] defuse_arr_hard_out,
+    output logic counting
     );
    
 
     //Local variables
     logic [4:0] arr_hcount, arr_vcount;
-    wire [4:0] arr_x_refresh, arr_y_refresh;
-    logic counting;
+    //wire [4:0] arr_x_refresh, arr_y_refresh;
+    //logic counting;
 
     //------------------------------------------------------------------------------
 // local parameters
@@ -40,7 +43,7 @@ localparam STATE_BITS = 3; // number of bits used for state register
 // local variables
 //------------------------------------------------------------------------------
 
-wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
+//wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
 logic done_check;
 
 enum logic [STATE_BITS-1 :0] {
@@ -121,17 +124,17 @@ always_ff @(posedge clk) begin : out_reg_blk
                 done_check <= '0;
                 if(level == 3) begin
                     defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_hard_in [arr_x_refresh] [arr_y_refresh];
-                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= 'x;
-                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= '0;
                 end
                 else if(level == 2) begin
-                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= '0;
                     defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_medium_in [arr_x_refresh] [arr_y_refresh];
-                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= '0;
                 end
                 else begin
-                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= 'x;
-                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= '0;
                     defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_easy_in [arr_x_refresh] [arr_y_refresh];
                 end
             end
@@ -233,17 +236,10 @@ always_ff @(posedge clk) begin : out_reg_blk
         endcase
     end
 end
-//------------------------------------------------------------------------------
-// output logic
-//------------------------------------------------------------------------------
-always_comb begin : out_comb_blk
-    
-end
 
 
 
-
-
+/*
 
     array_timing u_arr_tim_2 (
         .clk,
@@ -255,7 +251,7 @@ end
         .arr_y_refresh_prev,        
         .arr_x_refresh,
         .arr_y_refresh
-    );
+    );*/
  
  endmodule
     
