@@ -13,7 +13,8 @@
         input  wire  rst, 
         input  wire start, stop,
         input  wire  [7:0] sec_to_count,   
-        output logic [7:0] seconds_out
+        output logic [7:0] seconds_out,
+        output reg  time_elapsed
     );
     
     //------------------------------------------------------------------------------
@@ -25,7 +26,7 @@
     // local variables
     //------------------------------------------------------------------------------
     logic [27:0] sec_ctr, sec_ctr_nxt;
-    logic done_ctn, done_ctn_nxt;
+    logic done_ctn, done_ctn_nxt, time_elapsed_nxt;
     logic [7:0] seconds_nxt;
     
     enum logic [STATE_BITS-1 :0] {
@@ -33,7 +34,7 @@
         COUNT = 3'b001,
         DONE = 3'b011,
         STOP = 3'b010,
-        ST_4 = 3'b110,
+        ELAPSED = 3'b110,
         ST_5 = 3'b111,
         ST_6 = 3'b101,
         ST_7 = 3'b100
@@ -55,7 +56,7 @@
     //------------------------------------------------------------------------------
     always_comb begin : state_comb_blk
         case(state)
-            IDLE: state_nxt    = start ? COUNT : IDLE;
+            IDLE: state_nxt    = (start && sec_ctr>0 && seconds_out > 0) ? COUNT : IDLE;
             COUNT: begin 
                 if(stop)begin
                     state_nxt = STOP;
@@ -64,8 +65,9 @@
                     state_nxt = sec_ctr == '0 ? DONE : COUNT;
                 end
             end
-            DONE: state_nxt = done_ctn ? IDLE : COUNT;
+            DONE: state_nxt = done_ctn ? ELAPSED : COUNT;
             STOP: state_nxt = stop ? STOP : COUNT;
+            ELAPSED: state_nxt = ELAPSED;
             default: state_nxt = IDLE;
         endcase
     end
@@ -77,11 +79,13 @@
             seconds_out <= '0;
             sec_ctr <= '0;
             done_ctn <= '0;
+            time_elapsed <= '0;
         end
         else begin : out_reg_run_blk
             seconds_out <= seconds_nxt;
             sec_ctr <= sec_ctr_nxt;
             done_ctn <= done_ctn_nxt;
+            time_elapsed <= time_elapsed_nxt;
         end
     end
     //------------------------------------------------------------------------------
@@ -90,20 +94,16 @@
     always_comb begin : out_comb_blk
         case(state_nxt)
             IDLE: begin
-                if(start)begin
-                    sec_ctr_nxt = 28'd100000000;
-                    seconds_nxt = sec_to_count;
-                end
-                else begin
-                    sec_ctr_nxt = '0;
-                    seconds_nxt = '0;
-                end
+                sec_ctr_nxt = 28'd100000000;
+                seconds_nxt = sec_to_count;
                 done_ctn_nxt = '0;
+                time_elapsed_nxt = '0;
             end
             COUNT: begin
                 sec_ctr_nxt = sec_ctr > 0 ? sec_ctr - 1 : '0;
                 seconds_nxt = seconds_out;
                 done_ctn_nxt = '0;
+                time_elapsed_nxt = '0;
             end
             DONE: begin
                 if(seconds_out > 0)begin
@@ -116,16 +116,25 @@
                     seconds_nxt = '0;
                     done_ctn_nxt = '1;
                 end
+                time_elapsed_nxt = '0;
             end
             STOP: begin
                 sec_ctr_nxt = sec_ctr;
                 seconds_nxt = seconds_out;
                 done_ctn_nxt = done_ctn;
+                time_elapsed_nxt = '0;
+            end
+            ELAPSED: begin
+                sec_ctr_nxt = '0;
+                seconds_nxt = '0;
+                done_ctn_nxt = '0;
+                time_elapsed_nxt = '1;
             end
             default: begin
                 sec_ctr_nxt = '0;
                 seconds_nxt = '0;
                 done_ctn_nxt = '0;
+                time_elapsed_nxt = '0;
             end
         endcase
     end

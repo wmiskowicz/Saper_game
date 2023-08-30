@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-08-30 04:22:27
+Created: 2023-08-30 12:33:40
 
 ----SYNTHESIS----
 WARNING: [Synth 8-151] case item 12'b110101000000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv:22]
@@ -54,7 +54,6 @@ WARNING: [Synth 8-151] case item 12'b110101101111 is unreachable [rtl/draw/top_r
 WARNING: [Synth 8-5856] 3D RAM num_arr_easy_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM num_arr_medium_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 WARNING: [Synth 8-5856] 3D RAM num_arr_hard_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-WARNING: [Synth 8-3848] Net mines in module/entity top_redraw_board does not have driver. [rtl/draw/top_redraw_board/top_redraw_board.sv:23]
 WARNING: [Synth 8-6014] Unused sequential element set_x.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:450]
 WARNING: [Synth 8-6014] Unused sequential element set_x.x_inter_reg was removed.  [rtl/mouse/MouseCtl.vhd:456]
 WARNING: [Synth 8-6014] Unused sequential element set_y.inc_reg was removed.  [rtl/mouse/MouseCtl.vhd:514]

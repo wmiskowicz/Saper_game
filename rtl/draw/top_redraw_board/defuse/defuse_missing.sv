@@ -48,10 +48,7 @@ enum logic [STATE_BITS-1 :0] {
     COUNT = 3'b001,
     WAIT_ES = 3'b011,
     WAIT_MID = 3'b010,
-    WAIT_HD = 3'b110,
-    ST_5 = 3'b111,
-    ST_6 = 3'b101,
-    ST_7 = 3'b100
+    WAIT_HD = 3'b110
 } state, state_nxt;
 
     //Module logic
@@ -124,17 +121,17 @@ always_ff @(posedge clk) begin : out_reg_blk
                 done_check <= '0;
                 if(level == 3) begin
                     defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_hard_in [arr_x_refresh] [arr_y_refresh];
-                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= '0;
-                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= 'x;
                 end
                 else if(level == 2) begin
-                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= 'x;
                     defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_medium_in [arr_x_refresh] [arr_y_refresh];
-                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= 'x;
                 end
                 else begin
-                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= '0;
-                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= '0;
+                    defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh] <= 'x;
+                    defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh] <= 'x;
                     defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh] <= defuse_arr_easy_in [arr_x_refresh] [arr_y_refresh];
                 end
             end

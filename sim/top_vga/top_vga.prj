@@ -37,7 +37,9 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/char_pos_conv.sv \
         ../../rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv \
         ../../rtl/draw/top_char/char_rom16x16.sv \
+        ../../rtl/draw/top_char/game_over16x16.sv \
         ../../rtl/draw/top_char/draw_rect_char.sv \
+        ../../rtl/draw/top_char/game_over_disp.sv \
         ../../rtl/draw/top_char/top_char.sv \
         ../../rtl/game/top_game_setup/top_game_setup.sv \
         ../../rtl/game/top_game_setup/select_level.sv \

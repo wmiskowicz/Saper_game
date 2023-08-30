@@ -59,8 +59,10 @@ set sv_files {
     ../rtl/draw/edge_ctr/edge_detector.sv
     ../rtl/draw/edge_ctr/edge_ctr.sv
     ../rtl/draw/edge_ctr/ts_counter.sv
+    ../rtl/draw/top_char/game_over16x16.sv
     ../rtl/draw/top_char/char_rom16x16.sv
     ../rtl/draw/top_char/draw_rect_char.sv
+    ../rtl/draw/top_char/game_over_disp.sv
     ../rtl/draw/top_char/top_char.sv
     ../rtl/top_vga.sv
     ../rtl/game/top_game_setup/top_game_setup.sv

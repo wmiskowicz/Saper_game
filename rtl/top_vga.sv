@@ -49,9 +49,9 @@
 
 
  wire enable_game;
- wire explode, mark_flag, defuse;
+ wire explode, explode_latched, mark_flag, defuse;
  wire left, right, left_st, right_st;
- wire start_count;
+ wire game_over, time_elapsed;
  
  wire [7:0] seconds_left, timer_val;
  wire [5:0] mines_left;
@@ -67,6 +67,7 @@
  vga_if draw_mouse_if();
  vga_if redraw_board_if();
  vga_if draw_char_if();
+ vga_if game_over_if();
  
  game_set_if game_enable_if();
  
@@ -80,6 +81,7 @@
  assign {r,g,b} = draw_mouse_if.rgb;
 
  assign enable_game = btnS[2] || btnS[1] || btnS[0];
+ assign game_over = time_elapsed || explode_latched;
  
  
 
@@ -96,6 +98,14 @@
    .rst,
    .in(redraw_board_if.in),
    .out(draw_char_if.out)
+ );
+
+ game_over_disp u_game_over_disp(
+   .clk,
+   .rst,
+   .game_over,
+   .in(draw_char_if.in),
+   .out(game_over_if.out)
  );
 
 
@@ -121,6 +131,7 @@
   .mine_arr_hard,
   .mines(mines_latch),
   .mines_left,
+  .explode_latched(explode_latched),
   .gin(game_enable_if.in),
   .in(board_out_if.in),
   .out(redraw_board_if.out)
@@ -140,7 +151,7 @@
     .clk,
     .clk100MHz,
     .rst,
-    .in(draw_char_if.in),
+    .in(game_over_if.in),
     .out(draw_mouse_if.out),
     .mouse_xpos,
     .mouse_ypos,
@@ -176,12 +187,13 @@ top_mine u_top_mine(
 top_timer u_top_timer(
     .clk,
     .rst,
-    .start(left),
+    .start(enable_game),
     .stop(tim_stop),
     .left,
     .right,
     .left_st,
     .right_st,
+    .time_elapsed,
     .sec_to_count(timer_val),
     .seconds_left
  );

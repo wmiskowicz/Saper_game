@@ -20,7 +20,9 @@
      input wire [9:0] [9:0] mine_arr_medium,
      input wire [15:0] [15:0] mine_arr_hard,
      input wire  explode, mark_flag, defuse,
-     output logic [5:0] mines, mines_left,
+     input wire [5:0] mines,
+     output logic [5:0] mines_left,
+     output wire explode_latched,
      game_set_if.in gin,
      vga_if.in in,
      vga_if.out out
@@ -39,12 +41,12 @@
  wire [15:0] [15:0] [2:0] num_arr_hard;
 
  wire mark_flag_pulse;
- wire [5:0] flag_num;
- wire defuse_latched, mark_flag_latched, explode_latched;
+ wire [4:0] flag_num;
+ wire defuse_latched, mark_flag_latched;
 
  wire [4:0] mine_ind_x, mine_ind_y;
 
- assign mines_left = mines - flag_num > 0 ? mines - flag_num : '0;
+ assign mines_left = mines > flag_num ? mines - flag_num : '0;
 
  edge_detector u_mark_flag_detector(
     .clk,
@@ -197,7 +199,7 @@ latch #(
     .num_arr_medium,
     .num_arr_hard
    );
-
+/*
    flag_ctr u_flag_ctr (
       .clk,
       .rst,
@@ -207,6 +209,14 @@ latch #(
       .flag_arr_medium,
       .flag_arr_hard,
       .flag_num(flag_num)
+  );*/
+
+  edge_ctr u_edge_ctr(
+   .clk,
+   .rst,
+   .signal(mark_flag),
+   .ctr_out(flag_num),
+   .max(5'h1_f)
   );
 
 

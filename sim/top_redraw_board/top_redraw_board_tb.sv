@@ -39,7 +39,7 @@ localparam CLK_PERIOD = 11;     // 40 MHz
 logic clk, rst;
 wire vs, hs;
 wire [3:0] r, g, b;
-int i;
+int i, k;
 
 logic [7:0] [7:0] mine_arr_easy;
 logic [9:0] [9:0] mine_arr_medium;
@@ -47,8 +47,9 @@ logic [15:0] [15:0] mine_arr_hard;
 
 
 initial begin
-    for(i=0;i<=10;i++)begin
-        mine_arr_medium[i] = 10'b1010101010;
+    for(i=0;i<10;i=i+2)begin
+        mine_arr_medium[i] = 10'h3ff;
+        mine_arr_medium[i+1] = 10'h0;
     end
 end
 
@@ -79,8 +80,8 @@ top_redraw_board dut (
      .clk,
      .rst,
      .level,
-     .symbol_ind_x(5'd4),
-     .symbol_ind_y(5'd4),
+     .symbol_ind_x(5'd2),
+     .symbol_ind_y(5'd2),
      .mine_arr_easy,
      .mine_arr_medium,
      .mine_arr_hard,
@@ -139,9 +140,9 @@ initial begin
     $display("completes, use the menu option to run all.");
     $display("Prepare to wait a long time...");
 
-    wait (vs == 1'b0);
-    @(negedge vs) $display("Info: negedge VS at %t",$time);
-    @(negedge vs) $display("Info: negedge VS at %t",$time);
+    # 300000 //wait (clk == 1'b1);
+    @(negedge clk) $display("Info: negedge VS at %t",$time);
+    @(negedge clk) $display("Info: negedge VS at %t",$time);
 
     // End the simulation.
     $display("Simulation is over, check the waveforms.");

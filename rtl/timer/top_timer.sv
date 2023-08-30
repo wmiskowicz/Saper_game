@@ -16,7 +16,8 @@
     input  wire start, stop,
     input  wire  [7:0] sec_to_count,   
     output logic [7:0] seconds_left,
-    output reg left_st, right_st
+    output reg left_st, right_st,
+    output reg time_elapsed
  );
 
  assign left_st = stop ? '0 : left;
@@ -30,6 +31,7 @@
     .rst,
     .start,
     .stop,
+    .time_elapsed,
     .sec_to_count,
     .seconds_out
  );
