@@ -1,7 +1,7 @@
 `timescale 1 ns / 1 ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   char_rom16x16
+ Module name:   game_over16x16
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-05
  Coding style: safe with FPGA sync reset

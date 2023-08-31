@@ -1,5 +1,14 @@
 `timescale 1 ns / 1ps
 
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   random_gen
+ Author:        Wojciech Miskowicz
+ Last modified: 2023-06-23
+ Description:  Generates a random value
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 module random_gen(
     input wire clk,
     input wire rst,

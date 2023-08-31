@@ -4,7 +4,7 @@
  Module name:   draw_mine
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-27
- Description:  Draws a mine
+ Description:  Draws a mine when explode is high
  */
 //////////////////////////////////////////////////////////////////////////////
 

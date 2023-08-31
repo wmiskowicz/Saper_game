@@ -4,7 +4,7 @@
  Module name:   top_draw_num
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-17
- Description:  Top module for drawing mine index of a field
+ Description:  Top module for displaying numbers on board
  */
 //////////////////////////////////////////////////////////////////////////////
 

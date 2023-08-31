@@ -1,3 +1,12 @@
+ /**
+ * Copyright (C) 2023  AGH University of Science and Technology
+ * MTM UEC2 Projekt
+ * Author: Wojciech Miskowicz
+ * 
+ * Description:
+ * Interface with vga signals
+ */
+ 
  interface vga_if();
    
      logic [10:0] vcount;

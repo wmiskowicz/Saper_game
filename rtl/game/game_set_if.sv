@@ -1,3 +1,12 @@
+ /**
+ * Copyright (C) 2023  AGH University of Science and Technology
+ * MTM UEC2 Projekt
+ * Author: Wojciech Miskowicz
+ * 
+ * Description:
+ * Interface with game related parameters
+ */
+
  interface game_set_if();
    
      logic [4:0] button_num;

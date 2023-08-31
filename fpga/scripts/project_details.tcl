@@ -43,7 +43,6 @@ set sv_files {
     ../rtl/draw/top_redraw_board/mine/draw_mine.sv
     ../rtl/draw/top_redraw_board/flag/draw_flag.sv
     ../rtl/draw/top_redraw_board/flag/generate_flag_array.sv
-    ../rtl/draw/top_redraw_board/flag/flag_ctr.sv 
     ../rtl/draw/top_redraw_board/defuse/draw_defused.sv
     ../rtl/draw/top_redraw_board/defuse/generate_defuse_array.sv
     ../rtl/draw/top_redraw_board/defuse/defuse_field.sv

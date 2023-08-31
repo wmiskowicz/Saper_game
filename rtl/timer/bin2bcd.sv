@@ -3,7 +3,7 @@
  Module name:   bin2bcd
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-30
- Description:  Top module for mine
+ Description:  Bin to bcd encoder
  */
 //////////////////////////////////////////////////////////////////////////////
 

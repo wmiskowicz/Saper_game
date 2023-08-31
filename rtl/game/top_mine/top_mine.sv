@@ -3,7 +3,7 @@
  Module name:   top_mine
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
- Description:  Top module for mine
+ Description:  Top module for mining board
  */
 //////////////////////////////////////////////////////////////////////////////
 

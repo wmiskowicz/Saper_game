@@ -4,7 +4,7 @@
  Module name:   char_pos_conv
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-20
- Description:  Returns char index based on cur_xpos and board parameters
+ Description:  Returns char index based on cur_pos and board parameters
  */
 //////////////////////////////////////////////////////////////////////////////
 module char_pos_conv

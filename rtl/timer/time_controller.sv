@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////
 /*
  Module name:   time_controller
- Author:        Robert Szczygiel
- Last modified: 29-08-20293
+ Author:        Wojciech Miskowicz
+ Last modified: 29-09-2023
  Coding style: safe with FPGA sync reset
  Description:  Controlls timer
  */
@@ -34,10 +34,7 @@
         COUNT = 3'b001,
         DONE = 3'b011,
         STOP = 3'b010,
-        ELAPSED = 3'b110,
-        ST_5 = 3'b111,
-        ST_6 = 3'b101,
-        ST_7 = 3'b100
+        ELAPSED = 3'b110
     } state, state_nxt;
     
     //------------------------------------------------------------------------------

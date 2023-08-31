@@ -3,7 +3,7 @@
  Module name:   top_timer
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-30
- Description:  Top module for mine
+ Description:  Top module for timer
  */
 //////////////////////////////////////////////////////////////////////////////
 

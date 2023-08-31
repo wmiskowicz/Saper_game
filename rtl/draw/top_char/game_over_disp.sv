@@ -5,7 +5,7 @@
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-05
  Coding style: safe with FPGA sync reset
- Description:  displays "Game over" when game_over is high
+ Description:  displays "Game over" or "Game won" when game_over or game_won are high
  */
 //////////////////////////////////////////////////////////////////////////////
 

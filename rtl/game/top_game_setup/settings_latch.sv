@@ -1,10 +1,10 @@
  `timescale 1 ns / 1 ps
 //////////////////////////////////////////////////////////////////////////////
 /*
- Module name:   latch
+ Module name:   settings_latch
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-11
- Description:  Passes settings when enabled
+ Description:  Passes settings when enabled is high
  */
 //////////////////////////////////////////////////////////////////////////////
  module settings_latch
