@@ -34,7 +34,7 @@ logic [4:0] ind_x_trans, ind_y_trans;
 assign ind_x_trans = mine_ind_x - 1;
 assign ind_y_trans = mine_ind_y - 1;
 
-assign rect_xpos = board_xpos + ind_x_trans * button_size;
+assign rect_xpos = board_xpos + ind_x_trans * (button_size+1);
 assign rect_ypos = board_ypos + ind_y_trans * button_size;
 
 
