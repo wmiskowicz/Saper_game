@@ -27,6 +27,8 @@ module top_draw_num(
  wire [5:0] char_code;
  wire [5:0] char_line;
 
+ wire [11:0] num_color;
+
 
  assign addr = {char_code, char_line};
 
@@ -46,6 +48,7 @@ module top_draw_num(
 num_font_rom u_num_font_rom(
     .clk,
     .addr,
+    .num_color,
     .char_line_pixels
 );
 
@@ -57,6 +60,7 @@ draw_char_board u_draw_char_board(
     .char_x,
     .char_y,
     .char_line,
+    .num_color,
     .in,
     .out,
     .gin

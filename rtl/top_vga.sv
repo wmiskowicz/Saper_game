@@ -47,8 +47,9 @@
  wire [9:0] [9:0] mine_arr_medium;
  wire [15:0] [15:0] mine_arr_hard;
 
+ wire [5:0] mines_planted;
 
- wire enable_game;
+ wire enable_game, stop_game;
  wire explode, explode_latched, mark_flag, defuse;
  wire left, right, left_st, right_st;
  wire game_over, game_won, time_elapsed;
@@ -82,12 +83,12 @@
 
  assign enable_game = btnS[2] || btnS[1] || btnS[0];
  assign game_over = (time_elapsed || explode_latched) && ~game_won;
- 
- 
 
  assign b0 = btnS [2] || btnS [0];
  assign b1 = btnS [1] || btnS [0];
  assign level = {b1, b0};
+
+ assign stop_game = tim_stop || game_won || game_over;
  
  
  /**
@@ -131,7 +132,7 @@
   .mine_arr_easy,
   .mine_arr_medium,
   .mine_arr_hard,
-  .mines(mines_latch),
+  .mines_planted(mines_planted),
   .mines_left,
   .game_won,
   .explode_latched(explode_latched),
@@ -173,6 +174,7 @@ top_mine u_top_mine(
    .left(left_st),
    .right(right_st),
    .mines(mines_latch),
+   .mines_planted,
    .button_num(game_enable_if.button_num),
    .explode,
    .mark_flag,
@@ -191,7 +193,7 @@ top_timer u_top_timer(
     .clk,
     .rst,
     .start(enable_game),
-    .stop(tim_stop),
+    .stop(stop_game),
     .left,
     .right,
     .left_st,

@@ -49,66 +49,66 @@ always_ff @(posedge clk) begin : out_reg_blk
     end
     else begin 
         if(defuse_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev] && level == 1) begin
-            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != '0) ul <= '1;
             else ul <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0) um <= '1;
             else um <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != button_num-1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != '0) ml <= '1;
             else ml <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != button_num-1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != '0) ll <= '1;
             else ll <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != button_num-1) lr <= '1;
             else lr <= '0;
         end
         else if(defuse_arr_medium[arr_x_refresh_prev][arr_y_refresh_prev] && level == 2) begin
-            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != '0) ul <= '1;
             else ul <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0) um <= '1;
             else um <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != button_num-1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != '0) ml <= '1;
             else ml <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != button_num-1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != '0) ll <= '1;
             else ll <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != button_num-1) lr <= '1;
             else lr <= '0;
         end
         else if(defuse_arr_hard[arr_x_refresh_prev][arr_y_refresh_prev] && level == 3) begin
-            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != '0) ul <= '1;
             else ul <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0) um <= '1;
             else um <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1 && arr_y_refresh_prev != '0 && arr_x_refresh_prev != button_num-1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != '0) ml <= '1;
             else ml <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1 && arr_x_refresh_prev != button_num-1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != '0) ll <= '1;
             else ll <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1 && arr_y_refresh_prev != button_num-1 && arr_x_refresh_prev != button_num-1) lr <= '1;
             else lr <= '0;
         end
         else begin
             {ul, um, ur, ml, mr, ll, lm, lr} <= '0;
         end
         mine_ctr <= ul + um + ur + ml + mr + ll + lm + lr;
-        num_arr_easy [arr_x_refresh][arr_y_refresh] <= mine_ctr;
-        num_arr_medium [arr_x_refresh][arr_y_refresh] <= mine_ctr;
-        num_arr_hard [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        if(level == 1)num_arr_easy [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        else if(level == 2)num_arr_medium [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        else if(level == 3)num_arr_hard [arr_x_refresh][arr_y_refresh] <= mine_ctr;
         
         /*
         if(level == 1 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_easy [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;

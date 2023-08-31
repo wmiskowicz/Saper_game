@@ -47,8 +47,8 @@ font_rom u_font_rom(
 
 
  draw_rect_char#(
-    .XPOS(720),
-    .YPOS(450),
+    .XPOS(840),
+    .YPOS(70),
     .WIDTH(16)
  ) u_draw_rect_char(
     .clk,

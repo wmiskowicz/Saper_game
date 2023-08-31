@@ -20,7 +20,7 @@
      input wire [9:0] [9:0] mine_arr_medium,
      input wire [15:0] [15:0] mine_arr_hard,
      input wire  explode, mark_flag, defuse,
-     input wire [5:0] mines,
+     input wire [5:0] mines_planted,
      output logic [7:0] mines_left,
      output logic explode_latched, game_won,
      game_set_if.in gin,
@@ -47,7 +47,7 @@
 
  wire [4:0] mine_ind_x, mine_ind_y;
 
- assign mines_hex = mines > flag_num ? mines - flag_num : '0;
+ assign mines_hex = mines_planted > flag_num ? mines_planted - flag_num : '0;
 
 bin2bcd u_mine_bin2bcd(
    .bin({2'b0, mines_hex}),

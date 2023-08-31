@@ -11,8 +11,8 @@ module mine_check
     (
     input wire clk,
     input wire rst,
-    input wire [4:0] button_ind_x_in,
-    input wire [4:0] button_ind_y_in,
+    input wire [3:0] button_ind_x_in,
+    input wire [3:0] button_ind_y_in,
     input wire [7:0] [7:0] array_easy_in,
     input wire [9:0] [9:0] array_medium_in,
     input wire [15:0] [15:0] array_hard_in,
@@ -24,10 +24,7 @@ module mine_check
 
     //Local variables
     logic explode_nxt, mark_flag_nxt, defuse_nxt;
-    logic [3:0] button_ind_x_trans, button_ind_y_trans;
 
-    assign button_ind_x_trans = button_ind_x_in > 0 ? button_ind_x_in - 1 : 'x;
-    assign button_ind_y_trans = button_ind_y_in > 0 ? button_ind_y_in - 1 : 'x;
 
     
     always_ff @(posedge clk) begin
@@ -51,8 +48,8 @@ module mine_check
         end
         else if(bomb && level > 0) begin
             mark_flag_nxt = '0;
-            if(array_hard_in[button_ind_x_trans] [button_ind_y_trans] || array_medium_in[button_ind_x_trans] [button_ind_y_trans]
-            || array_easy_in[button_ind_x_trans] [button_ind_y_trans])begin
+            if(array_hard_in[button_ind_x_in] [button_ind_y_in] || array_medium_in[button_ind_x_in] [button_ind_y_in]
+            || array_easy_in[button_ind_x_in] [button_ind_y_in])begin
                 explode_nxt = '1;
                 defuse_nxt = '0;
             end

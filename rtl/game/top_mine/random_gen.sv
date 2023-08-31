@@ -12,7 +12,8 @@
 module random_gen(
     input wire clk,
     input wire rst,
-    output wire random_data
+    output reg [1:0] y_inc,
+    output logic random_data
     );
     
     reg [31:0] ctr, ctr_nxt;
@@ -20,6 +21,7 @@ module random_gen(
     localparam MAX = 32'hf_f_f_f_f_f_f_f;
 
     assign random_data = ctr[5:5];
+    assign y_inc = ctr[7:6];
     assign incr = ctr[9:2];
     
     always_ff @(posedge clk or posedge rst) begin

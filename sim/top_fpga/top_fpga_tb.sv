@@ -58,18 +58,26 @@ end
 
 top_vga_basys3 dut (
     .clk(clk),
-    .btnC(rst),
+    .btnD(rst),
+    .PS2Clk(),
+    .PS2Data(),
+    .tim_stop('0),
+    .btnL('0),
+    .btnC('1),
+    .btnR('0),
     .Vsync(vs),
     .Hsync(hs),
     .vgaRed(r),
     .vgaGreen(g),
     .vgaBlue(b),
-    .JA1(pclk)
+    .JA1(pclk),
+    .an(),
+    .seg()
 );
 
 tiff_writer #(
-    .XDIM(16'd1056),
-    .YDIM(16'd628),
+    .XDIM(16'd1600),
+    .YDIM(16'd926),
     .FILE_DIR("../../results")
 ) u_tiff_writer (
     .clk(pclk),

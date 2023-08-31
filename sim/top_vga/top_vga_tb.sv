@@ -57,7 +57,7 @@ end
  */
 
 top_vga dut (
-    .btnS(3'b010),
+    .btnS(3'b100),
     .clk(clk),
     .rst(rst),
     .vs(vs),
@@ -98,9 +98,10 @@ initial begin
     $display("completes, use the menu option to run all.");
     $display("Prepare to wait a long time...");
 
-    wait (vs == 1'b0);
-    @(negedge vs) $display("Info: negedge VS at %t",$time);
-    @(negedge vs) $display("Info: negedge VS at %t",$time);
+    //wait (vs == 1'b0);
+    # 300000
+    //@(negedge vs) $display("Info: negedge VS at %t",$time);
+   // @(negedge vs) $display("Info: negedge VS at %t",$time);
 
     // End the simulation.
     $display("Simulation is over, check the waveforms.");

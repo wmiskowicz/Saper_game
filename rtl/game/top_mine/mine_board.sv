@@ -15,6 +15,8 @@ module mine_board
     input wire [5:0] mines,
     input wire [4:0] dimension_size,
     input wire random_data,
+    input wire [1:0] y_inc,
+    output logic [5:0] mines_ctr,
     output logic [7:0] [7:0] array_easy_out,
     output logic [9:0] [9:0] array_medium_out,
     output logic [15:0] [15:0] array_hard_out
@@ -24,14 +26,16 @@ module mine_board
     //Local variables
     logic [3:0] x_out, y_out;
     logic [4:0] dimension_size_trans;
+    logic [3:0] y_trans;
     wire done_counting;
     reg data_nxt, data_prev;
-    reg [5:0] mines_ctr, mines_ctr_nxt, mines_left;
+    reg [5:0] mines_ctr_nxt, mines_left;
 
     //Signal assignments
     assign mines_left = mines - mines_ctr;
     assign dimension_size_trans = dimension_size-1;
 
+    assign y_trans = (y_out+y_inc>=0 && y_out+y_inc < dimension_size) ? y_out+y_inc : y_out;
     //Module logic
     
     always_ff @(posedge clk) begin
@@ -42,14 +46,15 @@ module mine_board
             mines_ctr <= '0;
         end
         else if(~done_counting && level > 0) begin
+
             if(level == 3)begin
-                array_hard_out [x_out] [y_out] <= data_nxt;
+                array_hard_out [x_out] [y_trans] <= data_nxt;
             end
             else if (level == 2) begin
-                array_medium_out [x_out] [y_out] <= data_nxt;
+                array_medium_out [x_out] [y_trans] <= data_nxt;
             end
             else begin
-                array_easy_out [x_out] [y_out] <= data_nxt;
+                array_easy_out [x_out] [y_trans] <= data_nxt;
             end
             mines_ctr <= mines_ctr_nxt;
         end
@@ -57,7 +62,7 @@ module mine_board
     
     always_comb begin
         data_prev = data_nxt; 
-        if(mines_left > 0)begin
+        if(mines_left > 0 && ~done_counting)begin
             if(data_prev) begin
                 mines_ctr_nxt = mines_ctr + 1;
             end

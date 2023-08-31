@@ -23,6 +23,8 @@
      vga_if.out out
  );
 
+ wire detected;
+
  draw_mouse u_draw_mouse(
     .in(in),
     .out(out),
@@ -31,6 +33,13 @@
     .clk,
     .rst
  );
+
+ edge_detector u_edge_detector(
+    .clk,
+    .rst,
+    .signal(~rst),
+    .detected(detected)
+  );
 
 
  MouseCtl u_MouseCtl(
@@ -45,11 +54,11 @@
     .middle(),
     .right(right),
     .new_event(),
-    .value(),
-    .setx('0),
-    .sety('0),
-    .setmax_x('0),
-    .setmax_y('0)
+    .value(12'd200),
+    .setx(detected),
+    .sety(detected),
+    .setmax_x(),
+    .setmax_y()
  );
 
  endmodule

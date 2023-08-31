@@ -19,6 +19,7 @@
      input wire left, right,
      input wire [4:0] button_num,
      output logic explode, mark_flag, defuse,
+     output logic [5:0] mines_planted,
      output logic [4:0] button_ind_x_out,
      output logic [4:0] button_ind_y_out,
      output reg [7:0] [7:0] mine_arr_easy,
@@ -32,9 +33,12 @@
  wire [15:0] [15:0] array_hard;
 
  wire [4:0] button_index_x, button_index_y;
+ wire [3:0] button_ind_x_in, button_ind_y_in;
+
  
  
  wire bomb, flag, random_data;
+ wire [1:0] y_inc;
 
 
  assign button_ind_x_out = button_index_x;
@@ -43,6 +47,10 @@
  assign mine_arr_easy = array_easy;
  assign mine_arr_medium = array_medium;
  assign mine_arr_hard = array_hard;
+
+ assign button_ind_x_in = button_index_x > 0 ? button_index_x - 1 : 'x;
+ assign button_ind_y_in = button_index_y > 0 ? button_index_y - 1 : 'x;
+ 
 
  detect_index u_detect_index(
    .clk,
@@ -62,6 +70,7 @@
  random_gen u_random_gen(
    .clk,
    .rst,
+   .y_inc,
    .random_data
  );
 
@@ -71,6 +80,8 @@
    .random_data,
    .level,
    .mines,
+   .y_inc,
+   .mines_ctr(mines_planted),
    .dimension_size(button_num),
    .array_easy_out(array_easy),
    .array_medium_out(array_medium),
@@ -80,8 +91,8 @@
  mine_check u_mine_check(
    .clk,
    .rst,
-   .button_ind_x_in(button_index_x),
-   .button_ind_y_in(button_index_y),
+   .button_ind_x_in,
+   .button_ind_y_in,
    .flag,
    .bomb,
    .level,

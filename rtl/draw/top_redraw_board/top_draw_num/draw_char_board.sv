@@ -11,6 +11,7 @@
 module draw_char_board (
     input wire clk,
     input wire rst,
+    input wire [11:0] num_color,
     input logic [49:0] char_pixels,
     output logic [3:0] char_y,
     output logic [3:0] char_x,
@@ -103,7 +104,7 @@ end
 
 always_comb begin : char_comb
     if ((char_pixels & (mask_one >> char_mask[5:0])) && cur_ypos != 11'h7_f_f && cur_xpos != 11'h7_f_f ) begin
-        rgb_nxt = 12'h2_0_a;
+        rgb_nxt = num_color;
     end
     else begin                             
        rgb_nxt = rgb_local;   

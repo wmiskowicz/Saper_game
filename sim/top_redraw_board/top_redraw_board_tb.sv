@@ -51,9 +51,15 @@ initial begin
         mine_arr_medium[i] = 10'h3ff;
         mine_arr_medium[i+1] = 10'h0;
     end
+
+    for(k=1;k<8;k++)begin
+        mine_arr_easy[k] = 8'h0;
+    end
+    mine_arr_easy[0] = 8'hff;
+    //mine_arr_easy[7] = 8'hff;
 end
 
-logic [1:0] level = 2'b10;
+logic [1:0] level = 2'b01;
 
 vga_if out_if();
 vga_if in_if();

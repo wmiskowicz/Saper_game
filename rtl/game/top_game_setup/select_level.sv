@@ -115,7 +115,7 @@
             CHOSE_LEVEL: begin
                 
                 if(level == 3)begin
-                    mines_nxt    = 6'd60;
+                    mines_nxt    = 6'd63;
                     button_num_nxt = 5'd16;
                     board_size_nxt = 10'd640;
                     board_xpos_nxt = 11'd400;
@@ -133,7 +133,7 @@
                     timer_val_nxt = 8'd70;
                 end
                 else if(level == 1) begin
-                    mines_nxt    = 6'd13;
+                    mines_nxt    = 6'd19;
                     button_num_nxt = 5'd8;
                     board_size_nxt = 10'd400;
                     board_xpos_nxt = 11'd520;
