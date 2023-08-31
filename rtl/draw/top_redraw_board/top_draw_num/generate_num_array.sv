@@ -32,6 +32,7 @@ module generate_num_array
  logic ul, um, ur;
  logic ml,     mr;
  logic ll, lm, lr;
+ logic [4:0] arr_x_refresh, arr_y_refresh;
 
  //wire [4:0] arr_x_refresh_prev_prev, arr_y_refresh_prev_prev;
  logic [2:0] mine_ctr;
@@ -105,6 +106,11 @@ always_ff @(posedge clk) begin : out_reg_blk
             {ul, um, ur, ml, mr, ll, lm, lr} <= '0;
         end
         mine_ctr <= ul + um + ur + ml + mr + ll + lm + lr;
+        num_arr_easy [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        num_arr_medium [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        num_arr_hard [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        
+        /*
         if(level == 1 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_easy [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
         else if (level == 2 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_medium [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
         else if (level == 3 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_hard [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
@@ -112,7 +118,7 @@ always_ff @(posedge clk) begin : out_reg_blk
             num_arr_easy [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
             num_arr_medium [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
             num_arr_hard [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
-        end
+        end*/
     end
 end
 
@@ -124,8 +130,8 @@ end
         .button_num,
         .arr_x_refresh_prev,
         .arr_y_refresh_prev,        
-        .arr_x_refresh(),
-        .arr_y_refresh()
+        .arr_x_refresh,
+        .arr_y_refresh
     );
  
  endmodule

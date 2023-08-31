@@ -54,7 +54,7 @@
  wire game_over, game_won, time_elapsed;
  
  wire [7:0] seconds_left, timer_val;
- wire [5:0] mines_left;
+ wire [7:0] mines_left;
 
  
 
@@ -204,7 +204,7 @@ top_timer u_top_timer(
  disp_hex_mux u_disp(
     .clk(clk), 
     .reset(rst),
-    .hex3({3'b0, mines_left[4]}), 
+    .hex3(mines_left[7:4]), 
     .hex2(mines_left[3:0]), 
     .hex1(seconds_left[7:4]), 
     .hex0(seconds_left[3:0]),

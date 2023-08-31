@@ -21,7 +21,7 @@
      input wire [15:0] [15:0] mine_arr_hard,
      input wire  explode, mark_flag, defuse,
      input wire [5:0] mines,
-     output logic [5:0] mines_left,
+     output logic [7:0] mines_left,
      output logic explode_latched, game_won,
      game_set_if.in gin,
      vga_if.in in,
@@ -51,7 +51,7 @@
 
 bin2bcd u_mine_bin2bcd(
    .bin({2'b0, mines_hex}),
-   .bcd({2'b0, mines_left})
+   .bcd(mines_left)
 );
 
 win_check u_win_check(

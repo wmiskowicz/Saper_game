@@ -43,8 +43,6 @@ wire [5:0] char_mask;
 assign cur_ypos = in.vcount >= gin.board_ypos && in.vcount <= gin.board_ypos + gin.board_size ? in.vcount - gin.board_ypos : 11'h7_f_f;
 assign cur_xpos = cur_ypos != 11'h7_f_f && in.hcount >= gin.board_xpos && in.hcount <= gin.board_xpos + gin.board_size ? in.hcount - gin.board_xpos :  11'h7_f_f;
 
-//assign char_mask = cur_xpos[5:0] <= 6'd49 ? cur_xpos[5:0] : '0;
-
 assign mask_one = {1'b1, 49'b0};
 assign char_line = cur_xpos != 11'h7_f_f ? char_line_ctr : 'x;
 
@@ -104,8 +102,7 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (mask_one >> char_mask[5:0])) && cur_ypos != 11'h7_f_f && cur_xpos != 11'h7_f_f /*&& (hcount_nxt >= gin.board_xpos) && (cur_xpos < gin.board_size)
-    && (vcount_nxt >= gin.board_ypos) && (cur_ypos < gin.board_size)*/) begin
+    if ((char_pixels & (mask_one >> char_mask[5:0])) && cur_ypos != 11'h7_f_f && cur_xpos != 11'h7_f_f ) begin
         rgb_nxt = 12'h2_0_a;
     end
     else begin                             

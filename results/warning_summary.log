@@ -1,9 +1,9 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-08-31 04:38:11
+Created: 2023-08-31 05:14:21
 
 ----SYNTHESIS----
-WARNING: [Synth 8-2900] ignoring illegal expression in output port connection [rtl/draw/top_redraw_board/top_redraw_board.sv:54]
+WARNING: [Synth 8-689] width (6) of port connection 'bcd' does not match port width (8) of module 'bin2bcd' [rtl/draw/top_redraw_board/top_redraw_board.sv:54]
 WARNING: [Synth 8-151] case item 12'b110101000000 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv:22]
 WARNING: [Synth 8-151] case item 12'b110101000001 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv:22]
 WARNING: [Synth 8-151] case item 12'b110101000010 is unreachable [rtl/draw/top_redraw_board/top_draw_num/num_font_rom.sv:22]
