@@ -16,7 +16,6 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_draw_board/vga_timing.sv \
         ../../rtl/draw/top_draw_board/draw_bg.sv \
         ../../rtl/draw/top_draw_board/draw_board.sv \
-        ../../rtl/draw/top_draw_board/draw_button.sv \
         ../../rtl/draw/edge_ctr/ts_counter.sv \
         ../../rtl/draw/edge_ctr/edge_ctr.sv \
         ../../rtl/draw/edge_ctr/edge_detector.sv \
@@ -44,6 +43,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/game/top_game_setup/top_game_setup.sv \
         ../../rtl/game/top_game_setup/select_level.sv \
         ../../rtl/game/game_set_if.sv \
+        ../../rtl/game/win_check.sv \
         ../../rtl/game/top_game_setup/latch.sv \
         ../../rtl/game/top_game_setup/settings_latch.sv \
         ../../rtl/game/top_mine/top_mine.sv \

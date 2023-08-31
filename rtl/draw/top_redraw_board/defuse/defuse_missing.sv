@@ -11,7 +11,6 @@ module defuse_missing
     (
     input wire clk,
     input wire rst,
-    input wire explode,
     input wire [1:0] level,
     input wire [4:0] arr_x_refresh, arr_y_refresh,
     input wire [7:0] [7:0] mine_arr_easy,
@@ -40,106 +39,90 @@ module defuse_missing
        else begin 
            if(defuse_arr_easy_in[arr_x_refresh][arr_y_refresh] && level == 1) begin
                 if(~mine_arr_easy [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_easy [arr_x_refresh] [arr_y_refresh-1] == '1) defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh-1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_easy [arr_x_refresh+1] [arr_y_refresh-1] == '1) defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh-1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_easy [arr_x_refresh-1] [arr_y_refresh] == '1) defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh] <= '0;
+                //else defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh] <= '0;
 
-                if(~mine_arr_easy [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_easy [arr_x_refresh+1] [arr_y_refresh] == '1) defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
+                //else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_easy [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_easy [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_easy [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_easy [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_easy [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
-                else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_easy [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_easy_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_easy_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
                 defuse_arr_easy_out [arr_x_refresh][arr_y_refresh] <= defuse_arr_easy_in[arr_x_refresh][arr_y_refresh];
            end
 
            else if(defuse_arr_medium_in[arr_x_refresh][arr_y_refresh] && level == 2) begin
                 if(~mine_arr_medium [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh-1] [arr_y_refresh-1];
 
                 if(~mine_arr_medium [arr_x_refresh] [arr_y_refresh-1] == '1) defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh-1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh-1] <= '0;
+                else defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh] [arr_y_refresh-1];
 
                 if(~mine_arr_medium [arr_x_refresh+1] [arr_y_refresh-1] == '1) defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh-1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh-1] <= '0;
+                else defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh+1] [arr_y_refresh-1];
 
                 if(~mine_arr_medium [arr_x_refresh-1] [arr_y_refresh] == '1) defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh] <= '0;
+                else defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh] <= defuse_arr_medium_in [arr_x_refresh+1] [arr_y_refresh];
 
-                if(~mine_arr_medium [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_medium [arr_x_refresh+1] [arr_y_refresh] == '1) defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
+                else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh-1] [arr_y_refresh-1];
 
-                if(~mine_arr_medium [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_medium [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
+                else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh-1] [arr_y_refresh-1];
 
-                if(~mine_arr_medium [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_medium [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
+                else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh-1] [arr_y_refresh-1];
 
-                if(~mine_arr_medium [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
-                //else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_medium [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_medium_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
+                else defuse_arr_medium_out [arr_x_refresh-1] [arr_y_refresh-1] <= defuse_arr_medium_in [arr_x_refresh-1] [arr_y_refresh-1];
 
                 defuse_arr_medium_out [arr_x_refresh][arr_y_refresh] <= defuse_arr_medium_in[arr_x_refresh][arr_y_refresh];
            end
 
            else if(defuse_arr_hard_in[arr_x_refresh][arr_y_refresh] && level == 3) begin
                 if(~mine_arr_hard [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_hard [arr_x_refresh] [arr_y_refresh-1] == '1) defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh-1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_hard [arr_x_refresh+1] [arr_y_refresh-1] == '1) defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh-1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh-1] <= '0;
+                //else defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh-1] <= '0;
 
                 if(~mine_arr_hard [arr_x_refresh-1] [arr_y_refresh] == '1) defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh] <= '0;
+                //else defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh] <= '0;
 
-                if(~mine_arr_hard [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_hard [arr_x_refresh+1] [arr_y_refresh] == '1) defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh] <= '1;
+                //else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_hard [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_hard [arr_x_refresh-1] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_hard [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_hard [arr_x_refresh] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
-                if(~mine_arr_hard [arr_x_refresh-1] [arr_y_refresh-1] == '1) defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
-                else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
+                if(~mine_arr_hard [arr_x_refresh+1] [arr_y_refresh+1] == '1) defuse_arr_hard_out [arr_x_refresh+1] [arr_y_refresh+1] <= '1;
+                //else defuse_arr_hard_out [arr_x_refresh-1] [arr_y_refresh-1] <= '0;
 
                 defuse_arr_hard_out [arr_x_refresh][arr_y_refresh] <= defuse_arr_hard_in[arr_x_refresh][arr_y_refresh];
            
            end
        end
    end
-
-
-
-/*
-
-    array_timing u_arr_tim_2 (
-        .clk,
-        .rst,
-        .level,
-        .counting,
-        .button_num,
-        .arr_x_refresh_prev,
-        .arr_y_refresh_prev,        
-        .arr_x_refresh,
-        .arr_y_refresh
-    );*/
  
  endmodule
     

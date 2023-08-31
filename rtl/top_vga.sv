@@ -51,7 +51,7 @@
  wire enable_game;
  wire explode, explode_latched, mark_flag, defuse;
  wire left, right, left_st, right_st;
- wire game_over, time_elapsed;
+ wire game_over, game_won, time_elapsed;
  
  wire [7:0] seconds_left, timer_val;
  wire [5:0] mines_left;
@@ -81,7 +81,7 @@
  assign {r,g,b} = draw_mouse_if.rgb;
 
  assign enable_game = btnS[2] || btnS[1] || btnS[0];
- assign game_over = time_elapsed || explode_latched;
+ assign game_over = (time_elapsed || explode_latched) && ~game_won;
  
  
 
@@ -100,10 +100,12 @@
    .out(draw_char_if.out)
  );
 
+
  game_over_disp u_game_over_disp(
    .clk,
    .rst,
    .game_over,
+   .game_won,
    .in(draw_char_if.in),
    .out(game_over_if.out)
  );
@@ -131,6 +133,7 @@
   .mine_arr_hard,
   .mines(mines_latch),
   .mines_left,
+  .game_won,
   .explode_latched(explode_latched),
   .gin(game_enable_if.in),
   .in(board_out_if.in),

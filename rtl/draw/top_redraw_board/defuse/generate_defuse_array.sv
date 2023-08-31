@@ -12,7 +12,7 @@ module generate_defuse_array
     input wire clk,
     input wire rst,
     input wire [1:0] level,
-    input wire defuse, explode,
+    input wire defuse,
     input wire [4:0] button_num,
     input wire [4:0] defuse_ind_x,
     input wire [4:0] defuse_ind_y,
@@ -33,8 +33,6 @@ module generate_defuse_array
 
     wire [4:0] ind_x_trans, ind_y_trans;
     wire [4:0] arr_x_refresh, arr_y_refresh;
-    wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
-    wire counting;
 
     assign ind_x_trans = defuse_ind_x - 1;
     assign ind_y_trans = defuse_ind_y - 1;
@@ -67,7 +65,6 @@ module generate_defuse_array
     .clk,
     .rst,
     .level,
-    .explode,
     .arr_x_refresh,
     .arr_y_refresh,
     .mine_arr_easy,
@@ -87,8 +84,8 @@ module generate_defuse_array
         .level,
         .counting('1),
         .button_num,
-        .arr_x_refresh_prev,
-        .arr_y_refresh_prev,        
+        .arr_x_refresh_prev(),
+        .arr_y_refresh_prev(),        
         .arr_x_refresh,
         .arr_y_refresh
     );

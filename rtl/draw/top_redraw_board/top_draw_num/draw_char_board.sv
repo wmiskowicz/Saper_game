@@ -104,8 +104,8 @@ end
 
 
 always_comb begin : char_comb
-    if ((char_pixels & (mask_one >> char_mask[5:0])) && (hcount_nxt >= gin.board_xpos) && (cur_xpos < gin.board_size)
-    && (vcount_nxt >= gin.board_ypos) && (cur_ypos < gin.board_size)) begin
+    if ((char_pixels & (mask_one >> char_mask[5:0])) && cur_ypos != 11'h7_f_f && cur_xpos != 11'h7_f_f /*&& (hcount_nxt >= gin.board_xpos) && (cur_xpos < gin.board_size)
+    && (vcount_nxt >= gin.board_ypos) && (cur_ypos < gin.board_size)*/) begin
         rgb_nxt = 12'h2_0_a;
     end
     else begin                             

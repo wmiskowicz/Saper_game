@@ -22,7 +22,7 @@
      input wire  explode, mark_flag, defuse,
      input wire [5:0] mines,
      output logic [5:0] mines_left,
-     output wire explode_latched,
+     output logic explode_latched, game_won,
      game_set_if.in gin,
      vga_if.in in,
      vga_if.out out
@@ -42,11 +42,31 @@
 
  wire mark_flag_pulse;
  wire [4:0] flag_num;
+ wire [5:0] mines_hex;
  wire defuse_latched, mark_flag_latched;
 
  wire [4:0] mine_ind_x, mine_ind_y;
 
- assign mines_left = mines > flag_num ? mines - flag_num : '0;
+ assign mines_hex = mines > flag_num ? mines - flag_num : '0;
+
+bin2bcd u_mine_bin2bcd(
+   .bin({2'b0, mines_hex}),
+   .bcd({2'b0, mines_left})
+);
+
+win_check u_win_check(
+    .clk,
+    .rst,
+    .level,
+    .mine_arr_easy,
+    .mine_arr_medium,
+    .mine_arr_hard,
+    .flag_arr_easy,
+    .flag_arr_medium,
+    .flag_arr_hard,
+    .game_won
+    );
+
 
  edge_detector u_mark_flag_detector(
     .clk,
@@ -158,10 +178,11 @@ latch #(
  generate_flag_array u_generate_flag_array(
     .clk,
     .rst,
-    .mark_flag('1),//(mark_flag_pulse),
+    .mark_flag(mark_flag_pulse),
     .level,
-    .flag_ind_x(5'd2),//(symbol_ind_x),
-    .flag_ind_y(5'd2),//(symbol_ind_y),
+    .flag_num,
+    .flag_ind_x(symbol_ind_x),
+    .flag_ind_y(symbol_ind_y),
     .flag_arr_easy,
     .flag_arr_medium,
     .flag_arr_hard
@@ -174,7 +195,6 @@ latch #(
     .level,
     .defuse_ind_x(symbol_ind_x),
     .defuse_ind_y(symbol_ind_y),
-    .explode,
     .mine_arr_easy,
     .mine_arr_medium,
     .mine_arr_hard,
@@ -187,7 +207,6 @@ latch #(
  generate_num_array u_generate_num_array(
     .clk,
     .rst,
-    .explode,
     .level,
     .button_num(gin.button_num),
     .mine_arr_easy,
@@ -200,18 +219,8 @@ latch #(
     .num_arr_medium,
     .num_arr_hard
    );
-/*
-   flag_ctr u_flag_ctr (
-      .clk,
-      .rst,
-      .level,
-      .button_num(gin.button_num),
-      .flag_arr_easy,
-      .flag_arr_medium,
-      .flag_arr_hard,
-      .flag_num(flag_num)
-  );*/
 
+/*
   edge_ctr u_edge_ctr(
    .clk,
    .rst,
@@ -219,7 +228,7 @@ latch #(
    .ctr_out(flag_num),
    .max(5'h1_f)
   );
-
+*/
 
 
  endmodule

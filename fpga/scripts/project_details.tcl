@@ -39,7 +39,6 @@ set sv_files {
     ../rtl/draw/top_draw_board/vga_timing.sv
     ../rtl/draw/top_draw_board/draw_bg.sv
     ../rtl/draw/top_draw_board/draw_board.sv
-    ../rtl/draw/top_draw_board/draw_button.sv
     ../rtl/draw/top_redraw_board/top_redraw_board.sv
     ../rtl/draw/top_redraw_board/mine/draw_mine.sv
     ../rtl/draw/top_redraw_board/flag/draw_flag.sv
@@ -71,6 +70,7 @@ set sv_files {
     ../rtl/game/top_game_setup/settings_latch.sv
     ../rtl/game/top_mine/top_mine.sv
     ../rtl/game/game_set_if.sv
+    ../rtl/game/win_check.sv
     ../rtl/game/top_mine/detect_index.sv
     ../rtl/game/top_mine/mine_board.sv
     ../rtl/game/top_mine/mine_check.sv

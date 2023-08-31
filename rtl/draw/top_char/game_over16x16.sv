@@ -13,6 +13,7 @@
 module game_over16x16(
     input wire clk,
     input wire rst,
+    input wire game_over, game_won,
     input wire [7:0] char_xy,
     output logic [6:0] char_code
 );
@@ -30,20 +31,36 @@ always_ff @(posedge clk) begin: char_16x16_blk
 end
 
 always_comb begin
+    if(game_over)begin
     case (char_xy)
-        8'h1_0: char_code_nxt = "G";
-        8'h2_0: char_code_nxt = "A";
-        8'h3_0: char_code_nxt = "M";
-        8'h4_0: char_code_nxt = "E";
+            8'h1_0: char_code_nxt = "G";
+            8'h2_0: char_code_nxt = "A";
+            8'h3_0: char_code_nxt = "M";
+            8'h4_0: char_code_nxt = "E";
 
-        8'h1_1: char_code_nxt = "O";
-        8'h2_1: char_code_nxt = "V";
-        8'h3_1: char_code_nxt = "E";
-        8'h4_1: char_code_nxt = "R";
+            8'h1_1: char_code_nxt = "O";
+            8'h2_1: char_code_nxt = "V";
+            8'h3_1: char_code_nxt = "E";
+            8'h4_1: char_code_nxt = "R";
 
 
-        default: char_code_nxt = 7'h0;
-    endcase
+            default: char_code_nxt = 7'h0;
+        endcase
+    end
+    else if(game_won)begin
+        case (char_xy)
+            8'h1_0: char_code_nxt = "G";
+            8'h2_0: char_code_nxt = "A";
+            8'h3_0: char_code_nxt = "M";
+            8'h4_0: char_code_nxt = "E";
+
+            8'h1_1: char_code_nxt = "W";
+            8'h2_1: char_code_nxt = "O";
+            8'h3_1: char_code_nxt = "N";
+            default: char_code_nxt = 7'h0;
+        endcase
+    end
+    else char_code_nxt = 7'h0;
 
 end
 

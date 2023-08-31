@@ -11,7 +11,6 @@ module generate_num_array
     (
     input wire clk,
     input wire rst,
-    input wire explode,
     input wire [1:0] level,
     input wire [4:0] button_num,
     input wire [7:0] [7:0] mine_arr_easy,
@@ -27,14 +26,14 @@ module generate_num_array
    
 
     //Local variables
- wire [4:0] arr_x_refresh, arr_y_refresh;
+ wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
   
 
  logic ul, um, ur;
  logic ml,     mr;
  logic ll, lm, lr;
 
- //wire [4:0] arr_x_refresh_prev, arr_y_refresh_prev;
+ //wire [4:0] arr_x_refresh_prev_prev, arr_y_refresh_prev_prev;
  logic [2:0] mine_ctr;
 
 
@@ -48,85 +47,85 @@ always_ff @(posedge clk) begin : out_reg_blk
         {ul, um, ur, ml, mr, ll, lm, lr} <= '0;
     end
     else begin 
-        if(defuse_arr_easy[arr_x_refresh][arr_y_refresh] && level == 1) begin
-            if(mine_arr_easy [arr_x_refresh-1] [arr_y_refresh-1] == '1) ul <= '1;
+        if(defuse_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev] && level == 1) begin
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
             else ul <= '0;
-            if(mine_arr_easy [arr_x_refresh]   [arr_y_refresh-1] == '1) um <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
             else um <= '0;
-            if(mine_arr_easy [arr_x_refresh+1] [arr_y_refresh-1] == '1) ur <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_easy [arr_x_refresh-1] [arr_y_refresh]   == '1) ml <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
             else ml <= '0;
-            if(mine_arr_easy [arr_x_refresh+1] [arr_y_refresh]   == '1) mr <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_easy [arr_x_refresh-1] [arr_y_refresh+1] == '1) ll <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
             else ll <= '0;
-            if(mine_arr_easy [arr_x_refresh]   [arr_y_refresh+1] == '1) lm <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_easy [arr_x_refresh+1] [arr_y_refresh+1] == '1) lr <= '1;
+            if(mine_arr_easy [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
             else lr <= '0;
         end
-        else if(defuse_arr_medium[arr_x_refresh][arr_y_refresh] && level == 2) begin
-            if(mine_arr_medium [arr_x_refresh-1] [arr_y_refresh-1] == '1) ul <= '1;
+        else if(defuse_arr_medium[arr_x_refresh_prev][arr_y_refresh_prev] && level == 2) begin
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
             else ul <= '0;
-            if(mine_arr_medium [arr_x_refresh]   [arr_y_refresh-1] == '1) um <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
             else um <= '0;
-            if(mine_arr_medium [arr_x_refresh+1] [arr_y_refresh-1] == '1) ur <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_medium [arr_x_refresh-1] [arr_y_refresh]   == '1) ml <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
             else ml <= '0;
-            if(mine_arr_medium [arr_x_refresh+1] [arr_y_refresh]   == '1) mr <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_medium [arr_x_refresh-1] [arr_y_refresh+1] == '1) ll <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
             else ll <= '0;
-            if(mine_arr_medium [arr_x_refresh]   [arr_y_refresh+1] == '1) lm <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_medium [arr_x_refresh+1] [arr_y_refresh+1] == '1) lr <= '1;
+            if(mine_arr_medium [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
             else lr <= '0;
         end
-        else if(defuse_arr_hard[arr_x_refresh][arr_y_refresh] && level == 3) begin
-            if(mine_arr_hard [arr_x_refresh-1] [arr_y_refresh-1] == '1) ul <= '1;
+        else if(defuse_arr_hard[arr_x_refresh_prev][arr_y_refresh_prev] && level == 3) begin
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev-1] == '1) ul <= '1;
             else ul <= '0;
-            if(mine_arr_hard [arr_x_refresh]   [arr_y_refresh-1] == '1) um <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev-1] == '1) um <= '1;
             else um <= '0;
-            if(mine_arr_hard [arr_x_refresh+1] [arr_y_refresh-1] == '1) ur <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev-1] == '1) ur <= '1;
             else ur <= '0;
-            if(mine_arr_hard [arr_x_refresh-1] [arr_y_refresh]   == '1) ml <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev]   == '1) ml <= '1;
             else ml <= '0;
-            if(mine_arr_hard [arr_x_refresh+1] [arr_y_refresh]   == '1) mr <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev]   == '1) mr <= '1;
             else mr <= '0;
-            if(mine_arr_hard [arr_x_refresh-1] [arr_y_refresh+1] == '1) ll <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev-1] [arr_y_refresh_prev+1] == '1) ll <= '1;
             else ll <= '0;
-            if(mine_arr_hard [arr_x_refresh]   [arr_y_refresh+1] == '1) lm <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev]   [arr_y_refresh_prev+1] == '1) lm <= '1;
             else lm <= '0;
-            if(mine_arr_hard [arr_x_refresh+1] [arr_y_refresh+1] == '1) lr <= '1;
+            if(mine_arr_hard [arr_x_refresh_prev+1] [arr_y_refresh_prev+1] == '1) lr <= '1;
             else lr <= '0;
         end
         else begin
             {ul, um, ur, ml, mr, ll, lm, lr} <= '0;
         end
         mine_ctr <= ul + um + ur + ml + mr + ll + lm + lr;
-        num_arr_easy [arr_x_refresh][arr_y_refresh] <= mine_ctr;
-        num_arr_medium [arr_x_refresh][arr_y_refresh] <= mine_ctr;
-        num_arr_hard [arr_x_refresh][arr_y_refresh] <= mine_ctr;
+        if(level == 1 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_easy [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
+        else if (level == 2 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_medium [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
+        else if (level == 3 && ~mine_arr_easy[arr_x_refresh_prev][arr_y_refresh_prev]) num_arr_hard [arr_x_refresh_prev][arr_y_refresh_prev] <= mine_ctr;
+        else begin
+            num_arr_easy [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
+            num_arr_medium [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
+            num_arr_hard [arr_x_refresh_prev][arr_y_refresh_prev] <= '0;
+        end
     end
 end
 
-
-
-
-
-
-    array_timing u_arr_tim_2 (
+    array_timing u_arr_tim_num (
         .clk,
         .rst,
         .level,
         .counting('1),
         .button_num,
-        .arr_x_refresh_prev(),
-        .arr_y_refresh_prev(),        
-        .arr_x_refresh,
-        .arr_y_refresh
+        .arr_x_refresh_prev,
+        .arr_y_refresh_prev,        
+        .arr_x_refresh(),
+        .arr_y_refresh()
     );
  
  endmodule

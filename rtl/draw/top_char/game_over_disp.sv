@@ -12,7 +12,7 @@
 module game_over_disp(
     input wire clk, 
     input wire rst,
-    input wire game_over,
+    input wire game_over, game_won,
     vga_if.in in,
     vga_if.out out
 );
@@ -25,11 +25,16 @@ module game_over_disp(
  wire [6:0] char_code;
  wire [3:0] char_line;
 
- assign addr = game_over ? {char_code, char_line} : '0;
+ assign addr = {char_code, char_line};
+
+ 
+
 
  game_over16x16 u_game_over16x16(
     .clk,
     .rst,
+    .game_over,
+    .game_won,
     .char_xy,
     .char_code
 ); 

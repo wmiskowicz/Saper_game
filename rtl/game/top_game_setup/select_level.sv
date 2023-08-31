@@ -124,7 +124,7 @@
                     timer_val_nxt = 8'd90;
                 end
                 else if(level == 2)begin
-                    mines_nxt    = 6'd20;
+                    mines_nxt    = 6'd30;
                     button_num_nxt = 5'd10;
                     board_size_nxt = 10'd500;
                     board_xpos_nxt = 11'd470;
@@ -133,7 +133,7 @@
                     timer_val_nxt = 8'd70;
                 end
                 else if(level == 1) begin
-                    mines_nxt    = 6'd8;
+                    mines_nxt    = 6'd13;
                     button_num_nxt = 5'd8;
                     board_size_nxt = 10'd400;
                     board_xpos_nxt = 11'd520;

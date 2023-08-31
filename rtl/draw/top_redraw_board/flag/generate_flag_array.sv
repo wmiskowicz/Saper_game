@@ -15,6 +15,7 @@ module generate_flag_array
     input wire mark_flag,
     input wire [4:0] flag_ind_x,
     input wire [4:0] flag_ind_y,
+    output reg [4:0] flag_num,
     output logic [7:0] [7:0] flag_arr_easy,
     output logic [9:0] [9:0] flag_arr_medium,
     output logic [15:0] [15:0] flag_arr_hard
@@ -34,22 +35,29 @@ module generate_flag_array
             flag_arr_easy <= '0;
             flag_arr_medium <= '0;
             flag_arr_hard <= '0;
+            flag_num <= '0;
         end
         else if(mark_flag)begin
             if(level == 3)begin
                 flag_arr_hard [ind_x_trans] [ind_y_trans] <= ~flag_arr_hard [ind_x_trans] [ind_y_trans];
                 flag_arr_medium [ind_x_trans] [ind_y_trans] <= '0;
                 flag_arr_easy [ind_x_trans] [ind_y_trans] <= '0;
+                if(~flag_arr_hard [ind_x_trans] [ind_y_trans]) flag_num <= flag_num + 1;
+                else flag_num <= flag_num - 1;
             end
             else if(level == 2)begin
                 flag_arr_hard [ind_x_trans] [ind_y_trans] <= '0;
                 flag_arr_medium [ind_x_trans] [ind_y_trans] <= ~flag_arr_medium [ind_x_trans] [ind_y_trans];
                 flag_arr_easy [ind_x_trans] [ind_y_trans] <= '0;
+                if(~flag_arr_hard [ind_x_trans] [ind_y_trans]) flag_num <= flag_num + 1;
+                else flag_num <= flag_num - 1;
             end 
             else begin
                 flag_arr_hard [ind_x_trans] [ind_y_trans] <= '0;
                 flag_arr_medium [ind_x_trans] [ind_y_trans] <= '0;
                 flag_arr_easy [ind_x_trans] [ind_y_trans] <= ~flag_arr_easy [ind_x_trans] [ind_y_trans];
+                if(~flag_arr_hard [ind_x_trans] [ind_y_trans]) flag_num <= flag_num + 1;
+                else flag_num <= flag_num - 1;
             end
         end
     end
