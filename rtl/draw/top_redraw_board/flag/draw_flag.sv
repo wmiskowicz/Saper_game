@@ -80,7 +80,7 @@ char_pos_conv ind_ypos_conv(
     if((level == 1 && flag_arr_easy[ind_x][ind_y]) || 
     (level == 2 && flag_arr_medium[ind_x][ind_y]) ||
     (level == 3 && flag_arr_hard[ind_x][ind_y])) begin
-        if((but_xpos < mid_x) && (but_ypos < but_xpos + 5) && (but_ypos > (-but_xpos+gin.button_size/3)))begin
+        if((but_xpos < mid_x) && (but_ypos < but_xpos + 7) && (but_ypos > (-but_xpos+30)))begin
             rgb_nxt = RED;
         end
         else if(((but_xpos >= mid_x) && (but_xpos < mid_x+2) && (but_ypos > 8) && (but_ypos < gin.button_size-14)) || 

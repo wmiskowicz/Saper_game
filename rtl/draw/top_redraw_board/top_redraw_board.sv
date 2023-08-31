@@ -158,10 +158,10 @@ latch #(
  generate_flag_array u_generate_flag_array(
     .clk,
     .rst,
-    .mark_flag(mark_flag_pulse),
+    .mark_flag('1),//(mark_flag_pulse),
     .level,
-    .flag_ind_x(symbol_ind_x),
-    .flag_ind_y(symbol_ind_y),
+    .flag_ind_x(5'd2),//(symbol_ind_x),
+    .flag_ind_y(5'd2),//(symbol_ind_y),
     .flag_arr_easy,
     .flag_arr_medium,
     .flag_arr_hard
