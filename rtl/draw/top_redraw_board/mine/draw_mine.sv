@@ -28,20 +28,41 @@ logic [11:0] rgb_nxt;
 logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 logic [4:0] ind_x_trans, ind_y_trans;
+wire [13:0] transpose_x, transpose_y;
 
 
 //************LOCAL PARAMETERS*****************
 assign ind_x_trans = mine_ind_x - 1;
 assign ind_y_trans = mine_ind_y - 1;
 
-assign rect_xpos = board_xpos + ind_x_trans * (button_size+1);
-assign rect_ypos = board_ypos + ind_y_trans * button_size;
+assign rect_xpos = board_xpos + transpose_x;
+assign rect_ypos = board_ypos + transpose_y;
 
 
 assign cur_xpos = in.hcount >= rect_xpos ? in.hcount - rect_xpos : 'x;
 assign cur_ypos = in.vcount >= rect_ypos ? in.vcount - rect_ypos : 'x;
 
+multiplier #(
+    .WIDTH(7)
+)
+ind_x_mul(
+    .clk,
+    .rst,
+    .a(ind_x_trans),
+    .b(button_size+1),
+    .mul(transpose_x)
+);
 
+multiplier #(
+    .WIDTH(7)
+)
+ind_y_mul(
+    .clk,
+    .rst,
+    .a(ind_y_trans),
+    .b(button_size),
+    .mul(transpose_y)
+);
 
 
  always_ff @(posedge clk) begin : mine_ff_blk

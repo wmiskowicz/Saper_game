@@ -57,6 +57,8 @@
  wire [7:0] seconds_left, timer_val;
  wire [7:0] mines_left;
 
+ wire [11:0] mouse_xpos_sync1, mouse_xpos_sync2;
+ wire [11:0] mouse_ypos_sync1, mouse_ypos_sync2;
  
 
 
@@ -164,6 +166,7 @@
     .right,
     .left
  );
+
 
 top_mine u_top_mine(
    .clk,

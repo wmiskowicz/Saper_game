@@ -67,7 +67,7 @@ assign btnS = {btnL, btnC, btnR};
  clk_wiz_0 clk0_wiz(
     // Clock out ports
   .clk100MHz(clk100MHz),
-  .clk88_750MHz(clk88MHz),
+  .clk90MHz(clk88MHz),
   // Status and control signals
   .locked(locked),
   .clk(clk)
@@ -75,7 +75,7 @@ assign btnS = {btnL, btnC, btnR};
 
 ODDR pclk_oddr (
     .Q(pclk_mirror),
-    .C(pclk),
+    .C(clk88MHz),//(pclk),
     .CE(1'b1),
     .D1(1'b1),
     .D2(1'b0),

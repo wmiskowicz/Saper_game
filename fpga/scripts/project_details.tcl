@@ -41,6 +41,7 @@ set sv_files {
     ../rtl/draw/top_draw_board/draw_board.sv
     ../rtl/draw/top_redraw_board/top_redraw_board.sv
     ../rtl/draw/top_redraw_board/mine/draw_mine.sv
+    ../rtl/draw/top_redraw_board/mine/multiplier.sv
     ../rtl/draw/top_redraw_board/flag/draw_flag.sv
     ../rtl/draw/top_redraw_board/flag/generate_flag_array.sv
     ../rtl/draw/top_redraw_board/defuse/draw_defused.sv
@@ -77,9 +78,10 @@ set sv_files {
     ../rtl/game/top_mine/random_gen.sv
     ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
-    ../rtl/timer/top_timer.sv \
-    ../rtl/timer/bin2bcd.sv \
-    ../rtl/timer/time_controller.sv \
+    ../rtl/timer/top_timer.sv 
+    ../rtl/timer/bin2bcd.sv 
+    ../rtl/timer/time_controller.sv 
+    ../rtl/draw/buffer.sv
     rtl/top_vga_basys3.sv
 }
 

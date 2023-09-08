@@ -21,6 +21,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/edge_ctr/edge_detector.sv \
         ../../rtl/draw/top_redraw_board/top_redraw_board.sv \
         ../../rtl/draw/top_redraw_board/mine/draw_mine.sv \
+        ../../rtl/draw/top_redraw_board/mine/multiplier.sv \
         ../../rtl/draw/top_redraw_board/flag/draw_flag.sv \
         ../../rtl/draw/top_redraw_board/flag/generate_flag_array.sv \
         ../../rtl/draw/top_redraw_board/defuse/generate_defuse_array.sv \
@@ -39,6 +40,7 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_char/draw_rect_char.sv \
         ../../rtl/draw/top_char/game_over_disp.sv \
         ../../rtl/draw/top_char/top_char.sv \
+        ../../rtl/draw/buffer.sv \
         ../../rtl/game/top_game_setup/top_game_setup.sv \
         ../../rtl/game/top_game_setup/select_level.sv \
         ../../rtl/game/game_set_if.sv \

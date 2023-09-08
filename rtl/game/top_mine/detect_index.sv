@@ -28,8 +28,8 @@ logic [11:0] cur_xpos, cur_ypos;
 logic bomb_nxt, flag_nxt;
 
 //Signal assignments
-assign cur_xpos = mouse_xpos-in.board_xpos;
-assign cur_ypos = mouse_ypos-in.board_ypos;
+assign cur_xpos = mouse_xpos >= in.board_xpos ? mouse_xpos-in.board_xpos : '0;
+assign cur_ypos = mouse_ypos >= in.board_ypos ? mouse_ypos-in.board_ypos : '0;
 
 
 
@@ -51,8 +51,8 @@ end
 always_comb begin : detect_comb_blk
     if ((in.button_num > 0) && (cur_xpos >= 0) && (cur_xpos <= in.board_size) && (cur_ypos >= 0) && (cur_ypos <= in.board_size)) begin
 
-        button_index_x_nxt = (cur_xpos/in.button_size)+1;
-        button_index_y_nxt = (cur_ypos/in.button_size)+1;
+        button_index_x_nxt = (cur_xpos*(1/in.button_size))+1;
+        button_index_y_nxt = (cur_ypos*(1/in.button_size))+1;
         if(left) begin
             flag_nxt = '0;
             bomb_nxt = '1;
