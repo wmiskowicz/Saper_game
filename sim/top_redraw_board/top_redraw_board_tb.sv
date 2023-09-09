@@ -60,6 +60,7 @@ initial begin
 end
 
 logic [1:0] level = 2'b01;
+logic explode;
 
 vga_if out_if();
 vga_if in_if();
@@ -91,7 +92,7 @@ top_redraw_board dut (
      .mine_arr_easy,
      .mine_arr_medium,
      .mine_arr_hard,
-     .explode('0), 
+     .explode, 
      .mark_flag('0), 
      .defuse('1),
      .gin(tb_game_set_if),
@@ -137,9 +138,10 @@ tiff_writer #(
 
 initial begin
     rst = 1'b0;
+    explode = 1'b0;
     # 30 rst = 1'b1;
     # 30 rst = 1'b0;
-    //# 3 btnS = 3'b0;
+    # 50 explode = 1'b1;
     //# 3 btnS = 3'b001;
 
     $display("If simulation ends before the testbench");

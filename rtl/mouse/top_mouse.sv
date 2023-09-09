@@ -23,10 +23,10 @@
      vga_if.out out
  );
 
- wire detected;
-
- wire [11:0] mouse_xpos_sync1, mouse_xpos_in;
- wire [11:0] mouse_ypos_sync1, mouse_ypos_in;
+ //wire detected;
+//
+ //wire [11:0] mouse_xpos_sync1, mouse_xpos_in;
+ //wire [11:0] mouse_ypos_sync1, mouse_ypos_in;
 
  draw_mouse u_draw_mouse(
     .in(in),
@@ -36,14 +36,14 @@
     .clk,
     .rst
  );
-
+/*
  edge_detector u_edge_detector(
     .clk,
     .rst,
     .signal(~rst),
     .detected(detected)
   );
-/*
+
   buffer xpos_buffer1(
    .clk,
    .rst,

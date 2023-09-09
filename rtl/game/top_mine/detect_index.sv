@@ -24,14 +24,12 @@ module detect_index (
 
 //Local variables
 logic [4:0] button_index_x_nxt, button_index_y_nxt;
-logic [11:0] cur_xpos, cur_ypos;
+logic [10:0] cur_xpos, cur_ypos;
 logic bomb_nxt, flag_nxt;
 
 //Signal assignments
-assign cur_xpos = mouse_xpos >= in.board_xpos ? mouse_xpos-in.board_xpos : '0;
-assign cur_ypos = mouse_ypos >= in.board_ypos ? mouse_ypos-in.board_ypos : '0;
-
-
+assign cur_ypos = mouse_ypos >= in.board_ypos && mouse_ypos <= in.board_ypos + in.board_size ? mouse_ypos - in.board_ypos : 11'h7_f_f;
+assign cur_xpos = cur_ypos != 11'h7_f_f && mouse_xpos >= in.board_xpos && mouse_xpos <= in.board_xpos + in.board_size ? mouse_xpos - in.board_xpos :  11'h7_f_f;
 
 
 always_ff @(posedge clk) begin : detect_ff_blk
@@ -49,10 +47,11 @@ always_ff @(posedge clk) begin : detect_ff_blk
 end
 
 always_comb begin : detect_comb_blk
-    if ((in.button_num > 0) && (cur_xpos >= 0) && (cur_xpos <= in.board_size) && (cur_ypos >= 0) && (cur_ypos <= in.board_size)) begin
+    if(cur_xpos != 11'h7ff && cur_ypos != 11'h7ff) begin
+        
+        button_index_x_nxt = (cur_xpos / in.button_size) + 1;
+        button_index_y_nxt = (cur_ypos / in.button_size) + 1;
 
-        button_index_x_nxt = (cur_xpos*(1/in.button_size))+1;
-        button_index_y_nxt = (cur_ypos*(1/in.button_size))+1;
         if(left) begin
             flag_nxt = '0;
             bomb_nxt = '1;
@@ -64,14 +63,12 @@ always_comb begin : detect_comb_blk
         else begin
             flag_nxt = '0;
             bomb_nxt = '0;
-        end
+        end  
     end
-    else begin                               
-        button_index_x_nxt = '0; 
-        button_index_y_nxt = '0;
+    else begin
         flag_nxt = '0;
         bomb_nxt = '0;
-    end             
+    end         
 end
 
 

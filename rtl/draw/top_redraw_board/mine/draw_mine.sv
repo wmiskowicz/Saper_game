@@ -29,11 +29,17 @@ logic [10:0] cur_xpos, cur_ypos;
 logic [10:0] rect_xpos, rect_ypos;
 logic [4:0] ind_x_trans, ind_y_trans;
 wire [13:0] transpose_x, transpose_y;
+wire [13:0] mul_x, mul_y;
+wire done_x, done_y;
+wire execute;
 
 
 //************LOCAL PARAMETERS*****************
 assign ind_x_trans = mine_ind_x - 1;
 assign ind_y_trans = mine_ind_y - 1;
+
+assign transpose_x = done_x ? mul_x : 'x;
+assign transpose_y = done_y ? mul_y : 'x;
 
 assign rect_xpos = board_xpos + transpose_x;
 assign rect_ypos = board_ypos + transpose_y;
@@ -42,26 +48,32 @@ assign rect_ypos = board_ypos + transpose_y;
 assign cur_xpos = in.hcount >= rect_xpos ? in.hcount - rect_xpos : 'x;
 assign cur_ypos = in.vcount >= rect_ypos ? in.vcount - rect_ypos : 'x;
 
-multiplier #(
-    .WIDTH(7)
-)
-ind_x_mul(
+
+edge_detector execute_mul_detect(
     .clk,
     .rst,
-    .a(ind_x_trans),
-    .b(button_size+1),
-    .mul(transpose_x)
+    .signal(explode),
+    .detected(execute)
 );
 
-multiplier #(
-    .WIDTH(7)
-)
-ind_y_mul(
+multiplier ind_x_mul(
     .clk,
     .rst,
-    .a(ind_y_trans),
-    .b(button_size),
-    .mul(transpose_y)
+    .execute,
+    .a_in(button_size+1),
+    .b_in({2'b0, ind_x_trans}),
+    .result(mul_x),
+    .done(done_x)
+);
+
+multiplier ind_y_mul(
+    .clk,
+    .rst,
+    .execute,
+    .a_in({2'b0, ind_y_trans}),
+    .b_in(button_size),
+    .result(mul_y),
+    .done(done_y)
 );
 
 
