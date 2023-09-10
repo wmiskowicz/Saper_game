@@ -40,7 +40,6 @@ sv work ../../rtl/draw/ifs_pkgs/vga_pkg.sv \
         ../../rtl/draw/top_char/draw_rect_char.sv \
         ../../rtl/draw/top_char/game_over_disp.sv \
         ../../rtl/draw/top_char/top_char.sv \
-        ../../rtl/draw/buffer.sv \
         ../../rtl/game/top_game_setup/top_game_setup.sv \
         ../../rtl/game/top_game_setup/select_level.sv \
         ../../rtl/game/game_set_if.sv \

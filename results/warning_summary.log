@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2023-09-10 19:50:24
+Created: 2023-09-10 20:17:55
 
 ----SYNTHESIS----
 WARNING: [Synth 8-5856] 3D RAM num_arr_easy_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers

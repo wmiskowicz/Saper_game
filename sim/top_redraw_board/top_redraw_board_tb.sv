@@ -59,7 +59,7 @@ initial begin
     //mine_arr_easy[7] = 8'hff;
 end
 
-logic [1:0] level = 2'b01;
+logic [1:0] level;
 logic explode;
 
 vga_if out_if();
@@ -138,11 +138,12 @@ tiff_writer #(
 
 initial begin
     rst = 1'b0;
+    level = 2'b0;
     explode = 1'b0;
     # 30 rst = 1'b1;
     # 30 rst = 1'b0;
-    # 50 explode = 1'b1;
-    //# 3 btnS = 3'b001;
+    //# 50 explode = 1'b1;
+    # 70 level = 2'b10;
 
     $display("If simulation ends before the testbench");
     $display("completes, use the menu option to run all.");

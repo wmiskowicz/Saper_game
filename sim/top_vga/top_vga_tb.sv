@@ -39,7 +39,7 @@ localparam CLK_PERIOD = 11;     // 40 MHz
 logic clk, rst;
 wire vs, hs;
 wire [3:0] r, g, b;
-//logic [2:0] btnS;
+logic [2:0] btnS;
 
 
 /**
@@ -57,7 +57,7 @@ end
  */
 
 top_vga dut (
-    .btnS(3'b100),
+    .btnS,
     .clk(clk),
     .rst(rst),
     .vs(vs),
@@ -89,10 +89,11 @@ tiff_writer #(
 
 initial begin
     rst = 1'b0;
+    # 3 btnS = 3'b0;
     # 30 rst = 1'b1;
     # 30 rst = 1'b0;
-    //# 3 btnS = 3'b0;
-    //# 3 btnS = 3'b001;
+    
+    #30000 btnS = 3'b001;
 
     $display("If simulation ends before the testbench");
     $display("completes, use the menu option to run all.");

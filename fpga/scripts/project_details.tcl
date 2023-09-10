@@ -13,7 +13,7 @@
 #                   Project details                   #
 #-----------------------------------------------------#
 # Project name                                  -- EDIT
-set project_name vga_project
+set project_name Saper_game
 
 # Top module name                               -- EDIT
 set top_module top_vga_basys3
@@ -82,7 +82,6 @@ set sv_files {
     ../rtl/timer/top_timer.sv 
     ../rtl/timer/bin2bcd.sv 
     ../rtl/timer/time_controller.sv 
-    ../rtl/draw/buffer.sv
     rtl/top_vga_basys3.sv
 }
 
