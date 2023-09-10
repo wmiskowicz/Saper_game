@@ -4,6 +4,7 @@
  Module name:   win_check
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-27
+ Coding style: simple with FPGA sync reset
  Description:  Checks if user won the game
  */
 //////////////////////////////////////////////////////////////////////////////

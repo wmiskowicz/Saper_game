@@ -4,6 +4,7 @@
  Module name:   dim_counter
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
+ Coding style: safe with FPGA sync reset
  Description:  Counts dim_size x dim_size array. When done returns done_counting = '1
  */
 //////////////////////////////////////////////////////////////////////////////

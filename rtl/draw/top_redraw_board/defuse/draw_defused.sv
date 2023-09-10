@@ -4,6 +4,7 @@
  Module name:   draw_defused
  Author:        Wojciech Miskowicz
  Last modified: 2023-030-08
+ Coding style: safe with FPGA sync reset
  Description:  Draws a defused field
  */
 //////////////////////////////////////////////////////////////////////////////

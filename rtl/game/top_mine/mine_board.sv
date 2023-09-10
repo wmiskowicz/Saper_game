@@ -4,6 +4,7 @@
  Module name:   mine_board
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-23
+ Coding style: safe with FPGA sync reset
  Description:  Fills 2D array with '0 and '1, where '1 means there is a mine
  */
 //////////////////////////////////////////////////////////////////////////////

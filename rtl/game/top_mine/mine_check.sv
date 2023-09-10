@@ -4,6 +4,7 @@
  Module name:   mine_check
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-23
+ Coding style: safe with FPGA sync reset
  Description:  Checks if selected board cell is bomb or not and sends results
  */
 //////////////////////////////////////////////////////////////////////////////

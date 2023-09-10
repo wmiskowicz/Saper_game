@@ -4,6 +4,7 @@
  Module name:   defuse_missing
  Author:        Wojciech Miskowicz
  Last modified: 2023-07-29
+ Coding style: simple with FPGA sync reset
  Description:  Defuses field if it's neighbour has been defused
  */
 //////////////////////////////////////////////////////////////////////////////

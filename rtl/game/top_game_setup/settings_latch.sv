@@ -4,6 +4,7 @@
  Module name:   settings_latch
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-11
+ Coding style: simple with FPGA sync reset
  Description:  Passes settings when enabled is high
  */
 //////////////////////////////////////////////////////////////////////////////

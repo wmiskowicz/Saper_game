@@ -4,6 +4,7 @@
  * Author: Piotr Kaczmarczyk
  * Modified: Wojciech Mskowicz
  * Description:
+  Coding style: safe with FPGA sync reset
  * Vga timing controller.
  */
 

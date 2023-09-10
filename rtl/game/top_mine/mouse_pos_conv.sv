@@ -4,6 +4,7 @@
  Module name:   mouse_ind_conv
  Author:        Wojciech Miskowicz
  Last modified: 2023-08-20
+ Coding style: safe with FPGA sync reset
  Description:  Returns char index based on cur_pos and board parameters
  */
 //////////////////////////////////////////////////////////////////////////////

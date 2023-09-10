@@ -4,6 +4,7 @@
  Module name:   defuse_field
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-27
+ Coding style: simple with FPGA sync reset
  Description:  Defuses field of given xy index
  */
 //////////////////////////////////////////////////////////////////////////////

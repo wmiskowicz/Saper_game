@@ -5,6 +5,7 @@
  Module name:   random_gen
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-23
+ Coding style: safe with FPGA sync reset
  Description:  Generates a random value
  */
 //////////////////////////////////////////////////////////////////////////////

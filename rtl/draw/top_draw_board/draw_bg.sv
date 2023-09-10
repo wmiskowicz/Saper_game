@@ -3,6 +3,7 @@
  * MTM UEC2 Projekt
  * Author: Piotr Kaczmarczyk
  * Modified: Wojciech Miskowicz
+ Coding style: safe with FPGA sync reset
  * Description:
  * Draws background.
  */

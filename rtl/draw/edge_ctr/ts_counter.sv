@@ -4,6 +4,7 @@
  Module name:   Counter
  Author:        Wojciech Miskowicz
  Last modified: 2023-06-25
+ Coding style: safe with FPGA sync reset
  Description:  Counts to wanted value when 'counting' = '1
  When ctr == max, ctr = 0
  */

@@ -4,6 +4,7 @@
  Module name:   edge detector
  Author:        Wojciech Miskowicz
  Last modified: 2023-07-10
+ Coding style: simple with FPGA sync reset
  Description:  detects rising edge and returns '1 on one clock cycle
  */
 //////////////////////////////////////////////////////////////////////////////
