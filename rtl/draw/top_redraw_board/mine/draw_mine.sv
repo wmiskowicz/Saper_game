@@ -33,6 +33,8 @@ wire [13:0] mul_x, mul_y;
 wire done_x, done_y;
 wire execute;
 
+logic [6:0] ex_button_size = button_size + 1;
+
 
 //************LOCAL PARAMETERS*****************
 assign ind_x_trans = mine_ind_x - 1;
@@ -60,7 +62,7 @@ multiplier ind_x_mul(
     .clk,
     .rst,
     .execute,
-    .a_in(button_size+1),
+    .a_in(ex_button_size),
     .b_in({2'b0, ind_x_trans}),
     .result(mul_x),
     .done(done_x)

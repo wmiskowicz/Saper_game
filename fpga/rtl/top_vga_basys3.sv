@@ -89,7 +89,6 @@ ODDR pclk_oddr (
  */
 
 top_vga u_top_vga (
-    .clk100MHz(clk100MHz),
     .clk(clk88MHz),
     .ps2_clk(PS2Clk),
     .ps2_data(PS2Data),

@@ -16,7 +16,6 @@
 
  module top_vga (
      input  logic clk,
-     input  wire clk100MHz,
      input  wire [2:0] btnS,
      input  wire tim_stop, 
      input  logic rst,
@@ -56,9 +55,6 @@
  
  wire [7:0] seconds_left, timer_val;
  wire [7:0] mines_left;
-
- wire [11:0] mouse_xpos_sync1, mouse_xpos_sync2;
- wire [11:0] mouse_ypos_sync1, mouse_ypos_sync2;
  
 
 
@@ -155,7 +151,6 @@
 
  top_mouse u_top_mouse(
     .clk,
-    .clk100MHz,
     .rst,
     .in(game_over_if.in),
     .out(draw_mouse_if.out),

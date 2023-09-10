@@ -76,6 +76,7 @@ set sv_files {
     ../rtl/game/top_mine/mine_check.sv
     ../rtl/game/top_mine/dim_counter.sv
     ../rtl/game/top_mine/random_gen.sv
+    ../rtl/game/top_mine/mouse_pos_conv.sv
     ../rtl/mouse/top_mouse.sv
     ../rtl/mouse/draw_mouse.sv
     ../rtl/timer/top_timer.sv 
